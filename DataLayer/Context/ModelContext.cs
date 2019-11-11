@@ -1,5 +1,6 @@
 using DataLayer.Models;
 using DataLayer.Models.Account;
+using DataLayer.Models.Anbar;
 
 namespace DataLayer.Context
 {
@@ -25,5 +26,7 @@ namespace DataLayer.Context
         public virtual DbSet<HesabGroup> HesabGroups { get; set; }
         public virtual DbSet<KolHesab> KolHesabs { get; set; }
         public virtual DbSet<MoeinHesab> MoeinHesabs { get; set; }
+        public virtual DbSet<Anbar> Anbars { get; set; }
+        public virtual DbSet<AnbarGroup> AnbarGroups { get; set; }
     }
 }

@@ -44,9 +44,12 @@
   <ItemGroup>
     <Compile Include="AccountBussines\AccountBussines.cs" />
     <Compile Include="AccountBussines\AccountGroupBussines.cs" />
+    <Compile Include="AccountBussines\HazineBussines.cs" />
     <Compile Include="AccountBussines\HesabGroupBussines.cs" />
     <Compile Include="AccountBussines\KolBussines.cs" />
     <Compile Include="AccountBussines\MoeinBussines.cs" />
+    <Compile Include="Anbar\AnbarBussines.cs" />
+    <Compile Include="Anbar\AnbarGroupBussines.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

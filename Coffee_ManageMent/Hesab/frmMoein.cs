@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using BussinesLayer.AccountBussines;
 using Coffee_ManageMent.Utility;
 using DataLayer.BussinesLayer;
 using DataLayer.Enums;
 using DataLayer.Models.Account;
-using PersitenceLayer.Persistance;
 
 namespace Coffee_ManageMent.Hesab
 {
@@ -105,9 +105,28 @@ namespace Coffee_ManageMent.Hesab
 
         private void FrmMoein_Load(object sender, EventArgs e)
         {
-            Set_Data();
-            ToolTip tt = new ToolTip();
-            tt.SetToolTip(btnSearchKol, "انتخاب حساب کل");
+            try
+            {
+                Set_Data();
+                var moeins = MoeinBussines.GetAll().ToList();
+                AutoCompleteStringCollection _source = new AutoCompleteStringCollection();
+
+                foreach (var item in moeins)
+                {
+                    _source.Add(item.Name);
+                }
+
+                txtName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtName.AutoCompleteCustomSource = _source;
+                ToolTip tt = new ToolTip();
+                tt.SetToolTip(btnSearchKol, "انتخاب حساب کل");
+            }
+            catch (Exception exception)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                f.ShowDialog();
+            }
         }
 
         private void BtnFinish_Click(object sender, EventArgs e)

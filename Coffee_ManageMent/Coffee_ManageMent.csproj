@@ -98,6 +98,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CoffeeShopDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Depot\AnbarGroup\frmAnbarGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depot\AnbarGroup\frmAnbarGroup.Designer.cs">
+      <DependentUpon>frmAnbarGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depot\AnbarGroup\frmShow_AnbarGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depot\AnbarGroup\frmShow_AnbarGroup.Designer.cs">
+      <DependentUpon>frmShow_AnbarGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depot\Anbars\frmShow_Stores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depot\Anbars\frmShow_Stores.Designer.cs">
+      <DependentUpon>frmShow_Stores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depot\Anbars\frmStores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depot\Anbars\frmStores.Designer.cs">
+      <DependentUpon>frmStores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +194,12 @@
     <Compile Include="Utility\DateConvertor.cs" />
     <Compile Include="Utility\txtSetter.cs" />
     <Compile Include="WebCam.cs" />
+    <EmbeddedResource Include="Depot\AnbarGroup\frmAnbarGroup.resx">
+      <DependentUpon>frmAnbarGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depot\AnbarGroup\frmShow_AnbarGroup.resx">
+      <DependentUpon>frmShow_AnbarGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +259,7 @@
     <None Include="Properties\DataSources\DataLayer.Models.Account.HesabGroup.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.KolHesab.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.MoeinHesab.datasource" />
+    <None Include="Properties\DataSources\DataLayer.Models.Anbar.AnbarGroup.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Hazine.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

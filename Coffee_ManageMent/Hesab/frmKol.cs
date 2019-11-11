@@ -195,7 +195,26 @@ namespace Coffee_ManageMent.Hesab
 
         private void FrmKol_Load(object sender, EventArgs e)
         {
-            Set_Data();
+            try
+            {
+                Set_Data();
+                var kols = KolBussines.GetAll().ToList();
+                AutoCompleteStringCollection _source = new AutoCompleteStringCollection();
+
+                foreach (var item in kols)
+                {
+                    _source.Add(item.Name);
+                }
+
+                txtName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtName.AutoCompleteCustomSource = _source;
+            }
+            catch (Exception exception)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                f.ShowDialog();
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

@@ -33,10 +33,9 @@
             this.mnuBaseInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDiff_Account = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMoein = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHazine = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHazine = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStore = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCurrent_Store = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPerssonel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuContract = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSeller = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,6 +97,7 @@
             this.mnuCus_Club = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLottery = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +123,6 @@
             this.mnuAccount,
             this.mnuHazine,
             this.mnuStore,
-            this.mnuCurrent_Store,
             this.mnuPerssonel,
             this.mnuContract,
             this.mnuSeller,
@@ -164,13 +163,6 @@
             this.mnuMoein.Text = "حساب های معین";
             this.mnuMoein.Click += new System.EventHandler(this.MnuMoein_Click);
             // 
-            // mnuHazine
-            // 
-            this.mnuHazine.Name = "mnuHazine";
-            this.mnuHazine.Size = new System.Drawing.Size(233, 24);
-            this.mnuHazine.Text = "هزینه ها";
-            this.mnuHazine.Click += new System.EventHandler(this.mnuHazine_Click);
-            // 
             // mnuAccount
             // 
             this.mnuAccount.Name = "mnuAccount";
@@ -178,19 +170,19 @@
             this.mnuAccount.Text = "حساب های تفصیلی";
             this.mnuAccount.Click += new System.EventHandler(this.mnuAccount_Click);
             // 
+            // mnuHazine
+            // 
+            this.mnuHazine.Name = "mnuHazine";
+            this.mnuHazine.Size = new System.Drawing.Size(233, 24);
+            this.mnuHazine.Text = "هزینه ها";
+            this.mnuHazine.Click += new System.EventHandler(this.mnuHazine_Click);
+            // 
             // mnuStore
             // 
             this.mnuStore.Name = "mnuStore";
             this.mnuStore.Size = new System.Drawing.Size(233, 24);
             this.mnuStore.Text = "مدیریت انبارها";
             this.mnuStore.Click += new System.EventHandler(this.mnuStore_Click);
-            // 
-            // mnuCurrent_Store
-            // 
-            this.mnuCurrent_Store.Name = "mnuCurrent_Store";
-            this.mnuCurrent_Store.Size = new System.Drawing.Size(233, 24);
-            this.mnuCurrent_Store.Text = "انتخاب انبار پیش فرض";
-            this.mnuCurrent_Store.Click += new System.EventHandler(this.mnuCurrent_Store_Click);
             // 
             // mnuPerssonel
             // 
@@ -655,12 +647,23 @@
             this.mnuSMS.Text = "پنل ارسال پیامک";
             this.mnuSMS.Click += new System.EventHandler(this.mnuSMS_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(725, 154);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(959, 670);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -673,6 +676,7 @@
             this.Name = "frmMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -687,7 +691,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuBaseInfo;
         private System.Windows.Forms.ToolStripMenuItem mnuAccount;
         private System.Windows.Forms.ToolStripMenuItem mnuStore;
-        private System.Windows.Forms.ToolStripMenuItem mnuCurrent_Store;
         private System.Windows.Forms.ToolStripMenuItem mnuPerssonel;
         private System.Windows.Forms.ToolStripMenuItem mnuContract;
         private System.Windows.Forms.ToolStripMenuItem mnuSeller;
@@ -752,6 +755,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTransfer_Safe;
         private System.Windows.Forms.ToolStripMenuItem mnuHazine;
         private System.Windows.Forms.ToolStripMenuItem mnuMoein;
+        private System.Windows.Forms.Button button1;
     }
 }
 

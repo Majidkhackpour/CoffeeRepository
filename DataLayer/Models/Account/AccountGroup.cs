@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer.Enums;
 using DataLayer.Interface;
 
 namespace DataLayer.Models.Account
@@ -17,6 +18,8 @@ namespace DataLayer.Models.Account
         public string Name { get; set; }
         [MaxLength(10)]
         public string Aouth_Code { get; set; }
+
+        public int Type { get; set; }
 
     }
 }

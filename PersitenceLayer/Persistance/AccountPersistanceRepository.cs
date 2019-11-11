@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using DataLayer.Context;
 using DataLayer.Core;
+using DataLayer.Enums;
 using DataLayer.Models.Account;
 
 namespace PersitenceLayer.Persistance
 {
-   public class AccountPersistanceRepository:GenericRepository<Account>,IAccountRepository
+    public class AccountPersistanceRepository : GenericRepository<Account>, IAccountRepository
     {
         private ModelContext _contextdb;
         public AccountPersistanceRepository(ModelContext db) : base(db)
@@ -128,5 +130,6 @@ namespace PersitenceLayer.Persistance
                 return null;
             }
         }
+
     }
 }

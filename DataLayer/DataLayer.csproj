@@ -56,6 +56,8 @@
     <Compile Include="BussinesLayer\PersianNameAttribute.cs" />
     <Compile Include="BussinesLayer\ReturnedSaveFuncInfo.cs" />
     <Compile Include="Context\ModelContext.cs" />
+    <Compile Include="Core\Anbar\IAnbarGroupRepository.cs" />
+    <Compile Include="Core\Anbar\IAnbarRepository.cs" />
     <Compile Include="Core\IAccountGroupRepository.cs" />
     <Compile Include="Core\IAccountRepository.cs" />
     <Compile Include="Core\IHazineRepository.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="Core\IKolRepository.cs" />
     <Compile Include="Core\IMoeinRepository.cs" />
     <Compile Include="Enums\EnumAmount_Mahiat.cs" />
+    <Compile Include="Enums\EnumHesabType .cs" />
     <Compile Include="Enums\EnumHazineType.cs" />
     <Compile Include="Enums\EnumMahiat.cs" />
     <Compile Include="Enums\EnumMessage.cs" />
@@ -112,6 +115,30 @@
     <Compile Include="Migration\Migration\201911061833160_update11.designer.cs">
       <DependentUpon>201911061833160_update11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201911080926084_update12.cs" />
+    <Compile Include="Migration\Migration\201911080926084_update12.designer.cs">
+      <DependentUpon>201911080926084_update12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911081021415_update13.cs" />
+    <Compile Include="Migration\Migration\201911081021415_update13.designer.cs">
+      <DependentUpon>201911081021415_update13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911081104454_update14.cs" />
+    <Compile Include="Migration\Migration\201911081104454_update14.designer.cs">
+      <DependentUpon>201911081104454_update14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911081115271_update15.cs" />
+    <Compile Include="Migration\Migration\201911081115271_update15.designer.cs">
+      <DependentUpon>201911081115271_update15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911091657090_update16.cs" />
+    <Compile Include="Migration\Migration\201911091657090_update16.designer.cs">
+      <DependentUpon>201911091657090_update16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911111441447_update161.cs" />
+    <Compile Include="Migration\Migration\201911111441447_update161.designer.cs">
+      <DependentUpon>201911111441447_update161.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -120,6 +147,8 @@
     <Compile Include="Models\Account\AccountGroup.cs" />
     <Compile Include="Models\Account\Hazine.cs" />
     <Compile Include="Models\Account\MoeinHesab.cs" />
+    <Compile Include="Models\Anbar\Anbar.cs" />
+    <Compile Include="Models\Anbar\AnbarGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +197,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration\Migration\201911061833160_update11.resx">
       <DependentUpon>201911061833160_update11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911080926084_update12.resx">
+      <DependentUpon>201911080926084_update12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911081021415_update13.resx">
+      <DependentUpon>201911081021415_update13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911081104454_update14.resx">
+      <DependentUpon>201911081104454_update14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911081115271_update15.resx">
+      <DependentUpon>201911081115271_update15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911091657090_update16.resx">
+      <DependentUpon>201911091657090_update16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911111441447_update161.resx">
+      <DependentUpon>201911111441447_update161.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

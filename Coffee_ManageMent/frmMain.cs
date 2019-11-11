@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Coffee_ManageMent.Depot.AnbarGroup;
+using Coffee_ManageMent.Depot.Anbars;
 using Coffee_ManageMent.Hazine;
 using Coffee_ManageMent.Hesab;
 using Coffee_ManageMent.Utility;
@@ -39,12 +33,16 @@ namespace Coffee_ManageMent
 
         private void mnuStore_Click(object sender, EventArgs e)
         {
-            //  new frmShow_Stores().ShowDialog();
-        }
-
-        private void mnuCurrent_Store_Click(object sender, EventArgs e)
-        {
-            //  new frmCurrent_Store().ShowDialog();
+            try
+            {
+                frmShow_Stores frm = new frmShow_Stores();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
         }
 
         private void mnuPerssonel_Click(object sender, EventArgs e)
@@ -395,6 +393,11 @@ namespace Coffee_ManageMent
                 frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
                 frm.ShowDialog();
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            new frmShow_AnbarGroup().ShowDialog();
         }
     }
 }

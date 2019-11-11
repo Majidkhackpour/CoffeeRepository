@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataLayer.Enums;
 using DataLayer.Models.Account;
 using PersitenceLayer.Persistance;
 

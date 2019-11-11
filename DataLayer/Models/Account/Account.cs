@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataLayer.Enums;
 using DataLayer.Interface;
 
@@ -24,6 +20,7 @@ namespace DataLayer.Models.Account
         public string DateSabt { get; set; }
         public decimal Amounth { get; set; }
         public string Description { get; set; }
+        public HesabType HesabType { get; set; }
         public AccountGroup AccountGroup { get; set; }
     }
 }

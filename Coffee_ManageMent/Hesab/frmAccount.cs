@@ -60,7 +60,26 @@ namespace Coffee_ManageMent
         }
         private void frmAccount_Load(object sender, EventArgs e)
         {
-            Set_Data();
+            try
+            {
+                Set_Data();
+                var accounts = AccountBussines.GetAll().ToList();
+                AutoCompleteStringCollection _source = new AutoCompleteStringCollection();
+
+                foreach (var item in accounts)
+                {
+                    _source.Add(item.Name);
+                }
+
+                txtName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtName.AutoCompleteCustomSource = _source;
+            }
+            catch (Exception exception)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                f.ShowDialog();
+            }
         }
 
         private void TxtCode_Enter(object sender, EventArgs e)
@@ -183,6 +202,7 @@ namespace Coffee_ManageMent
                 account.State = true;
                 account.AccountGroup = AccountGroupBussines.Get((Guid) cmbGroup.SelectedValue);
                 account.Amounth = 0;
+                account.HesabType = HesabType.Hazine;
 
                 if (AccountBussines.Save(account))
                 {

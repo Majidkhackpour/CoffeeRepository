@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataLayer.Context;
 using DataLayer.Core;
+using DataLayer.Core.Anbar;
 
 namespace PersitenceLayer.Persistance
 {
@@ -17,7 +14,8 @@ namespace PersitenceLayer.Persistance
         private IMoeinRepository _moeinRepository;
         private IAccountRepository _accountRepository;
         private IAccountGroupRepository _accountGroupRepository;
-
+        private IAnbarGroupRepository _anbarGroupRepository;
+        private IAnbarRepository _anbarRepository;
         public IHazineRepository HazineRepository
         {
             get
@@ -89,6 +87,30 @@ namespace PersitenceLayer.Persistance
                 }
 
                 return _accountGroupRepository;
+            }
+        }
+        public IAnbarGroupRepository AnbarGroupRepository
+        {
+            get
+            {
+                if (_anbarGroupRepository == null)
+                {
+                    _anbarGroupRepository = new AnbarGroupPersistanceRepository(db);
+                }
+
+                return _anbarGroupRepository;
+            }
+        }
+        public IAnbarRepository AnbarRepository
+        {
+            get
+            {
+                if (_anbarRepository == null)
+                {
+                    _anbarRepository = new AnbarPersistanceRepository(db);
+                }
+
+                return _anbarRepository;
             }
         }
         public void Dispose()
