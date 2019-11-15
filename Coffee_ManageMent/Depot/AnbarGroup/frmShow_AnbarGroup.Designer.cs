@@ -39,22 +39,22 @@
             this.line1 = new DevComponents.DotNetBar.Controls.Line();
             this.lblCounter = new System.Windows.Forms.Label();
             this.DGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.uC_Date1 = new UC_Date.UC_Date();
-            this.AnbarGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Radif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.descritionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
+            this.AnbarGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.uC_Date1 = new UC_Date.UC_Date();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AnbarGroupBindingSource)).BeginInit();
@@ -163,7 +163,54 @@
             this.DGrid.TabIndex = 55662;
             this.DGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGrid_CellFormatting);
             this.DGrid.DoubleClick += new System.EventHandler(this.DGrid_DoubleClick);
-            this.DGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGrid_KeyDown);
+//            this.DGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGrid_KeyDown);
+            // 
+            // Radif
+            // 
+            this.Radif.HeaderText = "ردیف";
+            this.Radif.Name = "Radif";
+            this.Radif.ReadOnly = true;
+            this.Radif.Width = 50;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "عنوان";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dgGuid
+            // 
+            this.dgGuid.DataPropertyName = "Guid";
+            this.dgGuid.HeaderText = "Guid";
+            this.dgGuid.Name = "dgGuid";
+            this.dgGuid.ReadOnly = true;
+            this.dgGuid.Visible = false;
+            // 
+            // dateSabtDataGridViewTextBoxColumn
+            // 
+            this.dateSabtDataGridViewTextBoxColumn.DataPropertyName = "DateSabt";
+            this.dateSabtDataGridViewTextBoxColumn.HeaderText = "DateSabt";
+            this.dateSabtDataGridViewTextBoxColumn.Name = "dateSabtDataGridViewTextBoxColumn";
+            this.dateSabtDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateSabtDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // statusDataGridViewCheckBoxColumn
+            // 
+            this.statusDataGridViewCheckBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewCheckBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewCheckBoxColumn.Name = "statusDataGridViewCheckBoxColumn";
+            this.statusDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.statusDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // descritionDataGridViewTextBoxColumn
+            // 
+            this.descritionDataGridViewTextBoxColumn.DataPropertyName = "Descrition";
+            this.descritionDataGridViewTextBoxColumn.HeaderText = "Descrition";
+            this.descritionDataGridViewTextBoxColumn.Name = "descritionDataGridViewTextBoxColumn";
+            this.descritionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descritionDataGridViewTextBoxColumn.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -218,6 +265,10 @@
             this.mnuView.Text = "مشاهده";
             this.mnuView.Click += new System.EventHandler(this.MnuView_Click);
             // 
+            // AnbarGroupBindingSource
+            // 
+            this.AnbarGroupBindingSource.DataSource = typeof(DataLayer.Models.Anbar.AnbarGroup);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -246,7 +297,7 @@
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
             this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
+           // this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
             // 
             // uC_Date1
             // 
@@ -258,57 +309,6 @@
             this.uC_Date1.Name = "uC_Date1";
             this.uC_Date1.Size = new System.Drawing.Size(592, 49);
             this.uC_Date1.TabIndex = 55659;
-            // 
-            // AnbarGroupBindingSource
-            // 
-            this.AnbarGroupBindingSource.DataSource = typeof(DataLayer.Models.Anbar.AnbarGroup);
-            // 
-            // Radif
-            // 
-            this.Radif.HeaderText = "ردیف";
-            this.Radif.Name = "Radif";
-            this.Radif.ReadOnly = true;
-            this.Radif.Width = 50;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "عنوان";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dgGuid
-            // 
-            this.dgGuid.DataPropertyName = "Guid";
-            this.dgGuid.HeaderText = "Guid";
-            this.dgGuid.Name = "dgGuid";
-            this.dgGuid.ReadOnly = true;
-            this.dgGuid.Visible = false;
-            // 
-            // dateSabtDataGridViewTextBoxColumn
-            // 
-            this.dateSabtDataGridViewTextBoxColumn.DataPropertyName = "DateSabt";
-            this.dateSabtDataGridViewTextBoxColumn.HeaderText = "DateSabt";
-            this.dateSabtDataGridViewTextBoxColumn.Name = "dateSabtDataGridViewTextBoxColumn";
-            this.dateSabtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateSabtDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // statusDataGridViewCheckBoxColumn
-            // 
-            this.statusDataGridViewCheckBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewCheckBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewCheckBoxColumn.Name = "statusDataGridViewCheckBoxColumn";
-            this.statusDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.statusDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // descritionDataGridViewTextBoxColumn
-            // 
-            this.descritionDataGridViewTextBoxColumn.DataPropertyName = "Descrition";
-            this.descritionDataGridViewTextBoxColumn.HeaderText = "Descrition";
-            this.descritionDataGridViewTextBoxColumn.Name = "descritionDataGridViewTextBoxColumn";
-            this.descritionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descritionDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmShow_AnbarGroup
             // 
@@ -326,6 +326,7 @@
             this.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -333,6 +334,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmShow_AnbarGroup_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmShow_AnbarGroup_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AnbarGroupBindingSource)).EndInit();

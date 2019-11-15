@@ -11,14 +11,10 @@ namespace DataLayer.Models.Account
 {
   public  class AccountGroup:IHasGuid
     {
-        [Key]
         public Guid Guid { get; set; }
-        [MaxLength(15)]
         public string DateSabt { get; set; }
         public string Name { get; set; }
-        [MaxLength(10)]
         public string Aouth_Code { get; set; }
-
         public int Type { get; set; }
 
     }

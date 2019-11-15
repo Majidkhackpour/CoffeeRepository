@@ -223,31 +223,6 @@ namespace Coffee_ManageMent.Hesab
             finally{ btnFinish.Enabled = true; }
         }
 
-        private void BtnSearchKol_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void TxtCode_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void CmbMahiat_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void TxtName_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void TxtDescription_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
         private void TxtCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtSetter.KeyPress_Whitout_Dot(sender, e);
@@ -319,6 +294,11 @@ namespace Coffee_ManageMent.Hesab
                 frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
+        }
+
+        private void FrmMoein_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtSetter.KeyDown(sender, e, btnFinish);
         }
     }
 }

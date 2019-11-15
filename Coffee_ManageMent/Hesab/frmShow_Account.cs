@@ -154,7 +154,7 @@ namespace Coffee_ManageMent
             }
         }
 
-        private void DGrid_KeyDown(object sender, KeyEventArgs e)
+        private void FrmShow_Account_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -182,19 +182,6 @@ namespace Coffee_ManageMent
 
                         break;
                 }
-            }
-            catch (Exception exception)
-            {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
-                frm.ShowDialog();
-            }
-        }
-
-        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                DGrid_KeyDown(sender, e);
             }
             catch (Exception exception)
             {

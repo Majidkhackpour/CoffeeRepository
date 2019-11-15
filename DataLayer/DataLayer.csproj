@@ -60,6 +60,7 @@
     <Compile Include="Core\Anbar\IAnbarRepository.cs" />
     <Compile Include="Core\IAccountGroupRepository.cs" />
     <Compile Include="Core\IAccountRepository.cs" />
+    <Compile Include="Core\IAppSetting.cs" />
     <Compile Include="Core\IHazineRepository.cs" />
     <Compile Include="Core\IHesabGroupRepository.cs" />
     <Compile Include="Core\IKolRepository.cs" />
@@ -71,6 +72,15 @@
     <Compile Include="Enums\EnumMessage.cs" />
     <Compile Include="Interface\IHasGuid.cs" />
     <Compile Include="Interface\IHasMasterGuid.cs" />
+    <Compile Include="Mapping\AccountGroupMapping.cs" />
+    <Compile Include="Mapping\AccountMapping.cs" />
+    <Compile Include="Mapping\AppSettingMapping.cs" />
+    <Compile Include="Mapping\AnbarGroupMapping.cs" />
+    <Compile Include="Mapping\AnbarMapping.cs" />
+    <Compile Include="Mapping\HazineMapping.cs" />
+    <Compile Include="Mapping\HesabGroupMapping.cs" />
+    <Compile Include="Mapping\KolHesabMapping.cs" />
+    <Compile Include="Mapping\MoeinHesabMapping.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.designer.cs">
       <DependentUpon>201910041356419_update1.cs</DependentUpon>
@@ -139,6 +149,14 @@
     <Compile Include="Migration\Migration\201911111441447_update161.designer.cs">
       <DependentUpon>201911111441447_update161.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201911151202382_update17.cs" />
+    <Compile Include="Migration\Migration\201911151202382_update17.designer.cs">
+      <DependentUpon>201911151202382_update17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911151204243_update18.cs" />
+    <Compile Include="Migration\Migration\201911151204243_update18.designer.cs">
+      <DependentUpon>201911151204243_update18.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -149,6 +167,7 @@
     <Compile Include="Models\Account\MoeinHesab.cs" />
     <Compile Include="Models\Anbar\Anbar.cs" />
     <Compile Include="Models\Anbar\AnbarGroup.cs" />
+    <Compile Include="Models\Settings\AppSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration\Migration\201911111441447_update161.resx">
       <DependentUpon>201911111441447_update161.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911151202382_update17.resx">
+      <DependentUpon>201911151202382_update17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911151204243_update18.resx">
+      <DependentUpon>201911151204243_update18.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

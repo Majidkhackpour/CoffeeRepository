@@ -223,29 +223,14 @@ namespace Coffee_ManageMent
             }
         }
 
-        private void TxtCode_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void CmbGroup_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void TxtName_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void TxtDescription_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
         private void TxtCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtSetter.KeyPress_Whitout_Dot(sender, e);
+        }
+
+        private void FrmAccount_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtSetter.KeyDown(sender, e, btnFinish);
         }
     }
 }

@@ -151,7 +151,25 @@ namespace Coffee_ManageMent.Hesab
             }
         }
 
-        private void DGrid_KeyDown(object sender, KeyEventArgs e)
+        private void DGrid_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_isSelected)
+                {
+                    SelectedGuid = (Guid)DGrid[DgGuid.Index, DGrid.CurrentRow.Index].Value;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void FrmShow_Kol_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -179,37 +197,6 @@ namespace Coffee_ManageMent.Hesab
 
                         break;
                 }
-            }
-            catch (Exception exception)
-            {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
-                frm.ShowDialog();
-            }
-        }
-
-        private void DGrid_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_isSelected)
-                {
-                    SelectedGuid = (Guid)DGrid[DgGuid.Index, DGrid.CurrentRow.Index].Value;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
-            catch (Exception exception)
-            {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
-                frm.ShowDialog();
-            }
-        }
-
-        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                DGrid_KeyDown(sender, e);
             }
             catch (Exception exception)
             {

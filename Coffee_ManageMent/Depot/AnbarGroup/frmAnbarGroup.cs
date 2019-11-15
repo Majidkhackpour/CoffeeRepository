@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using BussinesLayer.Anbar;
 using Coffee_ManageMent.Utility;
@@ -39,6 +40,17 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
         private void FrmAnbarGroup_Load(object sender, EventArgs e)
         {
             Set_Data();
+            var accounts = AnbarGroupBussines.GetAll().ToList();
+            AutoCompleteStringCollection _source = new AutoCompleteStringCollection();
+
+            foreach (var item in accounts)
+            {
+                _source.Add(item.Name);
+            }
+
+            txtName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtName.AutoCompleteCustomSource = _source;
         }
 
         private void TxtName_Enter(object sender, EventArgs e)
@@ -65,16 +77,6 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
         {
             this.DialogResult = DialogResult.Cancel;
             this.Dispose();
-        }
-
-        private void TxtName_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
-        }
-
-        private void TxtDescription_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtSetter.KeyDown(sender, e, btnFinish);
         }
 
         private void BtnFinish_Click(object sender, EventArgs e)
@@ -126,6 +128,11 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
             {
                 btnFinish.Enabled = true;
             }
+        }
+
+        private void FrmAnbarGroup_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtSetter.KeyDown(sender, e, btnFinish);
         }
     }
 }

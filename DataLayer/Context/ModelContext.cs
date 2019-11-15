@@ -1,4 +1,4 @@
-using DataLayer.Models;
+using DataLayer.Mapping;
 using DataLayer.Models.Account;
 using DataLayer.Models.Anbar;
 
@@ -6,7 +6,6 @@ namespace DataLayer.Context
 {
     using System;
     using System.Data.Entity;
-    using System.Linq;
 
     public class ModelContext : DbContext,IDisposable
     {
@@ -18,6 +17,16 @@ namespace DataLayer.Context
 
         protected override void OnModelCreating(DbModelBuilder modelbuilder)
         {
+            modelbuilder.Configurations.Add(new AccountGroupMapping());
+            modelbuilder.Configurations.Add(new AccountMapping());
+            modelbuilder.Configurations.Add(new AnbarGroupMapping());
+            modelbuilder.Configurations.Add(new AnbarMapping());
+            modelbuilder.Configurations.Add(new AppSettingMapping());
+            modelbuilder.Configurations.Add(new HazineMapping());
+            modelbuilder.Configurations.Add(new HesabGroupMapping());
+            modelbuilder.Configurations.Add(new KolHesabMapping());
+            modelbuilder.Configurations.Add(new MoeinHesabMapping());
+            base.OnModelCreating(modelbuilder);
         }
 
         public virtual DbSet<Hazine> Hazine { get; set; }

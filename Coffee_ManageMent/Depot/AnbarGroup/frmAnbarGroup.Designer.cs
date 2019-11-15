@@ -100,7 +100,7 @@
             this.txtDescription.TabIndex = 3;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescription.Enter += new System.EventHandler(this.TxtDescription_Enter);
-            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
+//            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
             this.txtDescription.Leave += new System.EventHandler(this.TxtDescription_Leave);
             // 
             // txtName
@@ -117,7 +117,7 @@
             this.txtName.TabIndex = 2;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtName.Enter += new System.EventHandler(this.TxtName_Enter);
-            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
+         //   this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
             this.txtName.Leave += new System.EventHandler(this.TxtName_Leave);
             // 
             // label4
@@ -169,6 +169,7 @@
             this.btnFinish.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.btnFinish.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
             this.btnFinish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFinish.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnFinish.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnFinish.Location = new System.Drawing.Point(244, 258);
             this.btnFinish.Name = "btnFinish";
@@ -218,6 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(404, 288);
             this.Controls.Add(this.grpAccount);
             this.Controls.Add(this.btnCancel);
@@ -228,6 +230,7 @@
             this.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -235,6 +238,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmAnbarGroup_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmAnbarGroup_KeyDown);
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
             this.ResumeLayout(false);

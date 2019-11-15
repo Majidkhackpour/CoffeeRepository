@@ -133,7 +133,7 @@ namespace Coffee_ManageMent.Hazine
             }
         }
 
-        private void DGrid_KeyDown(object sender, KeyEventArgs e)
+        private void FrmShow_Hazine_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -158,11 +158,6 @@ namespace Coffee_ManageMent.Hazine
                 frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
-        }
-
-        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            DGrid_KeyDown(sender, e);
         }
     }
 }

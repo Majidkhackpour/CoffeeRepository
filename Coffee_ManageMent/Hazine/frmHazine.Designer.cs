@@ -109,7 +109,7 @@
             this.txtDescription.TabIndex = 3;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescription.Enter += new System.EventHandler(this.TxtDescription_Enter);
-            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
+//            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
             this.txtDescription.Leave += new System.EventHandler(this.TxtDescription_Leave);
             // 
             // txtName
@@ -126,7 +126,7 @@
             this.txtName.TabIndex = 2;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtName.Enter += new System.EventHandler(this.TxtName_Enter);
-            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
+           // this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
             this.txtName.Leave += new System.EventHandler(this.TxtName_Leave);
             // 
             // label4
@@ -154,7 +154,7 @@
             this.txtCode.TabIndex = 0;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCode.Enter += new System.EventHandler(this.TxtCode_Enter);
-            this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCode_KeyDown);
+          //  this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCode_KeyDown);
             this.txtCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCode_KeyPress);
             this.txtCode.Leave += new System.EventHandler(this.TxtCode_Leave);
             // 
@@ -286,6 +286,7 @@
             this.Font = new System.Drawing.Font("B Yekan", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -293,6 +294,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmHazine_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmHazine_KeyDown);
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HesabGroupBindingSource)).EndInit();

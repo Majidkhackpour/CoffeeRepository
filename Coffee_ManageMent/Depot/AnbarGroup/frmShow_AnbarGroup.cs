@@ -74,7 +74,7 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
             try
             {
                 Guid _guid = (Guid) DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                frmAnbarGroup frm = new frmAnbarGroup(_guid, false);
+                frmAnbarGroup frm = new frmAnbarGroup(_guid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -92,7 +92,7 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
             try
             {
                 Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                frmAnbarGroup frm = new frmAnbarGroup(_guid, true);
+                frmAnbarGroup frm = new frmAnbarGroup(_guid, false);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -142,7 +142,31 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
             }
         }
 
-        private void DGrid_KeyDown(object sender, KeyEventArgs e)
+        private void DGrid_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_isSelected)
+                {
+                    SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+
+        private void DGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DGrid.Rows[e.RowIndex].Cells["Radif"].Value = e.RowIndex + 1;
+        }
+
+        private void FrmShow_AnbarGroup_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -176,42 +200,6 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
                 frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
-        }
-
-        private void DGrid_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_isSelected)
-                {
-                    SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
-            catch (Exception exception)
-            {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
-                frm.ShowDialog();
-            }
-        }
-
-        private void TxtSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                DGrid_KeyDown(sender, e);
-            }
-            catch (Exception exception)
-            {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
-                frm.ShowDialog();
-            }
-        }
-
-        private void DGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            DGrid.Rows[e.RowIndex].Cells["Radif"].Value = e.RowIndex + 1;
         }
     }
 }

@@ -127,7 +127,7 @@
             this.btnSearchKol.TextColor = System.Drawing.Color.Silver;
             this.btnSearchKol.ThemeAware = true;
             this.btnSearchKol.Click += new System.EventHandler(this.BtnSearchKol_Click);
-            this.btnSearchKol.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnSearchKol_KeyDown);
+//            this.btnSearchKol.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnSearchKol_KeyDown);
             // 
             // cmbMahiat
             // 
@@ -142,7 +142,7 @@
             this.cmbMahiat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbMahiat.TabIndex = 4;
             this.cmbMahiat.ValueMember = "Guid";
-            this.cmbMahiat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbMahiat_KeyDown);
+          //  this.cmbMahiat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbMahiat_KeyDown);
             // 
             // txtDescription
             // 
@@ -159,7 +159,7 @@
             this.txtDescription.TabIndex = 6;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescription.Enter += new System.EventHandler(this.TxtDescription_Enter);
-            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
+           // this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
             this.txtDescription.Leave += new System.EventHandler(this.TxtDescription_Leave);
             // 
             // txtName
@@ -175,7 +175,7 @@
             this.txtName.TabIndex = 5;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtName.Enter += new System.EventHandler(this.TxtName_Enter);
-            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
+           // this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
             this.txtName.Leave += new System.EventHandler(this.TxtName_Leave);
             // 
             // label4
@@ -231,7 +231,7 @@
             this.txtCode.TabIndex = 3;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCode.Enter += new System.EventHandler(this.TxtCode_Enter);
-            this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCode_KeyDown);
+          //  this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCode_KeyDown);
             this.txtCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCode_KeyPress);
             this.txtCode.Leave += new System.EventHandler(this.TxtCode_Leave);
             // 
@@ -357,6 +357,7 @@
             this.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -364,6 +365,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmMoein_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMoein_KeyDown);
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
             this.ResumeLayout(false);

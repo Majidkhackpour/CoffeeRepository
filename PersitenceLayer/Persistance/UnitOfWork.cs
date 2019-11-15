@@ -16,6 +16,17 @@ namespace PersitenceLayer.Persistance
         private IAccountGroupRepository _accountGroupRepository;
         private IAnbarGroupRepository _anbarGroupRepository;
         private IAnbarRepository _anbarRepository;
+        private IAppSetting _appSetting;
+
+        public void Dispose()
+        {
+            db.Dispose();
+        }
+
+        public void Set_Save()
+        {
+            db.SaveChanges();
+        }
         public IHazineRepository HazineRepository
         {
             get
@@ -113,14 +124,17 @@ namespace PersitenceLayer.Persistance
                 return _anbarRepository;
             }
         }
-        public void Dispose()
+        public IAppSetting AppSetting
         {
-            db.Dispose();
-        }
+            get
+            {
+                if (_appSetting == null)
+                {
+                    _appSetting = new AppSettingPersistanceRepository(db);
+                }
 
-        public void Set_Save()
-        {
-            db.SaveChanges();
+                return _appSetting;
+            }
         }
     }
 }
