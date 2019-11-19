@@ -51,6 +51,9 @@
     <Compile Include="Anbar\AnbarBussines.cs" />
     <Compile Include="Anbar\AnbarGroupBussines.cs" />
     <Compile Include="AppSettingBussines.cs" />
+    <Compile Include="Perssonel\PerssonelBussines.cs" />
+    <Compile Include="Perssonel\PerssonelGroupBussines.cs" />
+    <Compile Include="PhoneBook\PhoneBookBussines.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,5 +66,6 @@
       <Name>PersitenceLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

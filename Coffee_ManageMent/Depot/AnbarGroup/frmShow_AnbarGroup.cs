@@ -73,6 +73,7 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _guid = (Guid) DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmAnbarGroup frm = new frmAnbarGroup(_guid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -91,6 +92,7 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmAnbarGroup frm = new frmAnbarGroup(_guid, false);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -109,6 +111,7 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var Acc = AnbarGroupBussines.Get(accGuid);
                 string message = "آیا از حذف گروه انبار " + Acc.Name + " " + "اطمینان دارید؟";
@@ -146,6 +149,7 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 if (_isSelected)
                 {
                     SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;

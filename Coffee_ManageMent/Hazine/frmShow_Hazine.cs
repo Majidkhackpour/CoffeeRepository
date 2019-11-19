@@ -64,6 +64,7 @@ namespace Coffee_ManageMent.Hazine
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _hazineGuid = (Guid) DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmHazine frm = new frmHazine(_hazineGuid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -82,6 +83,7 @@ namespace Coffee_ManageMent.Hazine
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var Acc = HazineBussines.Get(accGuid);
                 string message = "آیا از حذف حساب " + Acc.Name + " " + "اطمینان دارید؟";
@@ -106,6 +108,7 @@ namespace Coffee_ManageMent.Hazine
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _hazineGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmHazine frm = new frmHazine(_hazineGuid, false);
                 if (frm.ShowDialog() == DialogResult.OK)

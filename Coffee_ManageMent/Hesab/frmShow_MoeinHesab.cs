@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using BussinesLayer.AccountBussines;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
-using PersitenceLayer.Persistance;
 
 namespace Coffee_ManageMent.Hesab
 {
@@ -79,6 +78,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmMoein f = new frmMoein(_guid, true);
                 if (f.ShowDialog() == DialogResult.OK)
@@ -95,6 +95,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmMoein f = new frmMoein(_guid, false);
                 if (f.ShowDialog() == DialogResult.OK)
@@ -111,6 +112,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid moeinGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var moein = MoeinBussines.Get(moeinGuid);
                 string message = "آیا از حذف حساب " + moein.Name + " " + "اطمینان دارید؟";
@@ -148,6 +150,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 if (_isSelected)
                 {
                     SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;

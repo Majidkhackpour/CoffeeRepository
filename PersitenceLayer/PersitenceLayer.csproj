@@ -62,6 +62,9 @@
     <Compile Include="Persistance\HesabGroupPersistanceRepository.cs" />
     <Compile Include="Persistance\KolPersistanceRepository.cs" />
     <Compile Include="Persistance\MoeinPersistenceRepository.cs" />
+    <Compile Include="Persistance\PerssonelGroupPersistanceRepository.cs" />
+    <Compile Include="Persistance\PerssonelPersistanceRepository.cs" />
+    <Compile Include="Persistance\PhoneBookPersistanceRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

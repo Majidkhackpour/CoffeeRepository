@@ -13,4 +13,10 @@ namespace DataLayer.Enums
         [PersianNameAttribute.PersianName("فقط بستانکار")] Bestankar = 1,
         [PersianNameAttribute.PersianName("بدهکار و بستانکار")] BedAndBes = 2
     }
+    public enum EnumMahiatAshkhas : short
+    {
+        [PersianNameAttribute.PersianName("بدهکار")] Bedehkar = 1,
+        [PersianNameAttribute.PersianName("بستانکار")] Bestankar = 2,
+        [PersianNameAttribute.PersianName("بی حساب")] BiHesab = 0
+    }
 }

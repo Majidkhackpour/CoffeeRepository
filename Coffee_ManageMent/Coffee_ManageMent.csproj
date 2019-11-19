@@ -37,7 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DateTimeSelector, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AmirCalendar">
+      <HintPath>..\..\..\AmirCalendar.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=12.8.0.8, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -182,6 +184,54 @@
     <Compile Include="Hesab\frmShow_Kol.Designer.cs">
       <DependentUpon>frmShow_Kol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Perssonel\frmPerssonel_CallInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_CallInfo.Designer.cs">
+      <DependentUpon>frmPerssonel_CallInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_Contract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_Contract.Designer.cs">
+      <DependentUpon>frmPerssonel_Contract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_PublicInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_PublicInfo.designer.cs">
+      <DependentUpon>frmPerssonel_PublicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonelGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonelGroup.Designer.cs">
+      <DependentUpon>frmPerssonelGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonelMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonelMain.Designer.cs">
+      <DependentUpon>frmPerssonelMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_Sallary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmPerssonel_Sallary.Designer.cs">
+      <DependentUpon>frmPerssonel_Sallary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmShow_Perssonel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmShow_Perssonel.designer.cs">
+      <DependentUpon>frmShow_Perssonel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perssonel\frmShow_PerssonelGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perssonel\frmShow_PerssonelGroup.Designer.cs">
+      <DependentUpon>frmShow_PerssonelGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC_Header\UC_Header.cs">
@@ -236,6 +286,30 @@
     <EmbeddedResource Include="Hesab\frmShow_Kol.resx">
       <DependentUpon>frmShow_Kol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmPerssonel_CallInfo.resx">
+      <DependentUpon>frmPerssonel_CallInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmPerssonel_Contract.resx">
+      <DependentUpon>frmPerssonel_Contract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmPerssonel_PublicInfo.resx">
+      <DependentUpon>frmPerssonel_PublicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmPerssonelGroup.resx">
+      <DependentUpon>frmPerssonelGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmPerssonelMain.resx">
+      <DependentUpon>frmPerssonelMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmPerssonel_Sallary.resx">
+      <DependentUpon>frmPerssonel_Sallary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmShow_Perssonel.resx">
+      <DependentUpon>frmShow_Perssonel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perssonel\frmShow_PerssonelGroup.resx">
+      <DependentUpon>frmShow_PerssonelGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -268,6 +342,8 @@
     <None Include="Properties\DataSources\DataLayer.Models.Anbar.Anbar.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Anbar.AnbarGroup.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Hazine.datasource" />
+    <None Include="Properties\DataSources\DataLayer.Models.Perssonel.Perssonel.datasource" />
+    <None Include="Properties\DataSources\DataLayer.Models.Perssonel.PerssonelGroup.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -2,9 +2,11 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using BussinesLayer;
 using BussinesLayer.Anbar;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
+using DataLayer.Models.Settings;
 
 namespace Coffee_ManageMent.Depot.Anbars
 {
@@ -56,6 +58,7 @@ namespace Coffee_ManageMent.Depot.Anbars
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var Acc = AnbarBussines.Get(accGuid);
                 string message = "آیا از حذف انبار " + Acc.Name + " " + "اطمینان دارید؟";
@@ -93,6 +96,7 @@ namespace Coffee_ManageMent.Depot.Anbars
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 if (_isSelected)
                 {
                     SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
@@ -133,8 +137,9 @@ namespace Coffee_ManageMent.Depot.Anbars
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                frmStores frm = new frmStores(accGuid,true);
+                frmStores frm = new frmStores(accGuid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -151,6 +156,7 @@ namespace Coffee_ManageMent.Depot.Anbars
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmStores frm = new frmStores(accGuid, false);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -192,6 +198,39 @@ namespace Coffee_ManageMent.Depot.Anbars
                         }
 
                         break;
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void MnuSet_Default_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var settingGuid = AppSettingBussines.GetLast();
+                AppSetting Setting;
+                if (settingGuid == null || settingGuid == Guid.Empty)
+                {
+                    Setting = new AppSetting();
+                    Setting.Guid = Guid.NewGuid();
+                    Setting.DateSabt = DateConvertor.M2SH(DateTime.Now);
+                }
+                else
+                {
+                    Setting = AppSettingBussines.Get(settingGuid);
+                }
+
+                Setting.CurrentAnbar = accGuid;
+                if (AppSettingBussines.Save(Setting))
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                    f.ShowDialog();
                 }
             }
             catch (Exception exception)

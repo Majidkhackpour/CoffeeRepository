@@ -85,6 +85,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid kol_Guid = (Guid)DGrid[DgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmKol frmKol = new frmKol(kol_Guid, true);
                 if (frmKol.ShowDialog() == DialogResult.OK)
@@ -103,6 +104,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid kol_Guid = (Guid)DGrid[DgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var kol = KolBussines.Get(kol_Guid);
                 string message = "آیا از حذف حساب " + kol.Name + " " + "اطمینان دارید؟";
@@ -140,6 +142,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid kol_Guid = (Guid)DGrid[DgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmKol frmKol = new frmKol(kol_Guid, false);
                 frmKol.ShowDialog();
@@ -155,6 +158,7 @@ namespace Coffee_ManageMent.Hesab
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 if (_isSelected)
                 {
                     SelectedGuid = (Guid)DGrid[DgGuid.Index, DGrid.CurrentRow.Index].Value;

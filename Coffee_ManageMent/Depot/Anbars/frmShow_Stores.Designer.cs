@@ -142,7 +142,7 @@
             this.mnuSet_Default});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(237, 130);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(237, 152);
             // 
             // mnuSet_Default
             // 
@@ -150,6 +150,7 @@
             this.mnuSet_Default.Name = "mnuSet_Default";
             this.mnuSet_Default.Size = new System.Drawing.Size(236, 24);
             this.mnuSet_Default.Text = "انتخاب به عنوان انبار پیش فرض";
+            this.mnuSet_Default.Click += new System.EventHandler(this.MnuSet_Default_Click);
             // 
             // label2
             // 
@@ -256,7 +257,6 @@
             this.DGrid.TabIndex = 55669;
             this.DGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGrid_CellFormatting);
             this.DGrid.DoubleClick += new System.EventHandler(this.DGrid_DoubleClick);
-//            this.DGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGrid_KeyDown);
             // 
             // Radif
             // 
@@ -337,7 +337,6 @@
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
             this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
-//            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
             // 
             // frmShow_Stores
             // 

@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using DataLayer.Models.Account;
+﻿using System;
+using System.Collections.Generic;
 using DataLayer.Models.Settings;
 using PersitenceLayer.Persistance;
 
@@ -22,5 +22,16 @@ namespace BussinesLayer
                 return res;
             }
         }
+        public static Guid GetLast()
+        {
+            using (var _context = new UnitOfWork())
+                return _context.AppSetting.GetLast();
+        }
+        public static AppSetting Get(Guid guid)
+        {
+            using (var _context = new UnitOfWork())
+                return _context.AppSetting.Get(guid);
+        }
+
     }
 }

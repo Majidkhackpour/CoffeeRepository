@@ -85,6 +85,7 @@ namespace Coffee_ManageMent
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmAccount frm = new frmAccount(_guid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -103,6 +104,7 @@ namespace Coffee_ManageMent
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var Acc = AccountBussines.Get(accGuid);
                 string message = "آیا از حذف حساب " + Acc.Name + " " + "اطمینان دارید؟";
@@ -127,6 +129,7 @@ namespace Coffee_ManageMent
         {
             try
             {
+                if (DGrid.RowCount == 0) return;
                 Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 frmAccount frm = new frmAccount(_guid, false);
                 if (frm.ShowDialog() == DialogResult.OK)

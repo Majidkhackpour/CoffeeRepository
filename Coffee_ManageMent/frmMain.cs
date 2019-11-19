@@ -5,6 +5,7 @@ using Coffee_ManageMent.Depot.AnbarGroup;
 using Coffee_ManageMent.Depot.Anbars;
 using Coffee_ManageMent.Hazine;
 using Coffee_ManageMent.Hesab;
+using Coffee_ManageMent.Perssonel;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
@@ -47,7 +48,16 @@ namespace Coffee_ManageMent
 
         private void mnuPerssonel_Click(object sender, EventArgs e)
         {
-            //  new frmShow_Perssonel().ShowDialog();
+            try
+            {
+                frmShow_Perssonel f = new frmShow_Perssonel();
+                f.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                f.ShowDialog();
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -397,7 +407,7 @@ namespace Coffee_ManageMent
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            new frmShow_AnbarGroup().ShowDialog();
+            new frmShow_PerssonelGroup().ShowDialog();
         }
     }
 }

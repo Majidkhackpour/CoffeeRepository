@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Try Catch Show</Title>
+    <Author>Majid Khackpour</Author>
+    <Shortcut>trys</Shortcut>
+    <Description>Nothing</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ExceptionName</ID>
+        <Default>ex</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+      try
+{
+    $end$
+}
+catch(Exception $ExceptionName$)
+{
+  frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+  f.ShowDialog();
+}
+      ]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

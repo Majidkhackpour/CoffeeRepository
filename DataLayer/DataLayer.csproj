@@ -65,13 +65,20 @@
     <Compile Include="Core\IHesabGroupRepository.cs" />
     <Compile Include="Core\IKolRepository.cs" />
     <Compile Include="Core\IMoeinRepository.cs" />
+    <Compile Include="Core\Perssonel\IPerssonelRepository.cs" />
+    <Compile Include="Core\Perssonel\IPerssonelGroupRepository.cs" />
+    <Compile Include="Core\PhoneBook\IPhoneBookRepository.cs" />
     <Compile Include="Enums\EnumAmount_Mahiat.cs" />
+    <Compile Include="Enums\EnumPhoneBookType.cs" />
+    <Compile Include="Enums\EnumMaritalStatuse.cs" />
     <Compile Include="Enums\EnumHesabType .cs" />
     <Compile Include="Enums\EnumHazineType.cs" />
     <Compile Include="Enums\EnumMahiat.cs" />
+    <Compile Include="Enums\EnumGender.cs" />
     <Compile Include="Enums\EnumMessage.cs" />
     <Compile Include="Interface\IHasGuid.cs" />
     <Compile Include="Interface\IHasMasterGuid.cs" />
+    <Compile Include="Interface\IPersson.cs" />
     <Compile Include="Mapping\AccountGroupMapping.cs" />
     <Compile Include="Mapping\AccountMapping.cs" />
     <Compile Include="Mapping\AppSettingMapping.cs" />
@@ -81,6 +88,9 @@
     <Compile Include="Mapping\HesabGroupMapping.cs" />
     <Compile Include="Mapping\KolHesabMapping.cs" />
     <Compile Include="Mapping\MoeinHesabMapping.cs" />
+    <Compile Include="Mapping\PerssonelGroupMapping.cs" />
+    <Compile Include="Mapping\PerssonelMapping.cs" />
+    <Compile Include="Mapping\PhoneBookMapping.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.designer.cs">
       <DependentUpon>201910041356419_update1.cs</DependentUpon>
@@ -157,6 +167,14 @@
     <Compile Include="Migration\Migration\201911151204243_update18.designer.cs">
       <DependentUpon>201911151204243_update18.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201911151215574_update19.cs" />
+    <Compile Include="Migration\Migration\201911151215574_update19.designer.cs">
+      <DependentUpon>201911151215574_update19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\Migration\201911151349129_update20.cs" />
+    <Compile Include="Migration\Migration\201911151349129_update20.designer.cs">
+      <DependentUpon>201911151349129_update20.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -167,6 +185,9 @@
     <Compile Include="Models\Account\MoeinHesab.cs" />
     <Compile Include="Models\Anbar\Anbar.cs" />
     <Compile Include="Models\Anbar\AnbarGroup.cs" />
+    <Compile Include="Models\Perssonel\Perssonel.cs" />
+    <Compile Include="Models\Perssonel\PerssonelGroup.cs" />
+    <Compile Include="Models\PhoneBook\PhoneBook.cs" />
     <Compile Include="Models\Settings\AppSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -175,6 +196,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="CodeSnippet\TryDelete.snippet" />
+    <None Include="CodeSnippet\TryShow.snippet" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration\Migration\201911151204243_update18.resx">
       <DependentUpon>201911151204243_update18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911151215574_update19.resx">
+      <DependentUpon>201911151215574_update19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911151349129_update20.resx">
+      <DependentUpon>201911151349129_update20.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
