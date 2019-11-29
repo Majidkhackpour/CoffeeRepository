@@ -127,5 +127,21 @@ namespace PersitenceLayer.Persistance
                 return null;
             }
         }
+
+        public MoeinHesab GetByCode(string Code)
+        {
+            try
+            {
+                using (var context = new ModelContext())
+                {
+                    var moein = context.MoeinHesabs.AsNoTracking().FirstOrDefault(w => w.Code == Code);
+                    return moein;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

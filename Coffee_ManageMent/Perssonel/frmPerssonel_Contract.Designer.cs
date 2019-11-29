@@ -31,35 +31,36 @@
             AmirCalendar.FarsiDate farsiDate1 = new AmirCalendar.FarsiDate();
             AmirCalendar.FarsiDate farsiDate2 = new AmirCalendar.FarsiDate();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerssonel_Contract));
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEdu = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
+            this.txtContractCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtTheTerm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grpAccount = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.rbtnService = new System.Windows.Forms.RadioButton();
-            this.rbtnProduct = new System.Windows.Forms.RadioButton();
-            this.farsiCalendar2 = new AmirCalendar.FarsiCalendar();
-            this.farsiCalendar1 = new AmirCalendar.FarsiCalendar();
+            this.rbtnMarrie = new System.Windows.Forms.RadioButton();
+            this.rbtnSingle = new System.Windows.Forms.RadioButton();
+            this.txtEndDate = new AmirCalendar.FarsiCalendar();
+            this.txtStartDate = new AmirCalendar.FarsiCalendar();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.grpAccount.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox3
+            // txtEdu
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(18, 144);
-            this.textBox3.MaxLength = 4;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(366, 27);
-            this.textBox3.TabIndex = 17;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEdu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtEdu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEdu.ForeColor = System.Drawing.Color.Silver;
+            this.txtEdu.Location = new System.Drawing.Point(18, 144);
+            this.txtEdu.MaxLength = 32270;
+            this.txtEdu.Name = "txtEdu";
+            this.txtEdu.Size = new System.Drawing.Size(366, 27);
+            this.txtEdu.TabIndex = 17;
+            this.txtEdu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEdu.Enter += new System.EventHandler(this.TxtEdu_Enter);
+            this.txtEdu.Leave += new System.EventHandler(this.TxtEdu_Leave);
             // 
             // label10
             // 
@@ -74,18 +75,20 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "مدت قرارداد";
             // 
-            // txtCode
+            // txtContractCode
             // 
-            this.txtCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCode.ForeColor = System.Drawing.Color.Silver;
-            this.txtCode.Location = new System.Drawing.Point(446, 35);
-            this.txtCode.MaxLength = 4;
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(366, 27);
-            this.txtCode.TabIndex = 17;
-            this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtContractCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtContractCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtContractCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContractCode.ForeColor = System.Drawing.Color.Silver;
+            this.txtContractCode.Location = new System.Drawing.Point(446, 35);
+            this.txtContractCode.MaxLength = 4;
+            this.txtContractCode.Name = "txtContractCode";
+            this.txtContractCode.Size = new System.Drawing.Size(366, 27);
+            this.txtContractCode.TabIndex = 17;
+            this.txtContractCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtContractCode.Enter += new System.EventHandler(this.TxtContractCode_Enter);
+            this.txtContractCode.Leave += new System.EventHandler(this.TxtContractCode_Leave);
             // 
             // label5
             // 
@@ -111,19 +114,22 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "تحصیلات (مدرک و رشته تحصیلی)";
             // 
-            // txtName
+            // txtTheTerm
             // 
-            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txtName.ForeColor = System.Drawing.Color.Silver;
-            this.txtName.HideSelection = false;
-            this.txtName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtName.Location = new System.Drawing.Point(46, 35);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(338, 27);
-            this.txtName.TabIndex = 2;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTheTerm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtTheTerm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTheTerm.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtTheTerm.ForeColor = System.Drawing.Color.Silver;
+            this.txtTheTerm.HideSelection = false;
+            this.txtTheTerm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtTheTerm.Location = new System.Drawing.Point(46, 35);
+            this.txtTheTerm.MaxLength = 3;
+            this.txtTheTerm.Name = "txtTheTerm";
+            this.txtTheTerm.Size = new System.Drawing.Size(338, 27);
+            this.txtTheTerm.TabIndex = 2;
+            this.txtTheTerm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTheTerm.Enter += new System.EventHandler(this.TxtTheTerm_Enter);
+            this.txtTheTerm.Leave += new System.EventHandler(this.TxtTheTerm_Leave);
             // 
             // label2
             // 
@@ -143,19 +149,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAccount.CanvasColor = System.Drawing.SystemColors.Control;
-            this.grpAccount.Controls.Add(this.radioButton1);
-            this.grpAccount.Controls.Add(this.rbtnService);
-            this.grpAccount.Controls.Add(this.rbtnProduct);
-            this.grpAccount.Controls.Add(this.farsiCalendar2);
-            this.grpAccount.Controls.Add(this.farsiCalendar1);
-            this.grpAccount.Controls.Add(this.textBox3);
+            this.grpAccount.Controls.Add(this.rbtnMarrie);
+            this.grpAccount.Controls.Add(this.rbtnSingle);
+            this.grpAccount.Controls.Add(this.txtEndDate);
+            this.grpAccount.Controls.Add(this.txtStartDate);
+            this.grpAccount.Controls.Add(this.txtEdu);
             this.grpAccount.Controls.Add(this.label4);
             this.grpAccount.Controls.Add(this.label10);
-            this.grpAccount.Controls.Add(this.txtCode);
+            this.grpAccount.Controls.Add(this.txtContractCode);
             this.grpAccount.Controls.Add(this.label7);
             this.grpAccount.Controls.Add(this.label5);
             this.grpAccount.Controls.Add(this.label3);
-            this.grpAccount.Controls.Add(this.txtName);
+            this.grpAccount.Controls.Add(this.txtTheTerm);
             this.grpAccount.Controls.Add(this.label2);
             this.grpAccount.DisabledBackColor = System.Drawing.Color.Empty;
             this.grpAccount.Location = new System.Drawing.Point(12, 9);
@@ -192,71 +197,57 @@
             this.grpAccount.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.grpAccount.TabIndex = 55670;
             // 
-            // radioButton1
+            // rbtnMarrie
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radioButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.radioButton1.Location = new System.Drawing.Point(446, 144);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(80, 24);
-            this.radioButton1.TabIndex = 25;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "طلاق گرفته";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.rbtnMarrie.AutoSize = true;
+            this.rbtnMarrie.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnMarrie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnMarrie.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbtnMarrie.Location = new System.Drawing.Point(652, 144);
+            this.rbtnMarrie.Name = "rbtnMarrie";
+            this.rbtnMarrie.Size = new System.Drawing.Size(56, 24);
+            this.rbtnMarrie.TabIndex = 25;
+            this.rbtnMarrie.TabStop = true;
+            this.rbtnMarrie.Text = "متاهل";
+            this.rbtnMarrie.UseVisualStyleBackColor = false;
             // 
-            // rbtnService
+            // rbtnSingle
             // 
-            this.rbtnService.AutoSize = true;
-            this.rbtnService.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnService.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnService.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnService.Location = new System.Drawing.Point(609, 144);
-            this.rbtnService.Name = "rbtnService";
-            this.rbtnService.Size = new System.Drawing.Size(56, 24);
-            this.rbtnService.TabIndex = 25;
-            this.rbtnService.TabStop = true;
-            this.rbtnService.Text = "متاهل";
-            this.rbtnService.UseVisualStyleBackColor = false;
+            this.rbtnSingle.AutoSize = true;
+            this.rbtnSingle.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnSingle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnSingle.ForeColor = System.Drawing.Color.Gainsboro;
+            this.rbtnSingle.Location = new System.Drawing.Point(761, 144);
+            this.rbtnSingle.Name = "rbtnSingle";
+            this.rbtnSingle.Size = new System.Drawing.Size(51, 24);
+            this.rbtnSingle.TabIndex = 24;
+            this.rbtnSingle.TabStop = true;
+            this.rbtnSingle.Text = "مجرد";
+            this.rbtnSingle.UseVisualStyleBackColor = false;
             // 
-            // rbtnProduct
+            // txtEndDate
             // 
-            this.rbtnProduct.AutoSize = true;
-            this.rbtnProduct.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnProduct.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnProduct.Location = new System.Drawing.Point(761, 144);
-            this.rbtnProduct.Name = "rbtnProduct";
-            this.rbtnProduct.Size = new System.Drawing.Size(51, 24);
-            this.rbtnProduct.TabIndex = 24;
-            this.rbtnProduct.TabStop = true;
-            this.rbtnProduct.Text = "مجرد";
-            this.rbtnProduct.UseVisualStyleBackColor = false;
-            // 
-            // farsiCalendar2
-            // 
-            this.farsiCalendar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.farsiCalendar2.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.farsiCalendar2.Location = new System.Drawing.Point(18, 87);
-            this.farsiCalendar2.Name = "farsiCalendar2";
-            this.farsiCalendar2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.farsiCalendar2.Size = new System.Drawing.Size(366, 21);
-            this.farsiCalendar2.TabIndex = 22;
+            this.txtEndDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndDate.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.txtEndDate.Location = new System.Drawing.Point(18, 87);
+            this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtEndDate.Size = new System.Drawing.Size(366, 21);
+            this.txtEndDate.TabIndex = 22;
             farsiDate1.FarsiSelectedDate = "1398/08/27";
-            this.farsiCalendar2.Value = farsiDate1;
+            this.txtEndDate.Value = farsiDate1;
             // 
-            // farsiCalendar1
+            // txtStartDate
             // 
-            this.farsiCalendar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.farsiCalendar1.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            this.farsiCalendar1.Location = new System.Drawing.Point(446, 87);
-            this.farsiCalendar1.Name = "farsiCalendar1";
-            this.farsiCalendar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.farsiCalendar1.Size = new System.Drawing.Size(366, 21);
-            this.farsiCalendar1.TabIndex = 22;
+            this.txtStartDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStartDate.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.txtStartDate.Location = new System.Drawing.Point(446, 87);
+            this.txtStartDate.Name = "txtStartDate";
+            this.txtStartDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtStartDate.Size = new System.Drawing.Size(366, 21);
+            this.txtStartDate.TabIndex = 22;
             farsiDate2.FarsiSelectedDate = "1398/08/27";
-            this.farsiCalendar1.Value = farsiDate2;
+            this.txtStartDate.Value = farsiDate2;
             // 
             // label4
             // 
@@ -307,20 +298,19 @@
         }
 
         #endregion
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtEdu;
         public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox txtCode;
+        public System.Windows.Forms.TextBox txtContractCode;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtTheTerm;
         public System.Windows.Forms.Label label2;
         public DevComponents.DotNetBar.Controls.GroupPanel grpAccount;
         public System.Windows.Forms.Label label4;
-        private AmirCalendar.FarsiCalendar farsiCalendar2;
-        private AmirCalendar.FarsiCalendar farsiCalendar1;
+        private AmirCalendar.FarsiCalendar txtEndDate;
+        private AmirCalendar.FarsiCalendar txtStartDate;
         public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.RadioButton radioButton1;
-        public System.Windows.Forms.RadioButton rbtnService;
-        public System.Windows.Forms.RadioButton rbtnProduct;
+        public System.Windows.Forms.RadioButton rbtnMarrie;
+        public System.Windows.Forms.RadioButton rbtnSingle;
     }
 }

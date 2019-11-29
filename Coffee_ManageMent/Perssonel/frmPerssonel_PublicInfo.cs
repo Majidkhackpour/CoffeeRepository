@@ -4,14 +4,18 @@ using System.Linq;
 using System.Windows.Forms;
 using BussinesLayer.AccountBussines;
 using BussinesLayer.Perssonel;
+using Coffee_ManageMent.Hesab;
+using Coffee_ManageMent.Perssonel;
 using Coffee_ManageMent.Utility;
 using DataLayer.BussinesLayer;
 using DataLayer.Enums;
+using DataLayer.Models.Account;
 
 namespace Coffee_ManageMent
 {
     public partial class frmPerssonel_PublicInfo : Form
     {
+        private MoeinHesab moein = new MoeinHesab();
         public frmPerssonel_PublicInfo()
         {
             InitializeComponent();
@@ -27,11 +31,51 @@ namespace Coffee_ManageMent
 
         public static frmPerssonel_PublicInfo PublicInfo => NestedPublicInfo.perssonelPublicInfo;
 
+        private void SetPerssonelCode()
+        {
+            try
+            {
+                txtPerssonelCode.Text = lblCode.Text + txtCode.Text;
+            }
+            catch (Exception ex)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                f.ShowDialog();
+            }
+        }
         public DataLayer.Models.Perssonel.Perssonel SetData(DataLayer.Models.Perssonel.Perssonel _perssonel)
         {
             try
             {
-                _perssonel.Code = txtCode.Text;
+                EnumGender gender;
+                if (rbtnMale.Checked)
+                    gender = EnumGender.Male;
+                else
+                    gender = EnumGender.Female;
+                _perssonel.Code = lblCode.Text + txtCode.Text;
+                _perssonel.PerssonelGroup = (Guid) cmbGroup.SelectedValue;
+                _perssonel.PerssonelCode = txtPerssonelCode.Text;
+                _perssonel.DateBirth = txtDateBirth.Value.FarsiSelectedDate;
+                _perssonel.Name = txtName.Text.Trim();
+                _perssonel.Description = txtDescription.Text;
+                _perssonel.NationalCode = txtNatCode.Text;
+                _perssonel.FatherName = txtFatherName.Text;
+                _perssonel.PlaceBirth = txtPlaceBirth.Text;
+                _perssonel.Gender = gender;
+                _perssonel.MoeinAvalDore = moein?.Guid??Guid.Empty;
+                var amount = txtAmount.Text.Replace(",","").ParseToDecimal();
+                switch (cmbAmountMahiat.SelectedIndex)
+                {
+                    case 0:
+                        _perssonel.Amount_AvalDore = 0;
+                        break;
+                    case 1:
+                        _perssonel.Amount_AvalDore = -amount;
+                        break;
+                    case 2:
+                        _perssonel.Amount_AvalDore = +amount;
+                        break;
+                }
                 return _perssonel;
             }
             catch (Exception ex)
@@ -56,6 +100,9 @@ namespace Coffee_ManageMent
                 txtNatCode.Text = _perssonel.NationalCode;
                 txtPerssonelCode.Text = _perssonel.PerssonelCode;
                 txtPlaceBirth.Text = _perssonel.PlaceBirth;
+                moein = MoeinBussines.Get(_perssonel.MoeinAvalDore);
+                txtMoeinName.Text = moein?.Name??"";
+                txtMoeinCode.Text = moein?.Code??"";
                 if (_perssonel.PerssonelGroup != Guid.Empty)
                     cmbGroup.SelectedValue = _perssonel.PerssonelGroup;
                 else
@@ -73,6 +120,7 @@ namespace Coffee_ManageMent
                 if (_perssonel.Guid == Guid.Empty)
                 {
                     NewCode();
+                    SetPerssonelCode();
                 }
             }
             catch (Exception ex)
@@ -86,7 +134,7 @@ namespace Coffee_ManageMent
             try
             {
                 var lst = PerssonelGroupBussines.GetAll().OrderBy(q => q.Name).ToList();
-                cmbGroup.DataSource = lst;
+                PerssonelGroupBindingSource.DataSource = lst;
             }
             catch (Exception ex)
             {
@@ -201,6 +249,75 @@ namespace Coffee_ManageMent
         private void TxtCode_Leave(object sender, EventArgs e)
         {
             txtSetter.Follow(txt2: txtCode);
+            SetPerssonelCode();
+        }
+
+        private void TxtAmount_TextChanged(object sender, EventArgs e)
+        {
+            txtSetter.Three_Ziro(txtAmount);
+        }
+
+        public void FrmPerssonel_PublicInfo_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtSetter.KeyDown(sender,e,frmPerssonelMain.MainInfo.btnFinish);
+        }
+
+        private void BtnSearchMoein_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmShow_MoeinHesab f = new frmShow_MoeinHesab(true);
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    moein = MoeinBussines.Get(f.SelectedGuid);
+                    txtMoeinCode.Text = moein?.Code ?? "";
+                    txtMoeinName.Text = moein?.Name ?? "";
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void TxtMoeinCode_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var a = MoeinBussines.GetByCode(txtMoeinCode.Text.Trim());
+                txtMoeinName.Text = a.Name;
+                moein = a;
+            }
+            catch
+            {
+                txtMoeinName.Text = "";
+                moein.Guid = Guid.Empty;
+            }
+        }
+
+        private void BtnSearchGroup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmShow_PerssonelGroup f = new frmShow_PerssonelGroup(true);
+                if (f.ShowDialog()==DialogResult.OK)
+                {
+                    cmbGroup.SelectedValue = f.SelectedGuid;
+                }
+            }
+            catch (Exception ex)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                f.ShowDialog();
+            }
+        }
+
+        private void FrmPerssonel_PublicInfo_Load(object sender, EventArgs e)
+        {
+            //ToolTip tt = new ToolTip();
+            //tt.SetToolTip(btnSearchGroup,"جستجوی گروه پرسنل");
+            //tt.SetToolTip(btnSearchMoein, "جستجوی حساب معین مانده اول دوره");
         }
     }
 }

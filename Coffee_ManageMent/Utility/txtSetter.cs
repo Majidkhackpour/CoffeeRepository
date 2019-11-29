@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataLayer.BussinesLayer;
 
 namespace Coffee_ManageMent.Utility
 {
     public static class txtSetter
     {
-
         public static void Focus(DevComponents.DotNetBar.Controls.TextBoxX txt = null, TextBox txt2 = null)
         {
             if (txt == null)
@@ -59,6 +60,24 @@ namespace Coffee_ManageMent.Utility
                 SendKeys.Send("{tab}");
             if (e.KeyCode == Keys.F5)
                 btn.PerformClick();
+        }
+
+        public static void Three_Ziro(TextBox txt)
+        {
+            txt.Text = txt.Text.Replace(".", "000");
+            txt.Text = txt.Text.Replace("+", "00");
+            txt.Text = txt.Text.ParseToDecimal().ThreeSeparator();
+            txt.SelectionStart = txt.Text.Length;
+        }
+        public static void Switch_Language_To_English()
+        {
+            CultureInfo LAN = new CultureInfo("en-us");
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(LAN);
+        }
+        public static void Switch_Language_To_Persian()
+        {
+            CultureInfo LAN = new CultureInfo("fa-ir");
+            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(LAN);
         }
     }
 }

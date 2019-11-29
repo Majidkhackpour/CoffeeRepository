@@ -1,15 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using WebCam_Capture;
-using System.Collections.Generic;
+﻿using WebCam_Capture;
 
 
 
-namespace Coffee_ManageMent
+namespace Coffee_ManageMent.Utility
 {
-    //Design by Pongsakorn Poosankam
     class WebCam
     {
         private WebCamCapture webcam;
@@ -41,7 +35,5 @@ namespace Coffee_ManageMent
         {
             webcam.Start(this.webcam.FrameNumber);
         }
-
-
     }
 }

@@ -23,6 +23,12 @@ namespace Coffee_ManageMent.Perssonel
             InitializeComponent();
             contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
         }
+        public frmShow_PerssonelGroup(bool sIsSelected)
+        {
+            InitializeComponent();
+            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
+            _isSelected = sIsSelected;
+        }
         public void LoadData(string search = "")
         {
             try

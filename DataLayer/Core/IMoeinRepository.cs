@@ -14,5 +14,6 @@ namespace DataLayer.Core
         bool Check_Code(string Code, Guid guid);
         MoeinHesab Change_Status(Guid moeinguid, bool state);
         List<MoeinHesab> Search(string search);
+        MoeinHesab GetByCode(string Code);
     }
 }

@@ -27,5 +27,20 @@ namespace BussinesLayer.Perssonel
                 return res;
             }
         }
+        public static string NewContractCode()
+        {
+            using (var _context = new UnitOfWork())
+                return _context.Perssonel.NewContractCode();
+        }
+        public static bool Check_Name(string name, Guid groupGuid)
+        {
+            using (var _context = new UnitOfWork())
+                return _context.Perssonel.Check_Name(name, groupGuid);
+        }
+        public static bool Check_Code(string code, Guid groupGuid)
+        {
+            using (var _context = new UnitOfWork())
+                return _context.Perssonel.Check_Code(code, groupGuid);
+        }
     }
 }

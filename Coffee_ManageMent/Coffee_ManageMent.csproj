@@ -240,10 +240,12 @@
     <Compile Include="UC_Header\UC_Header.designer.cs">
       <DependentUpon>UC_Header.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\CheckPerssonValidation.cs" />
     <Compile Include="Utility\ContextMenuSetter.cs" />
     <Compile Include="Utility\DateConvertor.cs" />
+    <Compile Include="Utility\lblSetter.cs" />
     <Compile Include="Utility\txtSetter.cs" />
-    <Compile Include="WebCam.cs" />
+    <Compile Include="Utility\WebCam.cs" />
     <EmbeddedResource Include="Depot\AnbarGroup\frmAnbarGroup.resx">
       <DependentUpon>frmAnbarGroup.cs</DependentUpon>
     </EmbeddedResource>

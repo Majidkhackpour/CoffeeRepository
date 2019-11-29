@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.AccessControl;
 using DataLayer.Enums;
 using DataLayer.Interface;
 
@@ -11,6 +12,7 @@ namespace DataLayer.Models.Perssonel
         public string Code { get; set; }
         public string Name { get; set; }
         public decimal Amount_AvalDore { get; set; }
+        public Guid MoeinAvalDore { get; set; }
         public string Description { get; set; }
         public string Pic { get; set; }
         public string Phone1 { get; set; }
@@ -35,6 +37,7 @@ namespace DataLayer.Models.Perssonel
         public int ConTerm { get; set; }
         public bool ConStatus { get; set; }
         public int HourInDay { get; set; }
+        public int MinInDay { get; set; }
         public int StartHour { get; set; }
         public int StartMin { get; set; }
         public int EndHour { get; set; }

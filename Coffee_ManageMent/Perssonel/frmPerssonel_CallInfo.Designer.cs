@@ -30,28 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerssonel_CallInfo));
             this.grpAccount = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbGroup = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.picPerssonel = new System.Windows.Forms.PictureBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtPostalCode = new System.Windows.Forms.TextBox();
+            this.txtMobile1 = new System.Windows.Forms.TextBox();
+            this.txtMobile2 = new System.Windows.Forms.TextBox();
+            this.txtFax = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTell1 = new System.Windows.Forms.TextBox();
+            this.txtPhone1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPhone2 = new System.Windows.Forms.TextBox();
+            this.lblDelPic = new System.Windows.Forms.Label();
+            this.lblWebCam = new System.Windows.Forms.Label();
+            this.lblAddPic = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grpAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPerssonel)).BeginInit();
             this.SuspendLayout();
             // 
             // grpAccount
@@ -60,24 +60,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAccount.CanvasColor = System.Drawing.SystemColors.Control;
-            this.grpAccount.Controls.Add(this.pictureBox1);
-            this.grpAccount.Controls.Add(this.cmbGroup);
-            this.grpAccount.Controls.Add(this.textBox4);
-            this.grpAccount.Controls.Add(this.textBox3);
-            this.grpAccount.Controls.Add(this.textBox5);
-            this.grpAccount.Controls.Add(this.textBox2);
+            this.grpAccount.Controls.Add(this.picPerssonel);
+            this.grpAccount.Controls.Add(this.txtAddress);
+            this.grpAccount.Controls.Add(this.txtPostalCode);
+            this.grpAccount.Controls.Add(this.txtMobile1);
+            this.grpAccount.Controls.Add(this.txtMobile2);
+            this.grpAccount.Controls.Add(this.txtFax);
             this.grpAccount.Controls.Add(this.label9);
             this.grpAccount.Controls.Add(this.label8);
             this.grpAccount.Controls.Add(this.label10);
-            this.grpAccount.Controls.Add(this.txtTell1);
+            this.grpAccount.Controls.Add(this.txtPhone1);
             this.grpAccount.Controls.Add(this.label6);
             this.grpAccount.Controls.Add(this.label5);
             this.grpAccount.Controls.Add(this.label3);
-            this.grpAccount.Controls.Add(this.textBox1);
-            this.grpAccount.Controls.Add(this.txtName);
-            this.grpAccount.Controls.Add(this.label7);
-            this.grpAccount.Controls.Add(this.label11);
-            this.grpAccount.Controls.Add(this.label4);
+            this.grpAccount.Controls.Add(this.txtEmail);
+            this.grpAccount.Controls.Add(this.txtPhone2);
+            this.grpAccount.Controls.Add(this.lblDelPic);
+            this.grpAccount.Controls.Add(this.lblWebCam);
+            this.grpAccount.Controls.Add(this.lblAddPic);
             this.grpAccount.Controls.Add(this.label1);
             this.grpAccount.Controls.Add(this.label2);
             this.grpAccount.DisabledBackColor = System.Drawing.Color.Empty;
@@ -115,78 +115,83 @@
             this.grpAccount.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.grpAccount.TabIndex = 55669;
             // 
-            // pictureBox1
+            // picPerssonel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(18, 240);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 132);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
+            this.picPerssonel.Location = new System.Drawing.Point(18, 240);
+            this.picPerssonel.Name = "picPerssonel";
+            this.picPerssonel.Size = new System.Drawing.Size(148, 132);
+            this.picPerssonel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPerssonel.TabIndex = 21;
+            this.picPerssonel.TabStop = false;
             // 
-            // cmbGroup
+            // txtAddress
             // 
-            this.cmbGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbGroup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbGroup.DisplayMember = "Name";
-            this.cmbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGroup.ForeColor = System.Drawing.Color.Black;
-            this.cmbGroup.ItemHeight = 20;
-            this.cmbGroup.Location = new System.Drawing.Point(452, 87);
-            this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(366, 28);
-            this.cmbGroup.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbGroup.TabIndex = 18;
-            this.cmbGroup.ValueMember = "Guid";
+            this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddress.ForeColor = System.Drawing.Color.Silver;
+            this.txtAddress.Location = new System.Drawing.Point(18, 197);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(366, 27);
+            this.txtAddress.TabIndex = 7;
+            this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAddress.Enter += new System.EventHandler(this.TxtAddress_Enter);
+            this.txtAddress.Leave += new System.EventHandler(this.TxtAddress_Leave);
             // 
-            // textBox4
+            // txtPostalCode
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.ForeColor = System.Drawing.Color.Silver;
-            this.textBox4.Location = new System.Drawing.Point(18, 197);
-            this.textBox4.MaxLength = 4;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(366, 27);
-            this.textBox4.TabIndex = 17;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPostalCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtPostalCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPostalCode.ForeColor = System.Drawing.Color.Silver;
+            this.txtPostalCode.Location = new System.Drawing.Point(18, 144);
+            this.txtPostalCode.Name = "txtPostalCode";
+            this.txtPostalCode.Size = new System.Drawing.Size(366, 27);
+            this.txtPostalCode.TabIndex = 5;
+            this.txtPostalCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPostalCode.Enter += new System.EventHandler(this.TxtPostalCode_Enter);
+            this.txtPostalCode.Leave += new System.EventHandler(this.TxtPostalCode_Leave);
             // 
-            // textBox3
+            // txtMobile1
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(18, 144);
-            this.textBox3.MaxLength = 4;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(366, 27);
-            this.textBox3.TabIndex = 17;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtMobile1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMobile1.ForeColor = System.Drawing.Color.Silver;
+            this.txtMobile1.Location = new System.Drawing.Point(452, 86);
+            this.txtMobile1.MaxLength = 11;
+            this.txtMobile1.Name = "txtMobile1";
+            this.txtMobile1.Size = new System.Drawing.Size(366, 27);
+            this.txtMobile1.TabIndex = 2;
+            this.txtMobile1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile1.Enter += new System.EventHandler(this.TxtMobile1_Enter);
+            this.txtMobile1.Leave += new System.EventHandler(this.TxtMobile1_Leave);
             // 
-            // textBox5
+            // txtMobile2
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.ForeColor = System.Drawing.Color.Silver;
-            this.textBox5.Location = new System.Drawing.Point(18, 87);
-            this.textBox5.MaxLength = 4;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(366, 27);
-            this.textBox5.TabIndex = 17;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtMobile2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMobile2.ForeColor = System.Drawing.Color.Silver;
+            this.txtMobile2.Location = new System.Drawing.Point(18, 87);
+            this.txtMobile2.MaxLength = 11;
+            this.txtMobile2.Name = "txtMobile2";
+            this.txtMobile2.Size = new System.Drawing.Size(366, 27);
+            this.txtMobile2.TabIndex = 3;
+            this.txtMobile2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMobile2.Enter += new System.EventHandler(this.TxtMobile2_Enter);
+            this.txtMobile2.Leave += new System.EventHandler(this.TxtMobile2_Leave);
             // 
-            // textBox2
+            // txtFax
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.ForeColor = System.Drawing.Color.Silver;
-            this.textBox2.Location = new System.Drawing.Point(452, 144);
-            this.textBox2.MaxLength = 4;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(366, 27);
-            this.textBox2.TabIndex = 17;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtFax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFax.ForeColor = System.Drawing.Color.Silver;
+            this.txtFax.Location = new System.Drawing.Point(452, 144);
+            this.txtFax.MaxLength = 4;
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(366, 27);
+            this.txtFax.TabIndex = 4;
+            this.txtFax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFax.Enter += new System.EventHandler(this.TxtFax_Enter);
+            this.txtFax.Leave += new System.EventHandler(this.TxtFax_Leave);
             // 
             // label9
             // 
@@ -227,18 +232,20 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "تلفن همراه 2";
             // 
-            // txtTell1
+            // txtPhone1
             // 
-            this.txtTell1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTell1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.txtTell1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTell1.ForeColor = System.Drawing.Color.Silver;
-            this.txtTell1.Location = new System.Drawing.Point(452, 35);
-            this.txtTell1.MaxLength = 4;
-            this.txtTell1.Name = "txtTell1";
-            this.txtTell1.Size = new System.Drawing.Size(366, 27);
-            this.txtTell1.TabIndex = 17;
-            this.txtTell1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPhone1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtPhone1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhone1.ForeColor = System.Drawing.Color.Silver;
+            this.txtPhone1.Location = new System.Drawing.Point(452, 35);
+            this.txtPhone1.MaxLength = 12;
+            this.txtPhone1.Name = "txtPhone1";
+            this.txtPhone1.Size = new System.Drawing.Size(366, 27);
+            this.txtPhone1.TabIndex = 0;
+            this.txtPhone1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPhone1.Enter += new System.EventHandler(this.TxtPhone1_Enter);
+            this.txtPhone1.Leave += new System.EventHandler(this.TxtPhone1_Leave);
             // 
             // label6
             // 
@@ -276,73 +283,87 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "تلفن ثابت 1";
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox1.ForeColor = System.Drawing.Color.Silver;
-            this.textBox1.HideSelection = false;
-            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox1.Location = new System.Drawing.Point(452, 197);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(366, 27);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtEmail.ForeColor = System.Drawing.Color.Silver;
+            this.txtEmail.HideSelection = false;
+            this.txtEmail.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtEmail.Location = new System.Drawing.Point(452, 197);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(366, 27);
+            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEmail.Enter += new System.EventHandler(this.TxtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.TxtEmail_Leave);
             // 
-            // txtName
+            // txtPhone2
             // 
-            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txtName.ForeColor = System.Drawing.Color.Silver;
-            this.txtName.HideSelection = false;
-            this.txtName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtName.Location = new System.Drawing.Point(18, 35);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(366, 27);
-            this.txtName.TabIndex = 2;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPhone2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtPhone2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhone2.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtPhone2.ForeColor = System.Drawing.Color.Silver;
+            this.txtPhone2.HideSelection = false;
+            this.txtPhone2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtPhone2.Location = new System.Drawing.Point(18, 35);
+            this.txtPhone2.MaxLength = 12;
+            this.txtPhone2.Name = "txtPhone2";
+            this.txtPhone2.Size = new System.Drawing.Size(366, 27);
+            this.txtPhone2.TabIndex = 1;
+            this.txtPhone2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPhone2.Enter += new System.EventHandler(this.TxtPhone2_Enter);
+            this.txtPhone2.Leave += new System.EventHandler(this.TxtPhone2_Leave);
             // 
-            // label7
+            // lblDelPic
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(200, 318);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 20);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "حذف تصویر";
+            this.lblDelPic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDelPic.BackColor = System.Drawing.Color.Transparent;
+            this.lblDelPic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblDelPic.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblDelPic.ForeColor = System.Drawing.Color.Silver;
+            this.lblDelPic.Location = new System.Drawing.Point(200, 318);
+            this.lblDelPic.Name = "lblDelPic";
+            this.lblDelPic.Size = new System.Drawing.Size(118, 20);
+            this.lblDelPic.TabIndex = 14;
+            this.lblDelPic.Text = "حذف تصویر";
+            this.lblDelPic.Click += new System.EventHandler(this.LblDelPic_Click);
+            this.lblDelPic.MouseEnter += new System.EventHandler(this.LblDelPic_MouseEnter);
+            this.lblDelPic.MouseLeave += new System.EventHandler(this.LblDelPic_MouseLeave);
             // 
-            // label11
+            // lblWebCam
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label11.ForeColor = System.Drawing.Color.Silver;
-            this.label11.Location = new System.Drawing.Point(172, 290);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 20);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "استفاده از WebCam";
+            this.lblWebCam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWebCam.BackColor = System.Drawing.Color.Transparent;
+            this.lblWebCam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblWebCam.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblWebCam.ForeColor = System.Drawing.Color.Silver;
+            this.lblWebCam.Location = new System.Drawing.Point(172, 290);
+            this.lblWebCam.Name = "lblWebCam";
+            this.lblWebCam.Size = new System.Drawing.Size(171, 20);
+            this.lblWebCam.TabIndex = 14;
+            this.lblWebCam.Text = "استفاده از WebCam";
+            this.lblWebCam.Click += new System.EventHandler(this.LblWebCam_Click);
+            this.lblWebCam.MouseEnter += new System.EventHandler(this.LblWebCam_MouseEnter);
+            this.lblWebCam.MouseLeave += new System.EventHandler(this.LblWebCam_MouseLeave);
             // 
-            // label4
+            // lblAddPic
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(188, 263);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 20);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "افزودن تصویر";
+            this.lblAddPic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAddPic.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddPic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAddPic.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblAddPic.ForeColor = System.Drawing.Color.Silver;
+            this.lblAddPic.Location = new System.Drawing.Point(188, 263);
+            this.lblAddPic.Name = "lblAddPic";
+            this.lblAddPic.Size = new System.Drawing.Size(130, 20);
+            this.lblAddPic.TabIndex = 14;
+            this.lblAddPic.Text = "افزودن تصویر";
+            this.lblAddPic.Click += new System.EventHandler(this.LblAddPic_Click);
+            this.lblAddPic.MouseEnter += new System.EventHandler(this.LblAddPic_MouseEnter);
+            this.lblAddPic.MouseLeave += new System.EventHandler(this.LblAddPic_MouseLeave);
             // 
             // label1
             // 
@@ -388,7 +409,7 @@
             this.Text = "اطلاعات تماس";
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPerssonel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,25 +417,25 @@
         #endregion
 
         public DevComponents.DotNetBar.Controls.GroupPanel grpAccount;
-        public DevComponents.DotNetBar.Controls.ComboBoxEx cmbGroup;
-        public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.TextBox textBox3;
-        public System.Windows.Forms.TextBox textBox5;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtAddress;
+        public System.Windows.Forms.TextBox txtPostalCode;
+        public System.Windows.Forms.TextBox txtMobile2;
+        public System.Windows.Forms.TextBox txtFax;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox txtTell1;
+        public System.Windows.Forms.TextBox txtPhone1;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox txtName;
-        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox txtEmail;
+        public System.Windows.Forms.TextBox txtPhone2;
+        public System.Windows.Forms.Label lblAddPic;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label lblDelPic;
+        private System.Windows.Forms.PictureBox picPerssonel;
+        public System.Windows.Forms.Label lblWebCam;
+        public System.Windows.Forms.TextBox txtMobile1;
     }
 }

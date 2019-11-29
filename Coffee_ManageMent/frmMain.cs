@@ -62,7 +62,7 @@ namespace Coffee_ManageMent
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-           // clsFunction.Switch_Language_To_Persian();
+            txtSetter.Switch_Language_To_Persian();
         }
 
         private void mnuContract_Click(object sender, EventArgs e)

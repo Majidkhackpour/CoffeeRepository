@@ -32,6 +32,11 @@
             AmirCalendar.FarsiDate farsiDate1 = new AmirCalendar.FarsiDate();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerssonel_PublicInfo));
             this.grpAccount = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btnSearchGroup = new DevComponents.DotNetBar.ButtonX();
+            this.btnSearchMoein = new DevComponents.DotNetBar.ButtonX();
+            this.txtMoeinCode = new System.Windows.Forms.TextBox();
+            this.txtMoeinName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblCode = new System.Windows.Forms.Label();
             this.rbtnFemale = new System.Windows.Forms.RadioButton();
             this.rbtnMale = new System.Windows.Forms.RadioButton();
@@ -67,6 +72,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAccount.CanvasColor = System.Drawing.SystemColors.Control;
+            this.grpAccount.Controls.Add(this.btnSearchGroup);
+            this.grpAccount.Controls.Add(this.btnSearchMoein);
+            this.grpAccount.Controls.Add(this.txtMoeinCode);
+            this.grpAccount.Controls.Add(this.txtMoeinName);
+            this.grpAccount.Controls.Add(this.label11);
             this.grpAccount.Controls.Add(this.lblCode);
             this.grpAccount.Controls.Add(this.rbtnFemale);
             this.grpAccount.Controls.Add(this.rbtnMale);
@@ -126,6 +136,81 @@
             this.grpAccount.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.grpAccount.TabIndex = 55668;
             // 
+            // btnSearchGroup
+            // 
+            this.btnSearchGroup.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSearchGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
+            this.btnSearchGroup.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
+            this.btnSearchGroup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchGroup.Location = new System.Drawing.Point(458, 87);
+            this.btnSearchGroup.Name = "btnSearchGroup";
+            this.btnSearchGroup.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(14);
+            this.btnSearchGroup.Size = new System.Drawing.Size(18, 27);
+            this.btnSearchGroup.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
+            this.btnSearchGroup.TabIndex = 26;
+            this.btnSearchGroup.Text = "...";
+            this.btnSearchGroup.TextColor = System.Drawing.Color.Silver;
+            this.btnSearchGroup.ThemeAware = true;
+            this.btnSearchGroup.Click += new System.EventHandler(this.BtnSearchGroup_Click);
+            // 
+            // btnSearchMoein
+            // 
+            this.btnSearchMoein.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSearchMoein.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
+            this.btnSearchMoein.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
+            this.btnSearchMoein.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchMoein.Location = new System.Drawing.Point(272, 254);
+            this.btnSearchMoein.Name = "btnSearchMoein";
+            this.btnSearchMoein.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(14);
+            this.btnSearchMoein.Size = new System.Drawing.Size(29, 27);
+            this.btnSearchMoein.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
+            this.btnSearchMoein.TabIndex = 26;
+            this.btnSearchMoein.Text = "...";
+            this.btnSearchMoein.TextColor = System.Drawing.Color.Silver;
+            this.btnSearchMoein.ThemeAware = true;
+            this.btnSearchMoein.Click += new System.EventHandler(this.BtnSearchMoein_Click);
+            // 
+            // txtMoeinCode
+            // 
+            this.txtMoeinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtMoeinCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMoeinCode.ForeColor = System.Drawing.Color.Silver;
+            this.txtMoeinCode.Location = new System.Drawing.Point(304, 254);
+            this.txtMoeinCode.MaxLength = 6;
+            this.txtMoeinCode.Name = "txtMoeinCode";
+            this.txtMoeinCode.Size = new System.Drawing.Size(79, 27);
+            this.txtMoeinCode.TabIndex = 10;
+            this.txtMoeinCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMoeinCode.TextChanged += new System.EventHandler(this.TxtMoeinCode_TextChanged);
+            // 
+            // txtMoeinName
+            // 
+            this.txtMoeinName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtMoeinName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMoeinName.Enabled = false;
+            this.txtMoeinName.ForeColor = System.Drawing.Color.Silver;
+            this.txtMoeinName.Location = new System.Drawing.Point(18, 254);
+            this.txtMoeinName.MaxLength = 2;
+            this.txtMoeinName.Name = "txtMoeinName";
+            this.txtMoeinName.ReadOnly = true;
+            this.txtMoeinName.Size = new System.Drawing.Size(252, 27);
+            this.txtMoeinName.TabIndex = 27;
+            this.txtMoeinName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.ForeColor = System.Drawing.Color.Silver;
+            this.label11.Location = new System.Drawing.Point(243, 231);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(141, 20);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "حساب معین مانده اول دوره";
+            // 
             // lblCode
             // 
             this.lblCode.AutoSize = true;
@@ -144,10 +229,10 @@
             this.rbtnFemale.BackColor = System.Drawing.Color.Transparent;
             this.rbtnFemale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnFemale.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnFemale.Location = new System.Drawing.Point(262, 257);
+            this.rbtnFemale.Location = new System.Drawing.Point(475, 144);
             this.rbtnFemale.Name = "rbtnFemale";
             this.rbtnFemale.Size = new System.Drawing.Size(49, 24);
-            this.rbtnFemale.TabIndex = 23;
+            this.rbtnFemale.TabIndex = 11;
             this.rbtnFemale.TabStop = true;
             this.rbtnFemale.Text = "خانم";
             this.rbtnFemale.UseVisualStyleBackColor = false;
@@ -158,10 +243,10 @@
             this.rbtnMale.BackColor = System.Drawing.Color.Transparent;
             this.rbtnMale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnMale.ForeColor = System.Drawing.Color.Gainsboro;
-            this.rbtnMale.Location = new System.Drawing.Point(341, 257);
+            this.rbtnMale.Location = new System.Drawing.Point(530, 144);
             this.rbtnMale.Name = "rbtnMale";
             this.rbtnMale.Size = new System.Drawing.Size(40, 24);
-            this.rbtnMale.TabIndex = 22;
+            this.rbtnMale.TabIndex = 10;
             this.rbtnMale.TabStop = true;
             this.rbtnMale.Text = "آقا";
             this.rbtnMale.UseVisualStyleBackColor = false;
@@ -174,7 +259,7 @@
             this.txtDateBirth.Name = "txtDateBirth";
             this.txtDateBirth.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtDateBirth.Size = new System.Drawing.Size(366, 21);
-            this.txtDateBirth.TabIndex = 21;
+            this.txtDateBirth.TabIndex = 6;
             farsiDate1.FarsiSelectedDate = "1398/08/27";
             this.txtDateBirth.Value = farsiDate1;
             // 
@@ -190,7 +275,7 @@
             this.cmbAmountMahiat.Name = "cmbAmountMahiat";
             this.cmbAmountMahiat.Size = new System.Drawing.Size(112, 28);
             this.cmbAmountMahiat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbAmountMahiat.TabIndex = 18;
+            this.cmbAmountMahiat.TabIndex = 9;
             this.cmbAmountMahiat.ValueMember = "Guid";
             // 
             // cmbGroup
@@ -202,16 +287,16 @@
             this.cmbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGroup.ForeColor = System.Drawing.Color.Black;
             this.cmbGroup.ItemHeight = 20;
-            this.cmbGroup.Location = new System.Drawing.Point(458, 87);
+            this.cmbGroup.Location = new System.Drawing.Point(482, 87);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(366, 28);
+            this.cmbGroup.Size = new System.Drawing.Size(342, 28);
             this.cmbGroup.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbGroup.TabIndex = 18;
+            this.cmbGroup.TabIndex = 2;
             this.cmbGroup.ValueMember = "Guid";
             // 
             // PerssonelGroupBindingSource
             // 
-            this.PerssonelGroupBindingSource.DataSource = typeof(void);
+            this.PerssonelGroupBindingSource.DataSource = typeof(DataLayer.Models.Perssonel.PerssonelGroup);
             // 
             // txtPlaceBirth
             // 
@@ -221,7 +306,7 @@
             this.txtPlaceBirth.Location = new System.Drawing.Point(18, 197);
             this.txtPlaceBirth.Name = "txtPlaceBirth";
             this.txtPlaceBirth.Size = new System.Drawing.Size(366, 27);
-            this.txtPlaceBirth.TabIndex = 17;
+            this.txtPlaceBirth.TabIndex = 7;
             this.txtPlaceBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPlaceBirth.Enter += new System.EventHandler(this.TxtPlaceBirth_Enter);
             this.txtPlaceBirth.Leave += new System.EventHandler(this.TxtPlaceBirth_Leave);
@@ -234,7 +319,7 @@
             this.txtFatherName.Location = new System.Drawing.Point(18, 144);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(366, 27);
-            this.txtFatherName.TabIndex = 17;
+            this.txtFatherName.TabIndex = 5;
             this.txtFatherName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFatherName.Enter += new System.EventHandler(this.TxtFatherName_Enter);
             this.txtFatherName.Leave += new System.EventHandler(this.TxtFatherName_Leave);
@@ -248,7 +333,7 @@
             this.txtNatCode.MaxLength = 10;
             this.txtNatCode.Name = "txtNatCode";
             this.txtNatCode.Size = new System.Drawing.Size(366, 27);
-            this.txtNatCode.TabIndex = 17;
+            this.txtNatCode.TabIndex = 3;
             this.txtNatCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNatCode.Enter += new System.EventHandler(this.TxtNatCode_Enter);
             this.txtNatCode.Leave += new System.EventHandler(this.TxtNatCode_Leave);
@@ -259,11 +344,11 @@
             this.txtPerssonelCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
             this.txtPerssonelCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPerssonelCode.ForeColor = System.Drawing.Color.Silver;
-            this.txtPerssonelCode.Location = new System.Drawing.Point(458, 144);
+            this.txtPerssonelCode.Location = new System.Drawing.Point(576, 144);
             this.txtPerssonelCode.MaxLength = 10;
             this.txtPerssonelCode.Name = "txtPerssonelCode";
-            this.txtPerssonelCode.Size = new System.Drawing.Size(366, 27);
-            this.txtPerssonelCode.TabIndex = 17;
+            this.txtPerssonelCode.Size = new System.Drawing.Size(248, 27);
+            this.txtPerssonelCode.TabIndex = 4;
             this.txtPerssonelCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPerssonelCode.Enter += new System.EventHandler(this.TxtPerssonelCode_Enter);
             this.txtPerssonelCode.Leave += new System.EventHandler(this.TxtPerssonelCode_Leave);
@@ -317,7 +402,7 @@
             this.txtCode.MaxLength = 4;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(342, 27);
-            this.txtCode.TabIndex = 17;
+            this.txtCode.TabIndex = 0;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCode.Enter += new System.EventHandler(this.TxtCode_Enter);
             this.txtCode.Leave += new System.EventHandler(this.TxtCode_Leave);
@@ -374,7 +459,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(806, 64);
-            this.txtDescription.TabIndex = 3;
+            this.txtDescription.TabIndex = 11;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescription.Enter += new System.EventHandler(this.TxtDescription_Enter);
             this.txtDescription.Leave += new System.EventHandler(this.TxtDescription_Leave);
@@ -391,8 +476,9 @@
             this.txtAmount.Location = new System.Drawing.Point(576, 254);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(248, 27);
-            this.txtAmount.TabIndex = 2;
+            this.txtAmount.TabIndex = 8;
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAmount.TextChanged += new System.EventHandler(this.TxtAmount_TextChanged);
             this.txtAmount.Enter += new System.EventHandler(this.TxtAmount_Enter);
             this.txtAmount.Leave += new System.EventHandler(this.TxtAmount_Leave);
             // 
@@ -407,7 +493,7 @@
             this.txtName.Location = new System.Drawing.Point(18, 35);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(366, 27);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 1;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtName.Enter += new System.EventHandler(this.TxtName_Enter);
             this.txtName.Leave += new System.EventHandler(this.TxtName_Leave);
@@ -479,6 +565,8 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "اطلاعات عمومی";
+            this.Load += new System.EventHandler(this.FrmPerssonel_PublicInfo_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPerssonel_PublicInfo_KeyDown);
             this.grpAccount.ResumeLayout(false);
             this.grpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PerssonelGroupBindingSource)).EndInit();
@@ -512,7 +600,12 @@
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.RadioButton rbtnFemale;
         public System.Windows.Forms.RadioButton rbtnMale;
-        private System.Windows.Forms.BindingSource PerssonelGroupBindingSource;
         public System.Windows.Forms.Label lblCode;
+        private System.Windows.Forms.BindingSource PerssonelGroupBindingSource;
+        public DevComponents.DotNetBar.ButtonX btnSearchMoein;
+        public System.Windows.Forms.TextBox txtMoeinCode;
+        public System.Windows.Forms.TextBox txtMoeinName;
+        public System.Windows.Forms.Label label11;
+        public DevComponents.DotNetBar.ButtonX btnSearchGroup;
     }
 }

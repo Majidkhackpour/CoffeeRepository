@@ -25,6 +25,11 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.MoeinRepository.Get(guid);
         }
+        public static MoeinHesab GetByCode(string code)
+        {
+            using (var _context = new UnitOfWork())
+                return _context.MoeinRepository.GetByCode(code);
+        }
         public static MoeinHesab Change_Status(Guid moeinGuid, bool status)
         {
             using (var _context = new UnitOfWork())

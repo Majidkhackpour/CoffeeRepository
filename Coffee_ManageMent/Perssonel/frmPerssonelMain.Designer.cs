@@ -175,6 +175,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmPerssonelMain_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPerssonelMain_KeyDown);
             this.ResumeLayout(false);
 
         }
