@@ -6,16 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer.Enums;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Account;
 
 namespace DataLayer.Models.Account
 {
-  public  class AccountGroup:IHasGuid
+  public  class AccountGroup:IAccountGroup
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }
         public string Name { get; set; }
         public string Aouth_Code { get; set; }
         public int Type { get; set; }
-
     }
 }

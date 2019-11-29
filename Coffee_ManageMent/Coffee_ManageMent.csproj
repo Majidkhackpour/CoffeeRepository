@@ -40,6 +40,9 @@
     <Reference Include="AmirCalendar">
       <HintPath>..\..\..\AmirCalendar.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=12.8.0.8, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -337,6 +340,7 @@
       <DependentUpon>CoffeeShopDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BussinesLayer.Anbar.AnbarGroupBussines.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.Account.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.HesabGroup.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.KolHesab.datasource" />

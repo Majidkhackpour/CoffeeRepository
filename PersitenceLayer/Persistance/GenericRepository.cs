@@ -9,6 +9,7 @@ using DataLayer.BussinesLayer;
 using DataLayer.Context;
 using DataLayer.Core;
 using DataLayer.Interface;
+using PersitenceLayer.Mapper;
 
 namespace PersitenceLayer.Persistance
 {
@@ -93,9 +94,15 @@ namespace PersitenceLayer.Persistance
             {
                 try
                 {
+                    transaction.Commit();
                     var result = _dbContext.Set<T>().ToList();
                     return result;
-                    transaction.Commit();
+                    //var tt = typeof(T);
+                    //var Tu = typeof(U);
+                    //var ret = _dbContext.Set<U>().AsNoTracking().ToList();
+
+                    //return Mappings.Default.Map<List<T>>(ret);
+
                 }
                 catch (Exception ex)
                 {

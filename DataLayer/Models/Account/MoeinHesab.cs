@@ -1,10 +1,11 @@
 ﻿using System;
 using DataLayer.Enums;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Account;
 
 namespace DataLayer.Models.Account
 {
-   public class MoeinHesab:IHasGuid
+   public class MoeinHesab:IMoeinHesab
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }

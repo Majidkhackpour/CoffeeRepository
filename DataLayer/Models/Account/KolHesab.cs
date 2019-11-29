@@ -1,9 +1,10 @@
 ﻿using System;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Account;
 
 namespace DataLayer.Models.Account
 {
-   public class KolHesab:IHasGuid
+   public class KolHesab:IKolHesab
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }

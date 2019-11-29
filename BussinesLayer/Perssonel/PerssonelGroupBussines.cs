@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataLayer.Interface.Entities.Perssonel;
 using DataLayer.Models.Anbar;
 using DataLayer.Models.Perssonel;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.Perssonel
 {
-   public class PerssonelGroupBussines
+   public class PerssonelGroupBussines:IPerssonelGroup
     {
         public static List<PerssonelGroup> GetAll()
         {
@@ -43,5 +44,11 @@ namespace BussinesLayer.Perssonel
             using (var _context = new UnitOfWork())
                 return _context.PerssonelGroup.Change_Status(accGuid, status);
         }
+
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public bool Status { get; set; }
+        public string Description { get; set; }
     }
 }

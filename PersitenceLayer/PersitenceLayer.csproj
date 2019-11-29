@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapper\Mappings.cs" />
+    <Compile Include="Mapper\SqlProfile.cs" />
     <Compile Include="Persistance\AccountGroupPersistanceRepository.cs" />
     <Compile Include="Persistance\AccountPersistanceRepository.cs" />
     <Compile Include="Persistance\AnbarGroupPersistanceRepository.cs" />
@@ -81,6 +83,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

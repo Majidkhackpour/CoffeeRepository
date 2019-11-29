@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataLayer.Enums;
+using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
 {
-   public class AccountBussines
+   public class AccountBussines:IAccount
     {
         public static List<Account> GetAll()
         {
@@ -53,5 +54,16 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.AccountRepository.Search(search);
         }
+
+        public Guid Guid { get; set; }
+        public string Code { get; set; }
+        public string Half_Code { get; set; }
+        public string Name { get; set; }
+        public bool State { get; set; }
+        public Guid GroupGuid { get; set; }
+        public string DateSabt { get; set; }
+        public decimal Amounth { get; set; }
+        public string Description { get; set; }
+        public HesabType HesabType { get; set; }
     }
 }

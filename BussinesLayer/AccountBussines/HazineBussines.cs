@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataLayer.Enums;
+using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
 using Microsoft.Win32.SafeHandles;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
 {
-   public class HazineBussines
+   public class HazineBussines:IHazine
     {
         public static List<Hazine> GetAll()
         {
@@ -30,7 +31,7 @@ namespace BussinesLayer.AccountBussines
                 }
                 account.Guid = hazine.Guid;
                 account.HesabType = HesabType.Hazine;
-                account.AccountGroup = AccountGroupBussines.Get((int) HesabType.Hazine);
+                //account.AccountGroup = AccountGroupBussines.Get((int) HesabType.Hazine);
                 account.Amounth = 0;
                 account.Code = hazine.Code;
                 account.DateSabt = hazine.DateSabt;
@@ -59,5 +60,13 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.HazineRepository.Search(search);
         }
+
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Code { get; set; }
+        public string Half_Code { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool State { get; set; }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataLayer.Core;
+using DataLayer.Interface.Entities.Setting;
 using DataLayer.Models.Settings;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer
 {
-   public class AppSettingBussines
+   public class AppSettingBussines:ISetting
     {
         public static List<AppSetting> GetAll()
         {
@@ -33,5 +35,9 @@ namespace BussinesLayer
                 return _context.AppSetting.Get(guid);
         }
 
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public Guid CurrentAnbar { get; set; }
+        public Guid Customer_Motaferaqe { get; set; }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataLayer.Enums;
+using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
 {
-   public class MoeinBussines
+   public class MoeinBussines:IMoeinHesab
     {
         public static List<MoeinHesab> GetAll()
         {
@@ -59,5 +61,16 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.MoeinRepository.Check_Name(code, kolGuid);
         }
+
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public string Half_Code { get; set; }
+        public bool Status { get; set; }
+        public bool System { get; set; }
+        public Guid KolGuid { get; set; }
+        public string Description { get; set; }
+        public EnumMahiat Mahiat { get; set; }
     }
 }

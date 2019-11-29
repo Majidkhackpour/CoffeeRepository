@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using DataLayer.Enums;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Account;
 
 namespace DataLayer.Models.Account
 {
-   public class Account:IHasGuid
+   public class Account:IAccount
     {
         public Guid Guid { get; set; }
         public string Code { get; set; }

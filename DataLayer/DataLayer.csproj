@@ -76,6 +76,18 @@
     <Compile Include="Enums\EnumMahiat.cs" />
     <Compile Include="Enums\EnumGender.cs" />
     <Compile Include="Enums\EnumMessage.cs" />
+    <Compile Include="Interface\Entities\Account\IAccount.cs" />
+    <Compile Include="Interface\Entities\Account\IAccountGroup.cs" />
+    <Compile Include="Interface\Entities\Account\IHazine.cs" />
+    <Compile Include="Interface\Entities\Account\IHesabGroup.cs" />
+    <Compile Include="Interface\Entities\Account\IKolHesab.cs" />
+    <Compile Include="Interface\Entities\Account\IMoeinHesab.cs" />
+    <Compile Include="Interface\Entities\Anbar\IAnbar.cs" />
+    <Compile Include="Interface\Entities\Anbar\IAnbarGroup.cs" />
+    <Compile Include="Interface\Entities\Perssonel\IPerssonel.cs" />
+    <Compile Include="Interface\Entities\Perssonel\IPerssonelGroup.cs" />
+    <Compile Include="Interface\Entities\PhoneBook\IPhoneBook.cs" />
+    <Compile Include="Interface\Entities\Setting\ISetting.cs" />
     <Compile Include="Interface\IHasGuid.cs" />
     <Compile Include="Interface\IHasMasterGuid.cs" />
     <Compile Include="Interface\IPersson.cs" />
@@ -175,6 +187,10 @@
     <Compile Include="Migration\Migration\201911151349129_update20.designer.cs">
       <DependentUpon>201911151349129_update20.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201911291520407_New.cs" />
+    <Compile Include="Migration\Migration\201911291520407_New.designer.cs">
+      <DependentUpon>201911291520407_New.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -270,7 +286,11 @@
     <EmbeddedResource Include="Migration\Migration\201911151349129_update20.resx">
       <DependentUpon>201911151349129_update20.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201911291520407_New.resx">
+      <DependentUpon>201911291520407_New.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

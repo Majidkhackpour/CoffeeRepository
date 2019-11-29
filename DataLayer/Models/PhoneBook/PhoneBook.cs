@@ -1,10 +1,11 @@
 ﻿using System;
 using DataLayer.Enums;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.PhoneBook;
 
 namespace DataLayer.Models.PhoneBook
 {
-   public class PhoneBook:IHasGuid
+   public class PhoneBook:IPhoneBook
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }

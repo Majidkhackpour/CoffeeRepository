@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Account;
 
 namespace DataLayer.Models.Account
 {
-    public class HesabGroup : IHasGuid
+    public class HesabGroup :IHesabGroup
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }

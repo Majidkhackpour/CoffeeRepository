@@ -1,9 +1,10 @@
 ﻿using System;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Setting;
 
 namespace DataLayer.Models.Settings
 {
-   public class AppSetting:IHasGuid
+   public class AppSetting:ISetting
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }

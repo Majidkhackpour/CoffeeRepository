@@ -2,10 +2,11 @@
 using System.Security.AccessControl;
 using DataLayer.Enums;
 using DataLayer.Interface;
+using DataLayer.Interface.Entities.Perssonel;
 
 namespace DataLayer.Models.Perssonel
 {
-   public class Perssonel:IPersson
+   public class Perssonel:IPerssonel
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }
