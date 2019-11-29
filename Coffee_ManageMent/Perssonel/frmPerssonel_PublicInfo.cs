@@ -22,7 +22,7 @@ namespace Coffee_ManageMent
         }
         private class NestedPublicInfo
         {
-            internal static frmPerssonel_PublicInfo perssonelPublicInfo =  new frmPerssonel_PublicInfo();
+            internal static frmPerssonel_PublicInfo perssonelPublicInfo = new frmPerssonel_PublicInfo();
 
             public NestedPublicInfo()
             {
@@ -53,7 +53,7 @@ namespace Coffee_ManageMent
                 else
                     gender = EnumGender.Female;
                 _perssonel.Code = lblCode.Text + txtCode.Text;
-                _perssonel.PerssonelGroup = (Guid) cmbGroup.SelectedValue;
+                _perssonel.PerssonelGroup = (Guid)cmbGroup.SelectedValue;
                 _perssonel.PerssonelCode = txtPerssonelCode.Text;
                 _perssonel.DateBirth = txtDateBirth.Value.FarsiSelectedDate;
                 _perssonel.Name = txtName.Text.Trim();
@@ -62,8 +62,8 @@ namespace Coffee_ManageMent
                 _perssonel.FatherName = txtFatherName.Text;
                 _perssonel.PlaceBirth = txtPlaceBirth.Text;
                 _perssonel.Gender = gender;
-                _perssonel.MoeinAvalDore = moein?.Guid??Guid.Empty;
-                var amount = txtAmount.Text.Replace(",","").ParseToDecimal();
+                _perssonel.MoeinAvalDore = moein?.Guid ?? Guid.Empty;
+                var amount = txtAmount.Text.Replace(",", "").ParseToDecimal();
                 switch (cmbAmountMahiat.SelectedIndex)
                 {
                     case 0:
@@ -94,15 +94,15 @@ namespace Coffee_ManageMent
                 LoadMahiat();
                 txtCode.Text = _perssonel.Code;
                 txtName.Text = _perssonel.Name;
-                txtAmount.Text = _perssonel.Amount_AvalDore.ToString();
+                txtAmount.Text = (Math.Abs(_perssonel.Amount_AvalDore)).ToString();
                 txtDateBirth.Value.FarsiSelectedDate = _perssonel.DateBirth;
                 txtDescription.Text = _perssonel.Description;
                 txtNatCode.Text = _perssonel.NationalCode;
                 txtPerssonelCode.Text = _perssonel.PerssonelCode;
                 txtPlaceBirth.Text = _perssonel.PlaceBirth;
                 moein = MoeinBussines.Get(_perssonel.MoeinAvalDore);
-                txtMoeinName.Text = moein?.Name??"";
-                txtMoeinCode.Text = moein?.Code??"";
+                txtMoeinName.Text = moein?.Name ?? "";
+                txtMoeinCode.Text = moein?.Code ?? "";
                 if (_perssonel.PerssonelGroup != Guid.Empty)
                     cmbGroup.SelectedValue = _perssonel.PerssonelGroup;
                 else
@@ -122,6 +122,13 @@ namespace Coffee_ManageMent
                     NewCode();
                     SetPerssonelCode();
                 }
+
+                if (_perssonel.Amount_AvalDore < 0)
+                    cmbAmountMahiat.SelectedIndex = 1;
+                if (_perssonel.Amount_AvalDore == 0)
+                    cmbAmountMahiat.SelectedIndex = 0;
+                if (_perssonel.Amount_AvalDore > 0)
+                    cmbAmountMahiat.SelectedIndex = 2;
             }
             catch (Exception ex)
             {
@@ -259,7 +266,7 @@ namespace Coffee_ManageMent
 
         public void FrmPerssonel_PublicInfo_KeyDown(object sender, KeyEventArgs e)
         {
-            txtSetter.KeyDown(sender,e,frmPerssonelMain.MainInfo.btnFinish);
+            txtSetter.KeyDown(sender, e, frmPerssonelMain.MainInfo.btnFinish);
         }
 
         private void BtnSearchMoein_Click(object sender, EventArgs e)
@@ -286,7 +293,7 @@ namespace Coffee_ManageMent
             try
             {
                 var a = MoeinBussines.GetByCode(txtMoeinCode.Text.Trim());
-                txtMoeinName.Text = a.Name;
+                txtMoeinName.Text = a?.Name??"";
                 moein = a;
             }
             catch
@@ -301,7 +308,7 @@ namespace Coffee_ManageMent
             try
             {
                 frmShow_PerssonelGroup f = new frmShow_PerssonelGroup(true);
-                if (f.ShowDialog()==DialogResult.OK)
+                if (f.ShowDialog() == DialogResult.OK)
                 {
                     cmbGroup.SelectedValue = f.SelectedGuid;
                 }
