@@ -91,7 +91,7 @@ namespace Coffee_ManageMent.Hazine
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Acc = HazineBussines.Change_Status(accGuid, false);
-                    HazineBussines.Save(Acc);
+                   var a= Acc.Save();
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();
                     LoadData();

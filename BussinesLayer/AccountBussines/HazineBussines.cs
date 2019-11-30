@@ -4,7 +4,7 @@ using DataLayer.BussinesLayer;
 using DataLayer.Enums;
 using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
-using Microsoft.Win32.SafeHandles;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
@@ -42,40 +42,65 @@ namespace BussinesLayer.AccountBussines
         }
 
 
-        public static List<Hazine> GetAll()
-        {
-            using (var _context = new UnitOfWork())
-                return _context.HazineRepository.GetAll();
-        }
-        public static Hazine Get(Guid guid)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.HazineRepository.Get(guid);
-        }
-        public ReturnedSaveFuncInfo Save(Hazine hazine)
+        public static List<HazineBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
             {
-                var resAccount = _context.AccountRepository.Save(_Account);
-                if (resAccount)
-                {
-                    var res = _context.HazineRepository.Save(hazine);
-                    _context.Set_Save();
-                    _context.Dispose();
-                }
-
-                return new ReturnedSaveFuncInfo();
+                var a = _context.HazineRepository.GetAll();
+                return Mappings.Default.Map<List<HazineBussines>>(a);
             }
         }
-        public static Hazine Change_Status(Guid accGuid, bool status)
+        public static HazineBussines Get(Guid guid)
         {
             using (var _context = new UnitOfWork())
-                return _context.HazineRepository.Change_Status(accGuid, status);
+            {
+                var a= _context.HazineRepository.Get(guid);
+                return Mappings.Default.Map<HazineBussines>(a);
+            }
         }
-        public static List<Hazine> Search(string search)
+        public bool Save()
+        {
+            var tran = new DataBaseManager();
+            string TranName = "Tran" + System.Guid.NewGuid().ToString();
+            try
+            {
+                using (var _context = new UnitOfWork())
+                {
+                    tran.BeginTransaction(TranName);
+                    tran.CommitTransaction(TranName);
+                    var resAccount = _context.AccountRepository.Save(_Account);
+                    if (resAccount)
+                    {
+                        var a = Mappings.Default.Map<Hazine>(this);
+                        var res = _context.HazineRepository.Save(a);
+                        _context.Set_Save();
+                        _context.Dispose();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception exception)
+            {
+                return false;
+                tran.RollBackTransaction(TranName);
+            }
+        }
+        public static HazineBussines Change_Status(Guid accGuid, bool status)
         {
             using (var _context = new UnitOfWork())
-                return _context.HazineRepository.Search(search);
+            {
+                var a= _context.HazineRepository.Change_Status(accGuid, status);
+                return Mappings.Default.Map<HazineBussines>(a);
+            }
+        }
+        public static List<HazineBussines> Search(string search)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a= _context.HazineRepository.Search(search);
+                return Mappings.Default.Map<List<HazineBussines>>(a);
+            }
         }
 
 

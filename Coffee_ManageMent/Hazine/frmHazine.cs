@@ -9,11 +9,11 @@ namespace Coffee_ManageMent.Hazine
 {
     public partial class frmHazine : Form
     {
-        private DataLayer.Models.Account.Hazine hazine;
+        private HazineBussines hazine;
         public frmHazine()
         {
             InitializeComponent();
-            hazine = new DataLayer.Models.Account.Hazine();
+            hazine = new HazineBussines();
         }
         public frmHazine(Guid hazineGuid, bool Is_Show)
         {
@@ -155,7 +155,7 @@ namespace Coffee_ManageMent.Hazine
                 hazine.Name = txtName.Text;
                 hazine.State = true;
 
-                if (HazineBussines.Save(hazine))
+                if (hazine.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();
