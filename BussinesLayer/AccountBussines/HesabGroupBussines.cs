@@ -11,6 +11,11 @@ namespace BussinesLayer.AccountBussines
 {
    public class HesabGroupBussines:IHesabGroup
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public bool Status { get; set; }
         public static List<HesabGroup> GetAll()
         {
             using (var _context=new UnitOfWork())
@@ -22,10 +27,6 @@ namespace BussinesLayer.AccountBussines
                 return _context.HesabGroupRepository.Get(guid);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-        public bool Status { get; set; }
+
     }
 }

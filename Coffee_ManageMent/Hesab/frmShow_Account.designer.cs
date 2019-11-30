@@ -46,6 +46,9 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblCounter = new System.Windows.Forms.Label();
             this.DGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uC_Date1 = new UC_Date.UC_Date();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +57,8 @@
             this.groupGuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amounthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label1 = new System.Windows.Forms.Label();
-            this.uC_Date1 = new UC_Date.UC_Date();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hesabTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AccountBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
@@ -85,7 +87,7 @@
             // 
             // AccountBindingSource
             // 
-            this.AccountBindingSource.DataSource = typeof(DataLayer.Models.Account.Account);
+            this.AccountBindingSource.DataSource = typeof(BussinesLayer.AccountBussines.AccountBussines);
             // 
             // mnuView
             // 
@@ -182,7 +184,9 @@
             this.stateDataGridViewCheckBoxColumn,
             this.groupGuidDataGridViewTextBoxColumn,
             this.dateSabtDataGridViewTextBoxColumn,
-            this.amounthDataGridViewTextBoxColumn});
+            this.amounthDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.hesabTypeDataGridViewTextBoxColumn});
             this.DGrid.ContextMenuStrip = this.contextMenuStrip1;
             this.DGrid.DataSource = this.AccountBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -219,7 +223,45 @@
             this.DGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGrid.Size = new System.Drawing.Size(752, 448);
             this.DGrid.TabIndex = 55627;
-//            this.DGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGrid_KeyDown);
+            // 
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.Border.Class = "TextBoxBorder";
+            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSearch.Location = new System.Drawing.Point(169, 52);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PreventEnterBeep = true;
+            this.txtSearch.Size = new System.Drawing.Size(445, 27);
+            this.txtSearch.TabIndex = 55626;
+            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(575, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 24);
+            this.label1.TabIndex = 55625;
+            this.label1.Text = "نمایش حساب های تفصیلی";
+            // 
+            // uC_Date1
+            // 
+            this.uC_Date1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.uC_Date1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uC_Date1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.uC_Date1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Date1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uC_Date1.Name = "uC_Date1";
+            this.uC_Date1.Size = new System.Drawing.Size(770, 47);
+            this.uC_Date1.TabIndex = 55624;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -285,45 +327,21 @@
             this.amounthDataGridViewTextBoxColumn.ReadOnly = true;
             this.amounthDataGridViewTextBoxColumn.Visible = false;
             // 
-            // txtSearch
+            // descriptionDataGridViewTextBoxColumn
             // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
             // 
+            // hesabTypeDataGridViewTextBoxColumn
             // 
-            // 
-            this.txtSearch.Border.Class = "TextBoxBorder";
-            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSearch.Location = new System.Drawing.Point(169, 52);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PreventEnterBeep = true;
-            this.txtSearch.Size = new System.Drawing.Size(445, 27);
-            this.txtSearch.TabIndex = 55626;
-            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
-            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
-           // this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(575, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 24);
-            this.label1.TabIndex = 55625;
-            this.label1.Text = "نمایش حساب های تفصیلی";
-            // 
-            // uC_Date1
-            // 
-            this.uC_Date1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.uC_Date1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uC_Date1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.uC_Date1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Date1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uC_Date1.Name = "uC_Date1";
-            this.uC_Date1.Size = new System.Drawing.Size(770, 47);
-            this.uC_Date1.TabIndex = 55624;
+            this.hesabTypeDataGridViewTextBoxColumn.DataPropertyName = "HesabType";
+            this.hesabTypeDataGridViewTextBoxColumn.HeaderText = "HesabType";
+            this.hesabTypeDataGridViewTextBoxColumn.Name = "hesabTypeDataGridViewTextBoxColumn";
+            this.hesabTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hesabTypeDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmShow_Account
             // 
@@ -382,5 +400,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn groupGuidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateSabtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amounthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hesabTypeDataGridViewTextBoxColumn;
     }
 }

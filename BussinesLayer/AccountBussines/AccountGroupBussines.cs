@@ -12,6 +12,11 @@ namespace BussinesLayer.AccountBussines
 {
    public class AccountGroupBussines:IAccountGroup
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public string Aouth_Code { get; set; }
+        public int Type { get; set; }
         public static List<AccountGroup> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -27,10 +32,5 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.AccountGroupRepository.Get(hType);
         }
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Name { get; set; }
-        public string Aouth_Code { get; set; }
-        public int Type { get; set; }
     }
 }

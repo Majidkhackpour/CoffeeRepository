@@ -9,6 +9,11 @@ namespace BussinesLayer.Perssonel
 {
    public class PerssonelGroupBussines:IPerssonelGroup
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public bool Status { get; set; }
+        public string Description { get; set; }
         public static List<PerssonelGroup> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -45,10 +50,6 @@ namespace BussinesLayer.Perssonel
                 return _context.PerssonelGroup.Change_Status(accGuid, status);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Name { get; set; }
-        public bool Status { get; set; }
-        public string Description { get; set; }
+
     }
 }

@@ -38,17 +38,6 @@
             this.uC_Date1 = new UC_Date.UC_Date();
             this.label1 = new System.Windows.Forms.Label();
             this.DGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.halfCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.systemDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.kolGuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mahiatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolHesabDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +49,16 @@
             this.lblCounter = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.line1 = new DevComponents.DotNetBar.Controls.Line();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.halfCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.systemDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.kolGuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mahiatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MoeinBindingSource)).BeginInit();
@@ -120,8 +119,7 @@
             this.systemDataGridViewCheckBoxColumn,
             this.kolGuidDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
-            this.mahiatDataGridViewTextBoxColumn,
-            this.kolHesabDataGridViewTextBoxColumn});
+            this.mahiatDataGridViewTextBoxColumn});
             this.DGrid.ContextMenuStrip = this.contextMenuStrip1;
             this.DGrid.DataSource = this.MoeinBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -159,7 +157,112 @@
             this.DGrid.Size = new System.Drawing.Size(574, 448);
             this.DGrid.TabIndex = 31;
             this.DGrid.DoubleClick += new System.EventHandler(this.DGrid_DoubleClick);
-//            this.DGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGrid_KeyDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.contextMenuStrip1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuInsert,
+            this.mnuEdit,
+            this.mnuDelete,
+            this.toolStripMenuItem2,
+            this.mnuView});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(244, 106);
+            // 
+            // mnuInsert
+            // 
+            this.mnuInsert.ForeColor = System.Drawing.Color.Silver;
+            this.mnuInsert.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.mnuInsert.Name = "mnuInsert";
+            this.mnuInsert.Size = new System.Drawing.Size(243, 24);
+            this.mnuInsert.Text = "درج حساب معین جدید";
+            this.mnuInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.mnuInsert.Click += new System.EventHandler(this.MnuInsert_Click);
+            // 
+            // mnuEdit
+            // 
+            this.mnuEdit.ForeColor = System.Drawing.Color.Silver;
+            this.mnuEdit.Name = "mnuEdit";
+            this.mnuEdit.Size = new System.Drawing.Size(243, 24);
+            this.mnuEdit.Text = "ویرایش اطلاعات حساب معین جاری";
+            this.mnuEdit.Click += new System.EventHandler(this.MnuEdit_Click);
+            // 
+            // mnuDelete
+            // 
+            this.mnuDelete.ForeColor = System.Drawing.Color.Silver;
+            this.mnuDelete.Name = "mnuDelete";
+            this.mnuDelete.Size = new System.Drawing.Size(243, 24);
+            this.mnuDelete.Text = "حذف حساب معین جاری";
+            this.mnuDelete.Click += new System.EventHandler(this.MnuDelete_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(240, 6);
+            // 
+            // mnuView
+            // 
+            this.mnuView.ForeColor = System.Drawing.Color.Silver;
+            this.mnuView.Name = "mnuView";
+            this.mnuView.Size = new System.Drawing.Size(243, 24);
+            this.mnuView.Text = "مشاهده";
+            this.mnuView.Click += new System.EventHandler(this.MnuView_Click);
+            // 
+            // MoeinBindingSource
+            // 
+            this.MoeinBindingSource.DataSource = typeof(BussinesLayer.AccountBussines.MoeinBussines);
+            // 
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.Border.Class = "TextBoxBorder";
+            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSearch.Location = new System.Drawing.Point(68, 52);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PreventEnterBeep = true;
+            this.txtSearch.Size = new System.Drawing.Size(445, 27);
+            this.txtSearch.TabIndex = 30;
+            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // lblCounter
+            // 
+            this.lblCounter.Font = new System.Drawing.Font("B Yekan", 12F);
+            this.lblCounter.ForeColor = System.Drawing.Color.Silver;
+            this.lblCounter.Location = new System.Drawing.Point(144, 555);
+            this.lblCounter.Name = "lblCounter";
+            this.lblCounter.Size = new System.Drawing.Size(64, 20);
+            this.lblCounter.TabIndex = 55625;
+            this.lblCounter.Text = "00";
+            this.lblCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("B Yekan", 12F);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(238, 555);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(191, 20);
+            this.label2.TabIndex = 55626;
+            this.label2.Text = "تعداد حساب ثبت شده:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // line1
+            // 
+            this.line1.ForeColor = System.Drawing.Color.Silver;
+            this.line1.Location = new System.Drawing.Point(0, 537);
+            this.line1.Name = "line1";
+            this.line1.Size = new System.Drawing.Size(592, 28);
+            this.line1.TabIndex = 55624;
+            this.line1.Text = "line1";
+            this.line1.Thickness = 2;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -240,121 +343,6 @@
             this.mahiatDataGridViewTextBoxColumn.ReadOnly = true;
             this.mahiatDataGridViewTextBoxColumn.Visible = false;
             // 
-            // kolHesabDataGridViewTextBoxColumn
-            // 
-            this.kolHesabDataGridViewTextBoxColumn.DataPropertyName = "KolHesab";
-            this.kolHesabDataGridViewTextBoxColumn.HeaderText = "KolHesab";
-            this.kolHesabDataGridViewTextBoxColumn.Name = "kolHesabDataGridViewTextBoxColumn";
-            this.kolHesabDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kolHesabDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.contextMenuStrip1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuInsert,
-            this.mnuEdit,
-            this.mnuDelete,
-            this.toolStripMenuItem2,
-            this.mnuView});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(244, 106);
-            // 
-            // mnuInsert
-            // 
-            this.mnuInsert.ForeColor = System.Drawing.Color.Silver;
-            this.mnuInsert.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.mnuInsert.Name = "mnuInsert";
-            this.mnuInsert.Size = new System.Drawing.Size(243, 24);
-            this.mnuInsert.Text = "درج حساب معین جدید";
-            this.mnuInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.mnuInsert.Click += new System.EventHandler(this.MnuInsert_Click);
-            // 
-            // mnuEdit
-            // 
-            this.mnuEdit.ForeColor = System.Drawing.Color.Silver;
-            this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(243, 24);
-            this.mnuEdit.Text = "ویرایش اطلاعات حساب معین جاری";
-            this.mnuEdit.Click += new System.EventHandler(this.MnuEdit_Click);
-            // 
-            // mnuDelete
-            // 
-            this.mnuDelete.ForeColor = System.Drawing.Color.Silver;
-            this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(243, 24);
-            this.mnuDelete.Text = "حذف حساب معین جاری";
-            this.mnuDelete.Click += new System.EventHandler(this.MnuDelete_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(240, 6);
-            // 
-            // mnuView
-            // 
-            this.mnuView.ForeColor = System.Drawing.Color.Silver;
-            this.mnuView.Name = "mnuView";
-            this.mnuView.Size = new System.Drawing.Size(243, 24);
-            this.mnuView.Text = "مشاهده";
-            this.mnuView.Click += new System.EventHandler(this.MnuView_Click);
-            // 
-            // MoeinBindingSource
-            // 
-            this.MoeinBindingSource.DataSource = typeof(DataLayer.Models.Account.MoeinHesab);
-            // 
-            // txtSearch
-            // 
-            // 
-            // 
-            // 
-            this.txtSearch.Border.Class = "TextBoxBorder";
-            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSearch.Location = new System.Drawing.Point(68, 52);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PreventEnterBeep = true;
-            this.txtSearch.Size = new System.Drawing.Size(445, 27);
-            this.txtSearch.TabIndex = 30;
-            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
-            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
-          //  this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
-            // 
-            // lblCounter
-            // 
-            this.lblCounter.Font = new System.Drawing.Font("B Yekan", 12F);
-            this.lblCounter.ForeColor = System.Drawing.Color.Silver;
-            this.lblCounter.Location = new System.Drawing.Point(144, 555);
-            this.lblCounter.Name = "lblCounter";
-            this.lblCounter.Size = new System.Drawing.Size(64, 20);
-            this.lblCounter.TabIndex = 55625;
-            this.lblCounter.Text = "00";
-            this.lblCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("B Yekan", 12F);
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(238, 555);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 20);
-            this.label2.TabIndex = 55626;
-            this.label2.Text = "تعداد حساب ثبت شده:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // line1
-            // 
-            this.line1.ForeColor = System.Drawing.Color.Silver;
-            this.line1.Location = new System.Drawing.Point(0, 537);
-            this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(592, 28);
-            this.line1.TabIndex = 55624;
-            this.line1.Text = "line1";
-            this.line1.Thickness = 2;
-            // 
             // frmShow_MoeinHesab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -414,6 +402,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kolGuidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mahiatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kolHesabDataGridViewTextBoxColumn;
     }
 }

@@ -9,6 +9,10 @@ namespace BussinesLayer
 {
    public class AppSettingBussines:ISetting
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public Guid CurrentAnbar { get; set; }
+        public Guid Customer_Motaferaqe { get; set; }
         public static List<AppSetting> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -35,9 +39,6 @@ namespace BussinesLayer
                 return _context.AppSetting.Get(guid);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public Guid CurrentAnbar { get; set; }
-        public Guid Customer_Motaferaqe { get; set; }
+
     }
 }

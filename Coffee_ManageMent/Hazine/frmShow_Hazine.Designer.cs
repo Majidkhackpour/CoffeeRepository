@@ -46,15 +46,16 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lblCounter = new System.Windows.Forms.Label();
             this.DGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uC_Date1 = new UC_Date.UC_Date();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.halfCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stateDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label1 = new System.Windows.Forms.Label();
-            this.uC_Date1 = new UC_Date.UC_Date();
             ((System.ComponentModel.ISupportInitialize)(this.HazineBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
@@ -85,7 +86,7 @@
             // 
             // HazineBindingSource
             // 
-            this.HazineBindingSource.DataSource = typeof(DataLayer.Models.Account.Hazine);
+            this.HazineBindingSource.DataSource = typeof(BussinesLayer.AccountBussines.HazineBussines);
             // 
             // mnuView
             // 
@@ -180,6 +181,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.dgGuid,
             this.dateSabtDataGridViewTextBoxColumn,
+            this.halfCodeDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.stateDataGridViewCheckBoxColumn});
             this.DGrid.ContextMenuStrip = this.contextMenuStrip1;
@@ -218,12 +220,51 @@
             this.DGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGrid.Size = new System.Drawing.Size(571, 418);
             this.DGrid.TabIndex = 55655;
-//            this.DGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGrid_KeyDown);
+            // 
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.Border.Class = "TextBoxBorder";
+            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSearch.Location = new System.Drawing.Point(88, 59);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PreventEnterBeep = true;
+            this.txtSearch.Size = new System.Drawing.Size(408, 27);
+            this.txtSearch.TabIndex = 55654;
+            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(468, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 24);
+            this.label1.TabIndex = 55653;
+            this.label1.Text = "نمایش هزینه ها";
+            // 
+            // uC_Date1
+            // 
+            this.uC_Date1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.uC_Date1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uC_Date1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.uC_Date1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Date1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.uC_Date1.Name = "uC_Date1";
+            this.uC_Date1.Size = new System.Drawing.Size(592, 49);
+            this.uC_Date1.TabIndex = 55652;
             // 
             // codeDataGridViewTextBoxColumn
             // 
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "کد";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "کد حساب";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -251,6 +292,14 @@
             this.dateSabtDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateSabtDataGridViewTextBoxColumn.Visible = false;
             // 
+            // halfCodeDataGridViewTextBoxColumn
+            // 
+            this.halfCodeDataGridViewTextBoxColumn.DataPropertyName = "Half_Code";
+            this.halfCodeDataGridViewTextBoxColumn.HeaderText = "Half_Code";
+            this.halfCodeDataGridViewTextBoxColumn.Name = "halfCodeDataGridViewTextBoxColumn";
+            this.halfCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.halfCodeDataGridViewTextBoxColumn.Visible = false;
+            // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
@@ -266,47 +315,6 @@
             this.stateDataGridViewCheckBoxColumn.Name = "stateDataGridViewCheckBoxColumn";
             this.stateDataGridViewCheckBoxColumn.ReadOnly = true;
             this.stateDataGridViewCheckBoxColumn.Visible = false;
-            // 
-            // txtSearch
-            // 
-            // 
-            // 
-            // 
-            this.txtSearch.Border.Class = "TextBoxBorder";
-            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSearch.Location = new System.Drawing.Point(88, 59);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PreventEnterBeep = true;
-            this.txtSearch.Size = new System.Drawing.Size(408, 27);
-            this.txtSearch.TabIndex = 55654;
-            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
-            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
-         //   this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSearch_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(468, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 24);
-            this.label1.TabIndex = 55653;
-            this.label1.Text = "نمایش هزینه ها";
-            // 
-            // uC_Date1
-            // 
-            this.uC_Date1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.uC_Date1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uC_Date1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.uC_Date1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Date1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.uC_Date1.Name = "uC_Date1";
-            this.uC_Date1.Size = new System.Drawing.Size(592, 49);
-            this.uC_Date1.TabIndex = 55652;
             // 
             // frmShow_Hazine
             // 
@@ -361,6 +369,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgGuid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateSabtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn halfCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn stateDataGridViewCheckBoxColumn;
     }

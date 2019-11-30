@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataLayer.BussinesLayer;
 using DataLayer.Enums;
 using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
@@ -10,6 +11,37 @@ namespace BussinesLayer.AccountBussines
 {
    public class HazineBussines:IHazine
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Code { get; set; }
+        public string Half_Code { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool State { get; set; }
+
+        public Account _Account
+        {
+            get
+            {
+                var account = AccountBussines.Get(Guid);
+                if (account == null)
+                {
+                    account = new Account();
+                }
+                account.Guid = Guid;
+                account.HesabType = HesabType.Hazine;
+                account.Code = Code;
+                account.DateSabt = DateSabt;
+                account.Description = Description;
+                account.GroupGuid = AccountGroupBussines.Get((int)HesabType.Hazine).Guid;
+                account.Half_Code = Half_Code;
+                account.Name = Name;
+                account.State = State;
+                return account;
+            }
+        }
+
+
         public static List<Hazine> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -20,34 +52,19 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.HazineRepository.Get(guid);
         }
-        public static bool Save(Hazine hazine)
+        public ReturnedSaveFuncInfo Save(Hazine hazine)
         {
             using (var _context = new UnitOfWork())
             {
-                var account = AccountBussines.Get(hazine.Guid);
-                if (account==null)
-                {
-                    account = new Account();
-                }
-                account.Guid = hazine.Guid;
-                account.HesabType = HesabType.Hazine;
-                //account.AccountGroup = AccountGroupBussines.Get((int) HesabType.Hazine);
-                account.Amounth = 0;
-                account.Code = hazine.Code;
-                account.DateSabt = hazine.DateSabt;
-                account.Description = hazine.Description;
-                account.GroupGuid = AccountGroupBussines.Get((int) HesabType.Hazine).Guid;
-                account.Half_Code = hazine.Half_Code;
-                account.Name = hazine.Name;
-                account.State = hazine.State;
-                var resAccount = _context.AccountRepository.Save(account);
+                var resAccount = _context.AccountRepository.Save(_Account);
                 if (resAccount)
                 {
                     var res = _context.HazineRepository.Save(hazine);
                     _context.Set_Save();
                     _context.Dispose();
                 }
-                return resAccount;
+
+                return new ReturnedSaveFuncInfo();
             }
         }
         public static Hazine Change_Status(Guid accGuid, bool status)
@@ -61,12 +78,6 @@ namespace BussinesLayer.AccountBussines
                 return _context.HazineRepository.Search(search);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Code { get; set; }
-        public string Half_Code { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool State { get; set; }
+
     }
 }

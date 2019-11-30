@@ -9,6 +9,16 @@ namespace BussinesLayer.AccountBussines
 {
    public class AccountBussines:IAccount
     {
+        public Guid Guid { get; set; }
+        public string Code { get; set; }
+        public string Half_Code { get; set; }
+        public string Name { get; set; }
+        public bool State { get; set; }
+        public Guid GroupGuid { get; set; }
+        public string DateSabt { get; set; }
+        public decimal Amounth { get; set; }
+        public string Description { get; set; }
+        public HesabType HesabType { get; set; }
         public static List<Account> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -55,15 +65,6 @@ namespace BussinesLayer.AccountBussines
                 return _context.AccountRepository.Search(search);
         }
 
-        public Guid Guid { get; set; }
-        public string Code { get; set; }
-        public string Half_Code { get; set; }
-        public string Name { get; set; }
-        public bool State { get; set; }
-        public Guid GroupGuid { get; set; }
-        public string DateSabt { get; set; }
-        public decimal Amounth { get; set; }
-        public string Description { get; set; }
-        public HesabType HesabType { get; set; }
+
     }
 }

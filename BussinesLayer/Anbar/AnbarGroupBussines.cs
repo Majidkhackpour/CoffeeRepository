@@ -8,6 +8,12 @@ namespace BussinesLayer.Anbar
 {
    public class AnbarGroupBussines:IAnbarGroup
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public bool Status { get; set; }
+        public string Descrition { get; set; }
+
         public static List<AnbarGroup> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -44,10 +50,6 @@ namespace BussinesLayer.Anbar
                 return _context.AnbarGroupRepository.Search(search);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Name { get; set; }
-        public bool Status { get; set; }
-        public string Descrition { get; set; }
+
     }
 }

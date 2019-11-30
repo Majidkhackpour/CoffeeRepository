@@ -219,7 +219,7 @@
             // 
             // PerssonelGroupBindingSource
             // 
-            this.PerssonelGroupBindingSource.DataSource = typeof(DataLayer.Models.Perssonel.PerssonelGroup);
+            this.PerssonelGroupBindingSource.DataSource = typeof(BussinesLayer.Perssonel.PerssonelGroupBussines);
             // 
             // label1
             // 

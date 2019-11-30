@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataLayer.Interface.Entities.Anbar;
-using DataLayer.Models.Anbar;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.Anbar
 {
    public class AnbarBussines:IAnbar
     {
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public bool Status { get; set; }
+        public Guid AnbarGroup { get; set; }
+        public bool Manfi { get; set; }
         public static List<DataLayer.Models.Anbar.Anbar> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -44,12 +50,6 @@ namespace BussinesLayer.Anbar
                 return _context.AnbarRepository.Search(search);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool Status { get; set; }
-        public Guid AnbarGroup { get; set; }
-        public bool Manfi { get; set; }
+
     }
 }

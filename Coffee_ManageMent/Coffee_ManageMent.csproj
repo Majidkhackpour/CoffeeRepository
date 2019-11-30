@@ -340,7 +340,14 @@
       <DependentUpon>CoffeeShopDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BussinesLayer.AccountBussines.AccountBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.AccountBussines.HazineBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.AccountBussines.KolBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.AccountBussines.MoeinBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.Anbar.AnbarBussines.datasource" />
     <None Include="Properties\DataSources\BussinesLayer.Anbar.AnbarGroupBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.Perssonel.PerssonelBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.Perssonel.PerssonelGroupBussines.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.Account.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.HesabGroup.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.KolHesab.datasource" />

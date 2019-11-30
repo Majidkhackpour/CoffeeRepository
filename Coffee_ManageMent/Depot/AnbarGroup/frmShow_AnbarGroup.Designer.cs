@@ -50,10 +50,11 @@
             this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.uC_Date1 = new UC_Date.UC_Date();
             this.Radif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.descritionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AnbarGroupBindingSource)).BeginInit();
@@ -119,10 +120,11 @@
             this.DGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Radif,
+            this.nameDataGridViewTextBoxColumn,
             this.dgGuid,
             this.dateSabtDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.statusDataGridViewCheckBoxColumn});
+            this.statusDataGridViewCheckBoxColumn,
+            this.descritionDataGridViewTextBoxColumn});
             this.DGrid.ContextMenuStrip = this.contextMenuStrip1;
             this.DGrid.DataSource = this.AnbarGroupBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -217,7 +219,7 @@
             // 
             // AnbarGroupBindingSource
             // 
-            this.AnbarGroupBindingSource.DataSource = typeof(DataLayer.Models.Anbar.AnbarGroup);
+            this.AnbarGroupBindingSource.DataSource = typeof(BussinesLayer.Anbar.AnbarGroupBussines);
             // 
             // label1
             // 
@@ -266,6 +268,14 @@
             this.Radif.ReadOnly = true;
             this.Radif.Width = 50;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "عنوان";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // dgGuid
             // 
             this.dgGuid.DataPropertyName = "Guid";
@@ -282,14 +292,6 @@
             this.dateSabtDataGridViewTextBoxColumn.ReadOnly = true;
             this.dateSabtDataGridViewTextBoxColumn.Visible = false;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "عنوان";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // statusDataGridViewCheckBoxColumn
             // 
             this.statusDataGridViewCheckBoxColumn.DataPropertyName = "Status";
@@ -297,6 +299,14 @@
             this.statusDataGridViewCheckBoxColumn.Name = "statusDataGridViewCheckBoxColumn";
             this.statusDataGridViewCheckBoxColumn.ReadOnly = true;
             this.statusDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // descritionDataGridViewTextBoxColumn
+            // 
+            this.descritionDataGridViewTextBoxColumn.DataPropertyName = "Descrition";
+            this.descritionDataGridViewTextBoxColumn.HeaderText = "Descrition";
+            this.descritionDataGridViewTextBoxColumn.Name = "descritionDataGridViewTextBoxColumn";
+            this.descritionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descritionDataGridViewTextBoxColumn.Visible = false;
             // 
             // frmShow_AnbarGroup
             // 
@@ -348,9 +358,10 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtSearch;
         private UC_Date.UC_Date uC_Date1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Radif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgGuid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateSabtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn statusDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descritionDataGridViewTextBoxColumn;
     }
 }

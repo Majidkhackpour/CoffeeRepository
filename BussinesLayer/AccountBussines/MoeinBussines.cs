@@ -9,6 +9,18 @@ namespace BussinesLayer.AccountBussines
 {
    public class MoeinBussines:IMoeinHesab
     {
+
+        public Guid Guid { get; set; }
+        public string DateSabt { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public string Half_Code { get; set; }
+        public bool Status { get; set; }
+        public bool System { get; set; }
+        public Guid KolGuid { get; set; }
+        public string Description { get; set; }
+        public EnumMahiat Mahiat { get; set; }
+
         public static List<MoeinHesab> GetAll()
         {
             using (var _context = new UnitOfWork())
@@ -62,15 +74,5 @@ namespace BussinesLayer.AccountBussines
                 return _context.MoeinRepository.Check_Name(code, kolGuid);
         }
 
-        public Guid Guid { get; set; }
-        public string DateSabt { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
-        public string Half_Code { get; set; }
-        public bool Status { get; set; }
-        public bool System { get; set; }
-        public Guid KolGuid { get; set; }
-        public string Description { get; set; }
-        public EnumMahiat Mahiat { get; set; }
     }
 }
