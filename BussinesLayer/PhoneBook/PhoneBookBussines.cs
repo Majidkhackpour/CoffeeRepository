@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using DataLayer.Enums;
 using DataLayer.Interface.Entities.PhoneBook;
-using DataLayer.Models.Anbar;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.PhoneBook
@@ -29,21 +29,30 @@ namespace BussinesLayer.PhoneBook
         public string HesabNumber2 { get; set; }
         public string CardNumber1 { get; set; }
         public string CardNumber2 { get; set; }
-        public static List<DataLayer.Models.PhoneBook.PhoneBook> GetAll()
-        {
-            using (var _context = new UnitOfWork())
-                return _context.PhoneBook.GetAll();
-        }
-        public static DataLayer.Models.PhoneBook.PhoneBook Get(Guid guid)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.PhoneBook.Get(guid);
-        }
-        public static bool Save(DataLayer.Models.PhoneBook.PhoneBook item)
+
+
+        public static List<PhoneBookBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
             {
-                var res = _context.PhoneBook.Save(item);
+                var a= _context.PhoneBook.GetAll();
+                return Mappings.Default.Map<List<PhoneBookBussines>>(a);
+            }
+        }
+        public static PhoneBookBussines Get(Guid guid)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.PhoneBook.Get(guid);
+                return Mappings.Default.Map<PhoneBookBussines>(a);
+            }
+        }
+        public bool Save()
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = Mappings.Default.Map<DataLayer.Models.PhoneBook.PhoneBook>(this);
+                var res = _context.PhoneBook.Save(a);
                 _context.Set_Save();
                 _context.Dispose();
                 return res;

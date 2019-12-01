@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
@@ -18,37 +19,55 @@ namespace BussinesLayer.AccountBussines
         public bool System { get; set; }
         public string Description { get; set; }
         public HesabGroup HesabGroup { get; set; }
-        public static List<KolHesab> GetAll()
-        {
-            using (var _context = new UnitOfWork())
-                return _context.KolRepository.GetAll();
-        }
-        public static List<KolHesab> Search(string search)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.KolRepository.Search(search);
-        }
-        public static KolHesab Get(Guid guid)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.KolRepository.Get(guid);
-        }
 
-        public static KolHesab GetByCode(string code)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.KolRepository.GetByCode(code);
-        }
-        public static KolHesab Change_Status(Guid kolGuid, bool status)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.KolRepository.Change_Status(kolGuid, status);
-        }
-        public static bool Save(KolHesab kol)
+
+        public static List<KolBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
             {
-                var res = _context.KolRepository.Save(kol);
+                var a= _context.KolRepository.GetAll();
+                return Mappings.Default.Map<List<KolBussines>>(a);
+            }
+        }
+        public static List<KolBussines> Search(string search)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.KolRepository.Search(search);
+                return Mappings.Default.Map<List<KolBussines>>(a);
+            }
+        }
+        public static KolBussines Get(Guid guid)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.KolRepository.Get(guid);
+                return Mappings.Default.Map<KolBussines>(a);
+            }
+        }
+
+        public static KolBussines GetByCode(string code)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.KolRepository.GetByCode(code);
+                return Mappings.Default.Map<KolBussines>(a);
+            }
+        }
+        public static KolBussines Change_Status(Guid kolGuid, bool status)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.KolRepository.Change_Status(kolGuid, status);
+                return Mappings.Default.Map<KolBussines>(a);
+            }
+        }
+        public bool Save()
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = Mappings.Default.Map<KolHesab>(this);
+                var res = _context.KolRepository.Save(a);
                 _context.Set_Save();
                 _context.Dispose();
                 return res;

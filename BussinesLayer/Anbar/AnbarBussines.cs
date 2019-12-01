@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataLayer.Interface.Entities.Anbar;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.Anbar
 {
-   public class AnbarBussines:IAnbar
+    public class AnbarBussines : IAnbar
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }
@@ -14,42 +15,55 @@ namespace BussinesLayer.Anbar
         public bool Status { get; set; }
         public Guid AnbarGroup { get; set; }
         public bool Manfi { get; set; }
-        public static List<DataLayer.Models.Anbar.Anbar> GetAll()
+
+
+        public static List<AnbarBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
-                return _context.AnbarRepository.GetAll();
+            {
+                var a = _context.AnbarRepository.GetAll();
+                return Mappings.Default.Map<List<AnbarBussines>>(a);
+            }
         }
-        public static DataLayer.Models.Anbar.Anbar Get(Guid guid)
+        public static AnbarBussines Get(Guid guid)
         {
             using (var _context = new UnitOfWork())
-                return _context.AnbarRepository.Get(guid);
+            {
+                var a = _context.AnbarRepository.Get(guid);
+                return Mappings.Default.Map<AnbarBussines>(a);
+            }
         }
         public static bool Check_Name(string name, Guid groupGuid)
         {
             using (var _context = new UnitOfWork())
                 return _context.AnbarRepository.Check_Name(name, groupGuid);
         }
-        public static bool Save(DataLayer.Models.Anbar.Anbar item)
+        public bool Save()
         {
             using (var _context = new UnitOfWork())
             {
-                var res = _context.AnbarRepository.Save(item);
+                var a = Mappings.Default.Map<DataLayer.Models.Anbar.Anbar>(this);
+                var res = _context.AnbarRepository.Save(a);
                 _context.Set_Save();
                 _context.Dispose();
                 return res;
             }
         }
-        public static DataLayer.Models.Anbar.Anbar Change_Status(Guid accGuid, bool status)
+        public static AnbarBussines Change_Status(Guid accGuid, bool status)
         {
             using (var _context = new UnitOfWork())
-                return _context.AnbarRepository.Change_Status(accGuid, status);
+            {
+                var a = _context.AnbarRepository.Change_Status(accGuid, status);
+                return Mappings.Default.Map<AnbarBussines>(a);
+            }
         }
-        public static List<DataLayer.Models.Anbar.Anbar> Search(string search)
+        public static List<AnbarBussines> Search(string search)
         {
             using (var _context = new UnitOfWork())
-                return _context.AnbarRepository.Search(search);
+            {
+                var a = _context.AnbarRepository.Search(search);
+                return Mappings.Default.Map<List<AnbarBussines>>(a);
+            }
         }
-
-
     }
 }

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataLayer.Enums;
 using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
@@ -17,20 +14,31 @@ namespace BussinesLayer.AccountBussines
         public string Name { get; set; }
         public string Aouth_Code { get; set; }
         public int Type { get; set; }
-        public static List<AccountGroup> GetAll()
+
+
+        public static List<AccountGroupBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
-                return _context.AccountGroupRepository.GetAll();
+            {
+                var a= _context.AccountGroupRepository.GetAll();
+                return Mappings.Default.Map<List<AccountGroupBussines>>(a);
+            }
         }
-        public static AccountGroup Get(Guid guid)
+        public static AccountGroupBussines Get(Guid guid)
         {
             using (var _context = new UnitOfWork())
-                return _context.AccountGroupRepository.Get(guid);
+            {
+                var a = _context.AccountGroupRepository.Get(guid);
+                return Mappings.Default.Map<AccountGroupBussines>(a);
+            }
         }
-        public static AccountGroup Get(int hType)
+        public static AccountGroupBussines Get(int hType)
         {
             using (var _context = new UnitOfWork())
-                return _context.AccountGroupRepository.Get(hType);
+            {
+                var a = _context.AccountGroupRepository.Get(hType);
+                return Mappings.Default.Map<AccountGroupBussines>(a);
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataLayer.Enums;
 using DataLayer.Interface.Entities.Account;
 using DataLayer.Models.Account;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.AccountBussines
@@ -19,21 +20,31 @@ namespace BussinesLayer.AccountBussines
         public decimal Amounth { get; set; }
         public string Description { get; set; }
         public HesabType HesabType { get; set; }
-        public static List<Account> GetAll()
-        {
-            using (var _context = new UnitOfWork())
-                return _context.AccountRepository.GetAll();
-        }
-        public static Account Get(Guid guid)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.AccountRepository.Get(guid);
-        }
-        public static bool Save(Account kol)
+
+
+
+        public static List<AccountBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
             {
-                var res = _context.AccountRepository.Save(kol);
+                var a= _context.AccountRepository.GetAll();
+                return Mappings.Default.Map<List<AccountBussines>>(a);
+            }
+        }
+        public static AccountBussines Get(Guid guid)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a= _context.AccountRepository.Get(guid);
+                return Mappings.Default.Map<AccountBussines>(a);
+            }
+        }
+        public bool Save()
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = Mappings.Default.Map<Account>(this);
+                var res = _context.AccountRepository.Save(a);
                 _context.Set_Save();
                 _context.Dispose();
                 return res;
@@ -54,17 +65,21 @@ namespace BussinesLayer.AccountBussines
             using (var _context = new UnitOfWork())
                 return _context.AccountRepository.Check_Name(code, groupGuid);
         }
-        public static Account Change_Status(Guid accGuid, bool status)
+        public static AccountBussines Change_Status(Guid accGuid, bool status)
         {
             using (var _context = new UnitOfWork())
-                return _context.AccountRepository.Change_Status(accGuid, status);
+            {
+                var a= _context.AccountRepository.Change_Status(accGuid, status);
+                return Mappings.Default.Map<AccountBussines>(a);
+            }
         }
-        public static List<Account> Search(string search)
+        public static List<AccountBussines> Search(string search)
         {
             using (var _context = new UnitOfWork())
-                return _context.AccountRepository.Search(search);
+            {
+                var a= _context.AccountRepository.Search(search);
+                return Mappings.Default.Map<List<AccountBussines>>(a);
+            }
         }
-
-
     }
 }

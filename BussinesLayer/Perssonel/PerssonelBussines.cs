@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DataLayer.Enums;
 using DataLayer.Interface.Entities.Perssonel;
 using DataLayer.Models.Perssonel;
+using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
 namespace BussinesLayer.Perssonel
@@ -59,21 +60,28 @@ namespace BussinesLayer.Perssonel
         public EnumGender Gender { get; set; }
         public EnumMaritalStatus MaritalStatus { get; set; }
 
-        public static List<DataLayer.Models.Perssonel.Perssonel> GetAll()
-        {
-            using (var _context = new UnitOfWork())
-                return _context.Perssonel.GetAll();
-        }
-        public static DataLayer.Models.Perssonel.Perssonel Get(Guid guid)
-        {
-            using (var _context = new UnitOfWork())
-                return _context.Perssonel.Get(guid);
-        }
-        public static bool Save(DataLayer.Models.Perssonel.Perssonel item)
+        public static List<PerssonelBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
             {
-                var res = _context.Perssonel.Save(item);
+                var a = _context.Perssonel.GetAll();
+                return Mappings.Default.Map<List<PerssonelBussines>>(a);
+            }
+        }
+        public static PerssonelBussines Get(Guid guid)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.Perssonel.Get(guid);
+                return Mappings.Default.Map<PerssonelBussines>(a);
+            }
+        }
+        public bool Save()
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = Mappings.Default.Map<DataLayer.Models.Perssonel.Perssonel>(this);
+                var res = _context.Perssonel.Save(a);
                 _context.Set_Save();
                 _context.Dispose();
                 return res;
