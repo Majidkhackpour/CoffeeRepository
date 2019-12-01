@@ -15,7 +15,7 @@ namespace Coffee_ManageMent
 {
     public partial class frmPerssonel_PublicInfo : Form
     {
-        private MoeinHesab moein = new MoeinHesab();
+        private MoeinBussines moein = new MoeinBussines();
         public frmPerssonel_PublicInfo()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace Coffee_ManageMent
                 f.ShowDialog();
             }
         }
-        public DataLayer.Models.Perssonel.Perssonel SetData(DataLayer.Models.Perssonel.Perssonel _perssonel)
+        public PerssonelBussines SetData(PerssonelBussines _perssonel)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace Coffee_ManageMent
                 return null;
             }
         }
-        public void FillData(DataLayer.Models.Perssonel.Perssonel _perssonel)
+        public void FillData(PerssonelBussines _perssonel)
         {
             try
             {
@@ -310,6 +310,7 @@ namespace Coffee_ManageMent
                 frmShow_PerssonelGroup f = new frmShow_PerssonelGroup(true);
                 if (f.ShowDialog() == DialogResult.OK)
                 {
+                    LoadGroups();
                     cmbGroup.SelectedValue = f.SelectedGuid;
                 }
             }

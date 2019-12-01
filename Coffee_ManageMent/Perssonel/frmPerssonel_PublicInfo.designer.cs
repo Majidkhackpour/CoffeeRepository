@@ -202,12 +202,11 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.ForeColor = System.Drawing.Color.Silver;
-            this.label11.Location = new System.Drawing.Point(243, 231);
+            this.label11.Location = new System.Drawing.Point(64, 231);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(141, 20);
+            this.label11.Size = new System.Drawing.Size(320, 20);
             this.label11.TabIndex = 28;
             this.label11.Text = "حساب معین مانده اول دوره";
             // 
@@ -269,6 +268,7 @@
             this.cmbAmountMahiat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbAmountMahiat.DisplayMember = "Name";
             this.cmbAmountMahiat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAmountMahiat.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.cmbAmountMahiat.ForeColor = System.Drawing.Color.Black;
             this.cmbAmountMahiat.ItemHeight = 20;
             this.cmbAmountMahiat.Location = new System.Drawing.Point(458, 253);
@@ -285,6 +285,7 @@
             this.cmbGroup.DataSource = this.PerssonelGroupBindingSource;
             this.cmbGroup.DisplayMember = "Name";
             this.cmbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGroup.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.cmbGroup.ForeColor = System.Drawing.Color.Black;
             this.cmbGroup.ItemHeight = 20;
             this.cmbGroup.Location = new System.Drawing.Point(482, 87);
@@ -357,12 +358,11 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(335, 174);
+            this.label9.Location = new System.Drawing.Point(156, 174);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 20);
+            this.label9.Size = new System.Drawing.Size(232, 20);
             this.label9.TabIndex = 20;
             this.label9.Text = "محل تولد";
             // 
@@ -370,12 +370,11 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.ForeColor = System.Drawing.Color.Silver;
-            this.label8.Location = new System.Drawing.Point(341, 121);
+            this.label8.Location = new System.Drawing.Point(162, 121);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.Size = new System.Drawing.Size(222, 20);
             this.label8.TabIndex = 20;
             this.label8.Text = "نام پدر";
             // 
@@ -383,12 +382,11 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.Color.Silver;
-            this.label10.Location = new System.Drawing.Point(343, 63);
+            this.label10.Location = new System.Drawing.Point(164, 63);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 20);
+            this.label10.Size = new System.Drawing.Size(220, 20);
             this.label10.TabIndex = 20;
             this.label10.Text = "کد ملی";
             // 
@@ -410,36 +408,33 @@
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(765, 121);
+            this.label6.Location = new System.Drawing.Point(571, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 20);
+            this.label6.Size = new System.Drawing.Size(253, 20);
             this.label6.TabIndex = 20;
             this.label6.Text = "کد پرسنلی";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(793, 65);
+            this.label5.Location = new System.Drawing.Point(599, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 20);
+            this.label5.Size = new System.Drawing.Size(225, 20);
             this.label5.TabIndex = 19;
             this.label5.Text = "گروه";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(753, 12);
+            this.label3.Location = new System.Drawing.Point(559, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 20);
+            this.label3.Size = new System.Drawing.Size(258, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "کد شناسایی";
             // 
@@ -501,39 +496,36 @@
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(770, 284);
+            this.label4.Location = new System.Drawing.Point(576, 284);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.Size = new System.Drawing.Size(248, 20);
             this.label4.TabIndex = 14;
             this.label4.Text = "توضیحات";
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(768, 174);
+            this.label7.Location = new System.Drawing.Point(574, 174);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 20);
+            this.label7.Size = new System.Drawing.Size(250, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "تاریخ تولد";
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(743, 231);
+            this.label1.Location = new System.Drawing.Point(549, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.Size = new System.Drawing.Size(275, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "مانده اول دوره";
             // 
@@ -542,9 +534,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(221, 12);
+            this.label2.Location = new System.Drawing.Point(42, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 20);
+            this.label2.Size = new System.Drawing.Size(342, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "عنوان";
             // 

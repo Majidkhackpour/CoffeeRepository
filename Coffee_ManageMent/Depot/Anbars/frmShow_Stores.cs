@@ -66,10 +66,13 @@ namespace Coffee_ManageMent.Depot.Anbars
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Acc = AnbarBussines.Change_Status(accGuid, false);
-                    AnbarBussines.Save(Acc);
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
-                    f.ShowDialog();
-                    LoadData();
+                    if (Acc.Save())
+                    {
+                        frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green,
+                            "عملیات با موفقیت انجام شد");
+                        f.ShowDialog();
+                        LoadData();
+                    }
                 }
             }
             catch (Exception exception)
@@ -214,10 +217,10 @@ namespace Coffee_ManageMent.Depot.Anbars
                 if (DGrid.RowCount == 0) return;
                 Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
                 var settingGuid = AppSettingBussines.GetLast();
-                AppSetting Setting;
+                AppSettingBussines Setting;
                 if (settingGuid == null || settingGuid == Guid.Empty)
                 {
-                    Setting = new AppSetting();
+                    Setting = new AppSettingBussines();
                     Setting.Guid = Guid.NewGuid();
                     Setting.DateSabt = DateConvertor.M2SH(DateTime.Now);
                 }
@@ -227,7 +230,7 @@ namespace Coffee_ManageMent.Depot.Anbars
                 }
 
                 Setting.CurrentAnbar = accGuid;
-                if (AppSettingBussines.Save(Setting))
+                if (Setting.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();

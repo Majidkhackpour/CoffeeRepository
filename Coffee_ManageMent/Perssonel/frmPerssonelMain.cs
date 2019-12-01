@@ -11,7 +11,7 @@ namespace Coffee_ManageMent.Perssonel
 {
     public partial class frmPerssonelMain : Form
     {
-        private static DataLayer.Models.Perssonel.Perssonel _perssonel;
+        private static PerssonelBussines _perssonel;
 
         private Form[] listForms =
         {
@@ -25,7 +25,7 @@ namespace Coffee_ManageMent.Perssonel
         {
             InitializeComponent();
             Count = listForms.Count();
-            _perssonel = new DataLayer.Models.Perssonel.Perssonel();
+            _perssonel = new PerssonelBussines();
         }
         public frmPerssonelMain(Guid guid)
         {
@@ -221,7 +221,7 @@ namespace Coffee_ManageMent.Perssonel
             Back();
         }
 
-        private DataLayer.Models.Perssonel.Perssonel GetPerssonel(DataLayer.Models.Perssonel.Perssonel _p)
+        private PerssonelBussines GetPerssonel(PerssonelBussines _p)
         {
             try
             {

@@ -119,10 +119,13 @@ namespace Coffee_ManageMent.Depot.AnbarGroup
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Acc = AnbarGroupBussines.Change_Status(accGuid, false);
-                    AnbarGroupBussines.Save(Acc);
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
-                    f.ShowDialog();
-                    LoadData();
+                    if (Acc.Save())
+                    {
+                        frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                        f.ShowDialog();
+                        LoadData();
+                    }
+
                 }
             }
             catch (Exception exception)

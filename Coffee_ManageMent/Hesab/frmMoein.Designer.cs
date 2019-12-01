@@ -127,13 +127,13 @@
             this.btnSearchKol.TextColor = System.Drawing.Color.Silver;
             this.btnSearchKol.ThemeAware = true;
             this.btnSearchKol.Click += new System.EventHandler(this.BtnSearchKol_Click);
-//            this.btnSearchKol.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BtnSearchKol_KeyDown);
             // 
             // cmbMahiat
             // 
             this.cmbMahiat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbMahiat.DisplayMember = "Name";
             this.cmbMahiat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMahiat.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.cmbMahiat.ForeColor = System.Drawing.Color.Black;
             this.cmbMahiat.ItemHeight = 20;
             this.cmbMahiat.Location = new System.Drawing.Point(141, 120);
@@ -142,7 +142,6 @@
             this.cmbMahiat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cmbMahiat.TabIndex = 4;
             this.cmbMahiat.ValueMember = "Guid";
-          //  this.cmbMahiat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CmbMahiat_KeyDown);
             // 
             // txtDescription
             // 
@@ -159,7 +158,6 @@
             this.txtDescription.TabIndex = 6;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescription.Enter += new System.EventHandler(this.TxtDescription_Enter);
-           // this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtDescription_KeyDown);
             this.txtDescription.Leave += new System.EventHandler(this.TxtDescription_Leave);
             // 
             // txtName
@@ -175,17 +173,15 @@
             this.txtName.TabIndex = 5;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtName.Enter += new System.EventHandler(this.TxtName_Enter);
-           // this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
             this.txtName.Leave += new System.EventHandler(this.TxtName_Leave);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(315, 204);
+            this.label4.Location = new System.Drawing.Point(167, 204);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.Size = new System.Drawing.Size(202, 20);
             this.label4.TabIndex = 14;
             this.label4.Text = "توضیحات";
             // 
@@ -231,29 +227,26 @@
             this.txtCode.TabIndex = 3;
             this.txtCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCode.Enter += new System.EventHandler(this.TxtCode_Enter);
-          //  this.txtCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCode_KeyDown);
             this.txtCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCode_KeyPress);
             this.txtCode.Leave += new System.EventHandler(this.TxtCode_Leave);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(333, 98);
+            this.label5.Location = new System.Drawing.Point(185, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.Size = new System.Drawing.Size(188, 20);
             this.label5.TabIndex = 14;
             this.label5.Text = "ماهیت";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(332, 151);
+            this.label2.Location = new System.Drawing.Point(184, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 20);
+            this.label2.Size = new System.Drawing.Size(185, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "عنوان";
             // 
@@ -262,12 +255,11 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(317, -3);
+            this.label1.Location = new System.Drawing.Point(169, -3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.Size = new System.Drawing.Size(204, 20);
             this.label1.TabIndex = 16;
             this.label1.Text = "حساب کل";
             // 
@@ -276,12 +268,11 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(325, 48);
+            this.label3.Location = new System.Drawing.Point(177, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 20);
+            this.label3.Size = new System.Drawing.Size(196, 20);
             this.label3.TabIndex = 16;
             this.label3.Text = "کد معین";
             // 

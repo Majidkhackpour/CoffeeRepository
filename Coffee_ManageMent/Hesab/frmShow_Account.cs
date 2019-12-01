@@ -112,10 +112,13 @@ namespace Coffee_ManageMent
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     Acc = AccountBussines.Change_Status(accGuid, false);
-                    AccountBussines.Save(Acc);
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
-                    f.ShowDialog();
-                    LoadData();
+                    if (Acc.Save())
+                    {
+                        frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                        f.ShowDialog();
+                        LoadData();
+                    }
+
                 }
             }
             catch (Exception exception)

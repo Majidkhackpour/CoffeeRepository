@@ -11,11 +11,11 @@ namespace Coffee_ManageMent.Hesab
 {
     public partial class frmKol : Form
     {
-        private KolHesab kol;
+        private KolBussines kol;
         public frmKol()
         {
             InitializeComponent();
-            kol = new KolHesab();
+            kol = new KolBussines();
         }
 
         public frmKol(Guid kolGuid,bool Is_Show)
@@ -174,7 +174,7 @@ namespace Coffee_ManageMent.Hesab
                 kol.Status = true;
                 kol.System = false;
 
-                if (KolBussines.Save(kol))
+                if (kol.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();

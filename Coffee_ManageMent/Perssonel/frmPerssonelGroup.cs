@@ -12,11 +12,11 @@ namespace Coffee_ManageMent.Perssonel
 {
     public partial class frmPerssonelGroup : Form
     {
-        private PerssonelGroup _group;
+        private PerssonelGroupBussines _group;
         public frmPerssonelGroup()
         {
             InitializeComponent();
-            _group = new PerssonelGroup();
+            _group = new PerssonelGroupBussines();
         }
         public frmPerssonelGroup(Guid groupGuid, bool Is_Show)
         {
@@ -118,7 +118,7 @@ namespace Coffee_ManageMent.Perssonel
                 _group.Name = txtName.Text;
                 _group.Status = true;
 
-                if (PerssonelGroupBussines.Save(_group))
+                if (_group.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();

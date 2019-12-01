@@ -11,11 +11,11 @@ namespace Coffee_ManageMent
 {
     public partial class frmAccount : Form
     {
-        private Account account;
+        private AccountBussines account;
         public frmAccount()
         {
             InitializeComponent();
-            account = new Account();
+            account = new AccountBussines();
         }
 
         public frmAccount(Guid accountGuid, bool Is_Show)
@@ -200,11 +200,10 @@ namespace Coffee_ManageMent
                 account.Description = txtDescription.Text;
                 account.Name = txtName.Text;
                 account.State = true;
-                account.AccountGroup = AccountGroupBussines.Get((Guid) cmbGroup.SelectedValue);
                 account.Amounth = 0;
                 account.HesabType = HesabType.Hazine;
 
-                if (AccountBussines.Save(account))
+                if (account.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();

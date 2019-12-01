@@ -12,12 +12,12 @@ namespace Coffee_ManageMent.Hesab
 {
     public partial class frmMoein : Form
     {
-        private MoeinHesab moein;
-        private KolHesab kol = new KolHesab();
+        private MoeinBussines moein;
+        private KolBussines kol = new KolBussines();
         public frmMoein()
         {
             InitializeComponent();
-            moein = new MoeinHesab();
+            moein = new MoeinBussines();
         }
         public frmMoein(Guid moeinGuid, bool Is_Show)
         {
@@ -203,9 +203,8 @@ namespace Coffee_ManageMent.Hesab
                 moein.Status = true;
                 moein.System = false;
                 moein.KolGuid = kol.Guid;
-                moein.KolHesab = KolBussines.Get(kol.Guid);
 
-                if (MoeinBussines.Save(moein))
+                if (moein.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();

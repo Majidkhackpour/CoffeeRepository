@@ -20,6 +20,7 @@ namespace BussinesLayer.AccountBussines
         public Guid KolGuid { get; set; }
         public string Description { get; set; }
         public EnumMahiat Mahiat { get; set; }
+        public KolBussines KolHesab => KolBussines.Get(KolGuid);
 
         public static List<MoeinBussines> GetAll()
         {

@@ -12,12 +12,12 @@ namespace Coffee_ManageMent.Depot.Anbars
 {
     public partial class frmStores : Form
     {
-        private DataLayer.Models.Anbar.AnbarGroup _group;
-        private Anbar anbar;
+        private AnbarGroupBussines _group;
+        private AnbarBussines anbar;
         public frmStores()
         {
             InitializeComponent();
-            anbar = new Anbar();
+            anbar = new AnbarBussines();
         }
         public frmStores(Guid anbarGuid, bool Is_Show)
         {
@@ -127,7 +127,7 @@ namespace Coffee_ManageMent.Depot.Anbars
                 anbar.Name = txtName.Text;
                 anbar.Status = true;
                 anbar.Manfi = chbManfi.Checked;
-                if (AnbarBussines.Save(anbar))
+                if (anbar.Save())
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();

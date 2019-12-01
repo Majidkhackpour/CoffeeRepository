@@ -112,10 +112,13 @@ namespace Coffee_ManageMent.Hesab
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     kol = KolBussines.Change_Status(kol_Guid, false);
-                    KolBussines.Save(kol);
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
-                    f.ShowDialog();
-                    LoadData();
+                    if (kol.Save())
+                    {
+                        frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                        f.ShowDialog();
+                        LoadData();
+                    }
+
                 }
             }
             catch (Exception exception)

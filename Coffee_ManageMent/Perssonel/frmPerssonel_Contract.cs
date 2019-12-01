@@ -23,7 +23,7 @@ namespace Coffee_ManageMent.Perssonel
             }
         }
         public static frmPerssonel_Contract ContractInfo => NestedCallInfo.perssonelContractInfo;
-        public DataLayer.Models.Perssonel.Perssonel SetData(DataLayer.Models.Perssonel.Perssonel _perssonel)
+        public PerssonelBussines SetData(PerssonelBussines _perssonel)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Coffee_ManageMent.Perssonel
                 return null;
             }
         }
-        public void FillData(DataLayer.Models.Perssonel.Perssonel _perssonel)
+        public void FillData(PerssonelBussines _perssonel)
         {
             try
             {

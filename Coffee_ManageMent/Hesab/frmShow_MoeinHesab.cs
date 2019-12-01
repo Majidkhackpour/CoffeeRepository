@@ -120,10 +120,13 @@ namespace Coffee_ManageMent.Hesab
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     moein = MoeinBussines.Change_Status(moeinGuid, false);
-                    MoeinBussines.Save(moein);
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
-                    f.ShowDialog();
-                    LoadData();
+                    if (moein.Save())
+                    {
+                        frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                        f.ShowDialog();
+                        LoadData();
+                    }
+
                 }
             }
             catch (Exception exception)

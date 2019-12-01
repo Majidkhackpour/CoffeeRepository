@@ -20,7 +20,7 @@ namespace BussinesLayer.AccountBussines
         public decimal Amounth { get; set; }
         public string Description { get; set; }
         public HesabType HesabType { get; set; }
-
+        public AccountGroupBussines AccountGroup => AccountGroupBussines.Get(GroupGuid);
 
 
         public static List<AccountBussines> GetAll()

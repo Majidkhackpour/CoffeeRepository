@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using BussinesLayer.Perssonel;
 using Coffee_ManageMent.Utility;
 using DataLayer.BussinesLayer;
 using DataLayer.Enums;
@@ -22,7 +23,7 @@ namespace Coffee_ManageMent.Perssonel
             }
         }
         public static frmPerssonel_Sallary SallaryInfo => NestedCallInfo.perssonelSallaryInfo;
-        public DataLayer.Models.Perssonel.Perssonel SetData(DataLayer.Models.Perssonel.Perssonel _perssonel)
+        public PerssonelBussines SetData(PerssonelBussines _perssonel)
         {
             try
             {
@@ -53,7 +54,7 @@ namespace Coffee_ManageMent.Perssonel
                 return null;
             }
         }
-        public void FillData(DataLayer.Models.Perssonel.Perssonel _perssonel)
+        public void FillData(PerssonelBussines _perssonel)
         {
             try
             {

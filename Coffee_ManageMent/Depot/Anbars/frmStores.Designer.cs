@@ -111,6 +111,7 @@
             this.cmbGroup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cmbGroup.DisplayMember = "Name";
             this.cmbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGroup.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.cmbGroup.ForeColor = System.Drawing.Color.Black;
             this.cmbGroup.ItemHeight = 20;
             this.cmbGroup.Location = new System.Drawing.Point(4, 77);
@@ -123,12 +124,11 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(339, 55);
+            this.label5.Location = new System.Drawing.Point(123, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 20);
+            this.label5.Size = new System.Drawing.Size(247, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "گروه";
             // 
@@ -168,25 +168,23 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(316, 156);
+            this.label4.Location = new System.Drawing.Point(100, 156);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.Size = new System.Drawing.Size(270, 20);
             this.label4.TabIndex = 14;
             this.label4.Text = "توضیحات";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(333, 1);
+            this.label2.Location = new System.Drawing.Point(117, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 20);
+            this.label2.Size = new System.Drawing.Size(253, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "عنوان";
             // 
