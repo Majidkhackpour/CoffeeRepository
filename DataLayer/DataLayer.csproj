@@ -198,6 +198,10 @@
     <Compile Include="Migration\Migration\201912061323230_AddHalfCodeToPerssonel.designer.cs">
       <DependentUpon>201912061323230_AddHalfCodeToPerssonel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201912061359529_AddSeller.cs" />
+    <Compile Include="Migration\Migration\201912061359529_AddSeller.designer.cs">
+      <DependentUpon>201912061359529_AddSeller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration\Migration\201912061323230_AddHalfCodeToPerssonel.resx">
       <DependentUpon>201912061323230_AddHalfCodeToPerssonel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201912061359529_AddSeller.resx">
+      <DependentUpon>201912061359529_AddSeller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
