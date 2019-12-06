@@ -53,6 +53,7 @@ namespace Coffee_ManageMent
                 else
                     gender = EnumGender.Female;
                 _perssonel.Code = lblCode.Text + txtCode.Text;
+                _perssonel.Half_Code = txtCode.Text;
                 _perssonel.PerssonelGroup = (Guid)cmbGroup.SelectedValue;
                 _perssonel.PerssonelCode = txtPerssonelCode.Text;
                 _perssonel.DateBirth = txtDateBirth.Value.FarsiSelectedDate;
@@ -92,7 +93,7 @@ namespace Coffee_ManageMent
                 lblCode.Text = AccountGroupBussines.Get((int)HesabType.A_Haqiqi).Aouth_Code;
                 LoadGroups();
                 LoadMahiat();
-                txtCode.Text = _perssonel.Code;
+                txtCode.Text = _perssonel.Half_Code;
                 txtName.Text = _perssonel.Name;
                 txtAmount.Text = (Math.Abs(_perssonel.Amount_AvalDore)).ToString();
                 txtDateBirth.Value.FarsiSelectedDate = _perssonel.DateBirth;
@@ -108,15 +109,10 @@ namespace Coffee_ManageMent
                 else
                     cmbGroup.SelectedIndex = 0;
                 var gender = _perssonel.Gender;
-                if (gender == null)
+                if (gender == EnumGender.Male)
                     rbtnMale.Checked = true;
-                else
-                {
-                    if (gender == EnumGender.Male)
-                        rbtnMale.Checked = true;
-                    if (gender == EnumGender.Female)
-                        rbtnFemale.Checked = true;
-                }
+                if (gender == EnumGender.Female)
+                    rbtnFemale.Checked = true;
                 if (_perssonel.Guid == Guid.Empty)
                 {
                     NewCode();

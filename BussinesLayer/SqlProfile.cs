@@ -3,9 +3,11 @@ using BussinesLayer.AccountBussines;
 using BussinesLayer.Anbar;
 using BussinesLayer.Perssonel;
 using BussinesLayer.PhoneBook;
+using BussinesLayer.Sellers;
 using DataLayer.Models.Account;
 using DataLayer.Models.Anbar;
 using DataLayer.Models.Perssonel;
+using DataLayer.Models.Sellers;
 using DataLayer.Models.Settings;
 
 namespace BussinesLayer
@@ -49,6 +51,9 @@ namespace BussinesLayer
 
             CreateMap<AppSettingBussines, AppSetting>();
             CreateMap<AppSetting, AppSettingBussines>();
+
+            CreateMap<Seller, SellerBussines>();
+            CreateMap<SellerBussines, Seller>();
         }
     }
 }

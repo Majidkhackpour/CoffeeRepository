@@ -4,6 +4,7 @@ using DataLayer.Core;
 using DataLayer.Core.Anbar;
 using DataLayer.Core.Perssonel;
 using DataLayer.Core.PhoneBook;
+using DataLayer.Core.Sellers;
 
 namespace PersitenceLayer.Persistance
 {
@@ -22,6 +23,7 @@ namespace PersitenceLayer.Persistance
         private IPerssonelGroupRepository _perssonelGroupRepository;
         private IPerssonelRepository _perssonelRepository;
         private IPhoneBookRepository _phoneBookRepository;
+        private ISellerRpository _sellerRpository;
 
         public void Dispose()
         {
@@ -105,18 +107,10 @@ namespace PersitenceLayer.Persistance
                 return _accountGroupRepository;
             }
         }
-        public IAnbarGroupRepository AnbarGroupRepository
-        {
-            get
-            {
-                if (_anbarGroupRepository == null)
-                {
-                    _anbarGroupRepository = new AnbarGroupPersistanceRepository(db);
-                }
 
-                return _anbarGroupRepository;
-            }
-        }
+        public IAnbarGroupRepository AnbarGroupRepository =>
+            _anbarGroupRepository ?? (_anbarGroupRepository = new AnbarGroupPersistanceRepository(db));
+
         public IAnbarRepository AnbarRepository
         {
             get
@@ -177,5 +171,7 @@ namespace PersitenceLayer.Persistance
                 return _phoneBookRepository;
             }
         }
+
+        public ISellerRpository Seller => _sellerRpository ?? (_sellerRpository = new SellerPersistanceRepository(db));
     }
 }

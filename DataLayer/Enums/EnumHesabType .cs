@@ -11,4 +11,9 @@ namespace DataLayer.Enums
         [PersianNameAttribute.PersianName("اشخاص حقیقی")] A_Haqiqi = 30,
         [PersianNameAttribute.PersianName("اشخاص حقوقی")] A_Hoqouqi = 40
     }
+    public enum SellerType : short
+    {
+        [PersianNameAttribute.PersianName("اشخاص حقیقی")] A_Haqiqi = 30,
+        [PersianNameAttribute.PersianName("اشخاص حقوقی")] A_Hoqouqi = 40
+    }
 }

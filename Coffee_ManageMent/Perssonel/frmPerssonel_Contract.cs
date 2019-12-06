@@ -69,7 +69,7 @@ namespace Coffee_ManageMent.Perssonel
                 }
                 if (_perssonel.Guid == Guid.Empty)
                 {
-                    NewContractCode();
+                    NewContractCode(_perssonel);
                 }
             }
             catch (Exception ex)
@@ -78,11 +78,12 @@ namespace Coffee_ManageMent.Perssonel
                 f.ShowDialog();
             }
         }
-        private void NewContractCode()
+        private void NewContractCode(PerssonelBussines p)
         {
             try
             {
-                txtContractCode.Text = PerssonelBussines.NewContractCode();
+                if (p.ContractCode == null)
+                    txtContractCode.Text = PerssonelBussines.NewContractCode();
             }
             catch (Exception exception)
             {

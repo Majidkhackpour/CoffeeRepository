@@ -68,6 +68,7 @@
     <Compile Include="Core\Perssonel\IPerssonelRepository.cs" />
     <Compile Include="Core\Perssonel\IPerssonelGroupRepository.cs" />
     <Compile Include="Core\PhoneBook\IPhoneBookRepository.cs" />
+    <Compile Include="Core\Sellers\ISellerRpository.cs" />
     <Compile Include="Enums\EnumAmount_Mahiat.cs" />
     <Compile Include="Enums\EnumPhoneBookType.cs" />
     <Compile Include="Enums\EnumMaritalStatuse.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Interface\Entities\Perssonel\IPerssonel.cs" />
     <Compile Include="Interface\Entities\Perssonel\IPerssonelGroup.cs" />
     <Compile Include="Interface\Entities\PhoneBook\IPhoneBook.cs" />
+    <Compile Include="Interface\Entities\Sellers\ISeller.cs" />
     <Compile Include="Interface\Entities\Setting\ISetting.cs" />
     <Compile Include="Interface\IHasGuid.cs" />
     <Compile Include="Interface\IHasMasterGuid.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Mapping\PerssonelGroupMapping.cs" />
     <Compile Include="Mapping\PerssonelMapping.cs" />
     <Compile Include="Mapping\PhoneBookMapping.cs" />
+    <Compile Include="Mapping\SellerMapping.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.designer.cs">
       <DependentUpon>201910041356419_update1.cs</DependentUpon>
@@ -191,6 +194,10 @@
     <Compile Include="Migration\Migration\201911291520407_New.designer.cs">
       <DependentUpon>201911291520407_New.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201912061323230_AddHalfCodeToPerssonel.cs" />
+    <Compile Include="Migration\Migration\201912061323230_AddHalfCodeToPerssonel.designer.cs">
+      <DependentUpon>201912061323230_AddHalfCodeToPerssonel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -204,6 +211,7 @@
     <Compile Include="Models\Perssonel\Perssonel.cs" />
     <Compile Include="Models\Perssonel\PerssonelGroup.cs" />
     <Compile Include="Models\PhoneBook\PhoneBook.cs" />
+    <Compile Include="Models\Sellers\Seller.cs" />
     <Compile Include="Models\Settings\AppSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -288,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration\Migration\201911291520407_New.resx">
       <DependentUpon>201911291520407_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201912061323230_AddHalfCodeToPerssonel.resx">
+      <DependentUpon>201912061323230_AddHalfCodeToPerssonel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

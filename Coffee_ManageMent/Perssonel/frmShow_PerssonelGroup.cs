@@ -15,8 +15,8 @@ namespace Coffee_ManageMent.Perssonel
         private Guid _selectedGuid = Guid.Empty;
         public Guid SelectedGuid
         {
-            get { return _selectedGuid; }
-            set { _selectedGuid = value; }
+            get => _selectedGuid;
+            set => _selectedGuid = value;
         }
         public frmShow_PerssonelGroup()
         {

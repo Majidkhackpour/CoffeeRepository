@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataLayer.Core.Perssonel
 {
     public interface IPerssonelRepository : IRepository<Models.Perssonel.Perssonel>
     {
         string NewContractCode();
-        bool Check_Code(string code, Guid guid);
-        bool Check_Name(string name, Guid guid);
+        Models.Perssonel.Perssonel Change_Status(Guid accGuid, bool state);
+        List<Models.Perssonel.Perssonel> Search(string search);
     }
 }

@@ -22,6 +22,36 @@ namespace Coffee_ManageMent.Perssonel
             {
             }
         }
+        private void Calculate_Sallry()
+        {
+            try
+            {
+                var min = 0;
+                if (txtMinInDay.Text != "0" || txtMinInDay.Text != "")
+                {
+                    float a = float.Parse(txtSallaryPerHour.Text) / 60;
+                    var b = txtMinInDay.Text.ParseToInt();
+                    min = (int)(a * b);
+                }
+
+                var rightHousing = txtRightHouse.Text.Replace(",", "").ParseToDecimal();
+                var rightChild = txtRightChild.Text.Replace(",", "").ParseToDecimal();
+                var baseSallary = (txtHourInDay.Text.Replace(",", "").ParseToLong() * 30 *
+                                   txtSallaryPerHour.Text.Replace(",", "").ParseToLong()) + min;
+                var benLaborer = txtBenLaborer.Text.Replace(",", "").ParseToDecimal();
+                var otherSallary = txtOtherSallary.Text.Replace(",", "").ParseToDecimal();
+                var inssurance = txtInsurance.Text.Replace(",", "").ParseToDecimal();
+                var sallary = baseSallary + rightChild + rightHousing + benLaborer +
+                               otherSallary;
+                txtBaseSallary.Text = baseSallary.ToString();
+                txtFullSallary.Text = (sallary - inssurance).ThreeSeparator();
+            }
+            catch (Exception ex)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                f.ShowDialog();
+            }
+        }
         public static frmPerssonel_Sallary SallaryInfo => NestedCallInfo.perssonelSallaryInfo;
         public PerssonelBussines SetData(PerssonelBussines _perssonel)
         {
@@ -267,26 +297,31 @@ namespace Coffee_ManageMent.Perssonel
         private void TxtSallaryPerHour_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtSallaryPerHour);
+            Calculate_Sallry();
         }
 
         private void TxtRightHouse_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtRightHouse);
+            Calculate_Sallry();
         }
 
         private void TxtBenLaborer_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtBenLaborer);
+            Calculate_Sallry();
         }
 
         private void TxtRightChild_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtRightChild);
+            Calculate_Sallry();
         }
 
         private void TxtInsurance_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtInsurance);
+            Calculate_Sallry();
         }
 
         private void TxtEydi_TextChanged(object sender, EventArgs e)
@@ -302,6 +337,7 @@ namespace Coffee_ManageMent.Perssonel
         private void TxtOtherSallary_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtOtherSallary);
+            Calculate_Sallry();
         }
 
         private void TxtKasePrice_TextChanged(object sender, EventArgs e)
@@ -312,6 +348,53 @@ namespace Coffee_ManageMent.Perssonel
         private void TxtEzafePrice_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtEzafePrice);
+        }
+
+        private void TxtHourInDay_TextChanged(object sender, EventArgs e)
+        {
+            if (txtHourInDay.Text.ParseToInt() >= 24)
+                txtHourInDay.Text = "24";
+            Calculate_Sallry();
+        }
+
+        private void TxtMinInDay_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMinInDay.Text.ParseToInt() >= 60)
+            {
+                txtHourInDay.Text = (txtHourInDay.Text.ParseToInt() + 1).ToString();
+                txtMinInDay.Text = (txtMinInDay.Text.ParseToInt() - 60).ToString();
+            }
+            Calculate_Sallry();
+        }
+
+        private void TxtStartMin_TextChanged(object sender, EventArgs e)
+        {
+            if (txtStartMin.Text.ParseToInt() >= 60)
+            {
+                txtStartHour.Text = (txtStartHour.Text.ParseToInt() + 1).ToString();
+                txtStartMin.Text = (txtStartMin.Text.ParseToInt() - 60).ToString();
+            }
+        }
+
+        private void TxtEndMin_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEndMin.Text.ParseToInt() >= 60)
+            {
+                txtEndHour.Text = (txtEndHour.Text.ParseToInt() + 1).ToString();
+                txtEndMin.Text = (txtEndMin.Text.ParseToInt() - 60).ToString();
+            }
+        }
+
+        private void TxtStartHour_TextChanged(object sender, EventArgs e)
+        {
+            if (txtStartHour.Text.ParseToInt() >= 24)
+                txtStartHour.Text = "24";
+        }
+
+        private void TxtEndHour_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEndHour.Text.ParseToInt() >= 24)
+                txtEndHour.Text = "24";
         }
     }
 }

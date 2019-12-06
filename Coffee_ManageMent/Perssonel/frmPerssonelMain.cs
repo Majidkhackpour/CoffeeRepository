@@ -6,6 +6,7 @@ using BussinesLayer.Perssonel;
 using Coffee_ManageMent.Utility;
 using DataLayer.BussinesLayer;
 using DataLayer.Enums;
+using Microsoft.Office.Interop.Excel;
 
 namespace Coffee_ManageMent.Perssonel
 {
@@ -27,30 +28,33 @@ namespace Coffee_ManageMent.Perssonel
             Count = listForms.Count();
             _perssonel = new PerssonelBussines();
         }
-        public frmPerssonelMain(Guid guid)
+        public frmPerssonelMain(Guid guid, bool Is_Show)
         {
             InitializeComponent();
             Count = listForms.Count();
             _perssonel = PerssonelBussines.Get(guid);
+            pnlContent.Enabled = Is_Show;
+            btnFinish.Enabled = Is_Show;
         }
 
         private void BtnFinish_Click(object sender, EventArgs e)
         {
-            GetPerssonel(_perssonel);
+            _perssonel = GetPerssonel(_perssonel);
+            _perssonel.Status = true;
             if (_perssonel.Guid == Guid.Empty)
             {
-                _perssonel.Guid = Guid.Empty;
+                _perssonel.Guid = Guid.NewGuid();
                 _perssonel.DateSabt = DateConvertor.M2SH(DateTime.Now);
             }
 
-            if (_perssonel.Code == null || _perssonel.Code == "" || !PerssonelBussines.Check_Code(_perssonel.Code, _perssonel.Guid))
+            if (string.IsNullOrEmpty(_perssonel.Code) || !PerssonelBussines.Check_Code(_perssonel.Code, _perssonel.Guid))
             {
                 frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
                     "کد شناسایی پرسنل مورد نظر، معتبر نمی باشد");
                 f.ShowDialog();
                 return;
             }
-            if (_perssonel.Name == null || _perssonel.Name == "" || !PerssonelBussines.Check_Name(_perssonel.Name, _perssonel.Guid))
+            if (string.IsNullOrEmpty(_perssonel.Name) || !PerssonelBussines.Check_Name(_perssonel.Name, _perssonel.Guid))
             {
                 frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
                     "نام پرسنل مورد نظر، معتبر نمی باشد");
@@ -58,7 +62,7 @@ namespace Coffee_ManageMent.Perssonel
                 return;
             }
 
-            if (_perssonel.PerssonelGroup == null || _perssonel.PerssonelGroup == Guid.Empty)
+            if (_perssonel.PerssonelGroup == Guid.Empty)
             {
                 frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
                     "گروه پرسنل مورد نظر، معتبر نمی باشد");
@@ -103,6 +107,17 @@ namespace Coffee_ManageMent.Perssonel
                 f.ShowDialog();
                 return;
             }
+
+
+
+            if (_perssonel.Save())
+            {
+                var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                f.ShowDialog();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+
         }
 
         private void LoadNewForm(Form frm)
@@ -228,16 +243,16 @@ namespace Coffee_ManageMent.Perssonel
                 switch (top)
                 {
                     case 0:
-                        _perssonel = frmPerssonel_PublicInfo.PublicInfo.SetData(_perssonel);
+                        _p = frmPerssonel_PublicInfo.PublicInfo.SetData(_perssonel);
                         break;
                     case 1:
-                        _perssonel = frmPerssonel_CallInfo.CallInfo.SetData(_perssonel);
+                        _p = frmPerssonel_CallInfo.CallInfo.SetData(_perssonel);
                         break;
                     case 2:
-                        _perssonel = frmPerssonel_Contract.ContractInfo.SetData(_perssonel);
+                        _p = frmPerssonel_Contract.ContractInfo.SetData(_perssonel);
                         break;
                     case 3:
-                        _perssonel = frmPerssonel_Sallary.SallaryInfo.SetData(_perssonel);
+                        _p = frmPerssonel_Sallary.SallaryInfo.SetData(_perssonel);
                         break;
                 }
 

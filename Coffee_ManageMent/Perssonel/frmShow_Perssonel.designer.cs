@@ -39,21 +39,10 @@
             this.line1 = new DevComponents.DotNetBar.Controls.Line();
             this.lblCounter = new System.Windows.Forms.Label();
             this.DGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuContract = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.PerssonelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.uC_Date1 = new UC_Date.UC_Date();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perssonelCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountAvalDoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moeinAvalDoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +88,17 @@
             this.eydiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maritalStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuContract = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
+            this.PerssonelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.uC_Date1 = new UC_Date.UC_Date();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PerssonelBindingSource)).BeginInit();
@@ -166,7 +166,7 @@
             this.codeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.perssonelCodeDataGridViewTextBoxColumn,
-            this.guidDataGridViewTextBoxColumn,
+            this.dgGuid,
             this.dateSabtDataGridViewTextBoxColumn,
             this.amountAvalDoreDataGridViewTextBoxColumn,
             this.moeinAvalDoreDataGridViewTextBoxColumn,
@@ -249,107 +249,6 @@
             this.DGrid.Size = new System.Drawing.Size(894, 418);
             this.DGrid.TabIndex = 55662;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.contextMenuStrip1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuInsert,
-            this.mnuEdit,
-            this.mnuDelete,
-            this.toolStripMenuItem2,
-            this.mnuContract,
-            this.mnuView});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 130);
-            // 
-            // mnuInsert
-            // 
-            this.mnuInsert.ForeColor = System.Drawing.Color.Silver;
-            this.mnuInsert.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.mnuInsert.Name = "mnuInsert";
-            this.mnuInsert.Size = new System.Drawing.Size(218, 24);
-            this.mnuInsert.Text = "درج پرسنل جدید";
-            this.mnuInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.mnuInsert.Click += new System.EventHandler(this.MnuInsert_Click);
-            // 
-            // mnuEdit
-            // 
-            this.mnuEdit.ForeColor = System.Drawing.Color.Silver;
-            this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(218, 24);
-            this.mnuEdit.Text = "ویرایش اطلاعات پرسنل جاری";
-            // 
-            // mnuDelete
-            // 
-            this.mnuDelete.ForeColor = System.Drawing.Color.Silver;
-            this.mnuDelete.Name = "mnuDelete";
-            this.mnuDelete.Size = new System.Drawing.Size(218, 24);
-            this.mnuDelete.Text = "حذف پرسنل جاری";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(215, 6);
-            // 
-            // mnuContract
-            // 
-            this.mnuContract.ForeColor = System.Drawing.Color.Gainsboro;
-            this.mnuContract.Name = "mnuContract";
-            this.mnuContract.Size = new System.Drawing.Size(218, 24);
-            this.mnuContract.Text = "اطلاعات قرارداد";
-            // 
-            // mnuView
-            // 
-            this.mnuView.ForeColor = System.Drawing.Color.Silver;
-            this.mnuView.Name = "mnuView";
-            this.mnuView.Size = new System.Drawing.Size(218, 24);
-            this.mnuView.Text = "مشاهده";
-            // 
-            // PerssonelBindingSource
-            // 
-            this.PerssonelBindingSource.DataSource = typeof(BussinesLayer.Perssonel.PerssonelBussines);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(791, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 24);
-            this.label1.TabIndex = 55660;
-            this.label1.Text = "نمایش پرسنل";
-            // 
-            // txtSearch
-            // 
-            // 
-            // 
-            // 
-            this.txtSearch.Border.Class = "TextBoxBorder";
-            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSearch.Location = new System.Drawing.Point(131, 70);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PreventEnterBeep = true;
-            this.txtSearch.Size = new System.Drawing.Size(652, 27);
-            this.txtSearch.TabIndex = 55661;
-            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
-            // 
-            // uC_Date1
-            // 
-            this.uC_Date1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.uC_Date1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uC_Date1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.uC_Date1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Date1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.uC_Date1.Name = "uC_Date1";
-            this.uC_Date1.Size = new System.Drawing.Size(915, 49);
-            this.uC_Date1.TabIndex = 55659;
-            // 
             // codeDataGridViewTextBoxColumn
             // 
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
@@ -373,13 +272,13 @@
             this.perssonelCodeDataGridViewTextBoxColumn.ReadOnly = true;
             this.perssonelCodeDataGridViewTextBoxColumn.Width = 150;
             // 
-            // guidDataGridViewTextBoxColumn
+            // dgGuid
             // 
-            this.guidDataGridViewTextBoxColumn.DataPropertyName = "Guid";
-            this.guidDataGridViewTextBoxColumn.HeaderText = "Guid";
-            this.guidDataGridViewTextBoxColumn.Name = "guidDataGridViewTextBoxColumn";
-            this.guidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.guidDataGridViewTextBoxColumn.Visible = false;
+            this.dgGuid.DataPropertyName = "Guid";
+            this.dgGuid.HeaderText = "Guid";
+            this.dgGuid.Name = "dgGuid";
+            this.dgGuid.ReadOnly = true;
+            this.dgGuid.Visible = false;
             // 
             // dateSabtDataGridViewTextBoxColumn
             // 
@@ -741,6 +640,111 @@
             this.maritalStatusDataGridViewTextBoxColumn.ReadOnly = true;
             this.maritalStatusDataGridViewTextBoxColumn.Visible = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.contextMenuStrip1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuInsert,
+            this.mnuEdit,
+            this.mnuDelete,
+            this.toolStripMenuItem2,
+            this.mnuContract,
+            this.mnuView});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 130);
+            // 
+            // mnuInsert
+            // 
+            this.mnuInsert.ForeColor = System.Drawing.Color.Silver;
+            this.mnuInsert.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.mnuInsert.Name = "mnuInsert";
+            this.mnuInsert.Size = new System.Drawing.Size(218, 24);
+            this.mnuInsert.Text = "درج پرسنل جدید";
+            this.mnuInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.mnuInsert.Click += new System.EventHandler(this.MnuInsert_Click);
+            // 
+            // mnuEdit
+            // 
+            this.mnuEdit.ForeColor = System.Drawing.Color.Silver;
+            this.mnuEdit.Name = "mnuEdit";
+            this.mnuEdit.Size = new System.Drawing.Size(218, 24);
+            this.mnuEdit.Text = "ویرایش اطلاعات پرسنل جاری";
+            this.mnuEdit.Click += new System.EventHandler(this.MnuEdit_Click);
+            // 
+            // mnuDelete
+            // 
+            this.mnuDelete.ForeColor = System.Drawing.Color.Silver;
+            this.mnuDelete.Name = "mnuDelete";
+            this.mnuDelete.Size = new System.Drawing.Size(218, 24);
+            this.mnuDelete.Text = "حذف پرسنل جاری";
+            this.mnuDelete.Click += new System.EventHandler(this.MnuDelete_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(215, 6);
+            // 
+            // mnuContract
+            // 
+            this.mnuContract.ForeColor = System.Drawing.Color.Gainsboro;
+            this.mnuContract.Name = "mnuContract";
+            this.mnuContract.Size = new System.Drawing.Size(218, 24);
+            this.mnuContract.Text = "اطلاعات قرارداد";
+            // 
+            // mnuView
+            // 
+            this.mnuView.ForeColor = System.Drawing.Color.Silver;
+            this.mnuView.Name = "mnuView";
+            this.mnuView.Size = new System.Drawing.Size(218, 24);
+            this.mnuView.Text = "مشاهده";
+            this.mnuView.Click += new System.EventHandler(this.MnuView_Click);
+            // 
+            // PerssonelBindingSource
+            // 
+            this.PerssonelBindingSource.DataSource = typeof(BussinesLayer.Perssonel.PerssonelBussines);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(791, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 24);
+            this.label1.TabIndex = 55660;
+            this.label1.Text = "نمایش پرسنل";
+            // 
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.Border.Class = "TextBoxBorder";
+            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSearch.Location = new System.Drawing.Point(131, 70);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PreventEnterBeep = true;
+            this.txtSearch.Size = new System.Drawing.Size(652, 27);
+            this.txtSearch.TabIndex = 55661;
+            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // uC_Date1
+            // 
+            this.uC_Date1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.uC_Date1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uC_Date1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.uC_Date1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Date1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.uC_Date1.Name = "uC_Date1";
+            this.uC_Date1.Size = new System.Drawing.Size(915, 49);
+            this.uC_Date1.TabIndex = 55659;
+            // 
             // frmShow_Perssonel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -794,7 +798,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn perssonelCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn guidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgGuid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateSabtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountAvalDoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn moeinAvalDoreDataGridViewTextBoxColumn;

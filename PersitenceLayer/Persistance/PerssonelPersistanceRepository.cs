@@ -2,11 +2,14 @@
 using DataLayer.Core.Perssonel;
 using DataLayer.Models.Perssonel;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using DataLayer.BussinesLayer;
 
 namespace PersitenceLayer.Persistance
 {
-   public class PerssonelPersistanceRepository:GenericRepository<Perssonel>,IPerssonelRepository
+    public class PerssonelPersistanceRepository : GenericRepository<Perssonel>, IPerssonelRepository
     {
         private ModelContext _contextdb;
         public PerssonelPersistanceRepository(ModelContext db) : base(db)
@@ -20,11 +23,11 @@ namespace PersitenceLayer.Persistance
             {
                 using (var model = new ModelContext())
                 {
-                    var code = model.Perssonel.AsNoTracking()
-                                   ?.Max(q => int.Parse(q.ContractCode)) ?? 0;
+                    var code = model.Perssonel?.AsNoTracking()
+                                   .Max(q => int.Parse(q.ContractCode)) ?? 0;
                     code += 1;
-                    var new_code = code.ToString();
-                    return new_code;
+                    var newCode = code.ToString();
+                    return newCode;
                 }
             }
             catch (Exception exception)
@@ -33,45 +36,41 @@ namespace PersitenceLayer.Persistance
             }
         }
 
-        public bool Check_Code(string code, Guid guid)
+        public Perssonel Change_Status(Guid accGuid, bool state)
         {
             try
             {
-                using (var contex = new ModelContext())
+                using (var context = new ModelContext())
                 {
-                    var acc = contex.Perssonel.AsNoTracking().Where(q => q.Code == code && q.Guid != guid).ToList();
-                    if (acc == null || acc.Count == 0)
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    var acc = context.Perssonel.AsNoTracking().FirstOrDefault(q => q.Guid == accGuid);
+                    acc.Status = state;
+                    context.Perssonel.AddOrUpdate(acc);
+                    context.SaveChanges();
+                    return acc;
                 }
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
-                return false;
+                return null;
             }
         }
 
-        public bool Check_Name(string name, Guid guid)
+        public List<Perssonel> Search(string search)
         {
             try
             {
-                using (var contex = new ModelContext())
+                using (var context = new ModelContext())
                 {
-                    var acc = contex.Perssonel.AsNoTracking().Where(q => q.Name == name && q.Guid != guid).ToList();
-                    if (acc == null || acc.Count == 0)
-                    {
-                        return true;
-                    }
-
-                    return false;
+                    var list = context.Perssonel.AsNoTracking()
+                        .Where(q => (q.Code.Contains(search)) || q.Name.Contains(search) ||
+                                    q.PerssonelCode.Contains(search))?
+                        .ToList();
+                    return list;
                 }
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
-                return false;
+                return null;
             }
         }
     }

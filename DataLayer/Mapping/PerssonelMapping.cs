@@ -13,6 +13,7 @@ namespace DataLayer.Mapping
             Property(w => w.Amount_AvalDore).HasPrecision(20, 0);
             Property(w => w.PostalCode).HasMaxLength(20);
             Property(w => w.ContractCode).HasMaxLength(10);
+            Property(w => w.Half_Code).HasMaxLength(10);
             Property(w => w.HourPrice).HasPrecision(20, 0);
             Property(w => w.HouseRight).HasPrecision(20, 0);
             Property(w => w.ChildRight).HasPrecision(20, 0);

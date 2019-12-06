@@ -19,15 +19,11 @@ namespace BussinesLayer.AccountBussines
         public string Description { get; set; }
         public bool State { get; set; }
 
-        public AccountBussines _Account
+        public AccountBussines Account
         {
             get
             {
-                var account = AccountBussines.Get(Guid);
-                if (account == null)
-                {
-                    account = new AccountBussines();
-                }
+                var account = AccountBussines.Get(Guid) ?? new AccountBussines();
                 account.Guid = Guid;
                 account.HesabType = HesabType.Hazine;
                 account.Code = Code;
@@ -68,7 +64,7 @@ namespace BussinesLayer.AccountBussines
                 {
                     tran.BeginTransaction(TranName);
                     tran.CommitTransaction(TranName);
-                    var b = Mappings.Default.Map<Account>(_Account);
+                    var b = Mappings.Default.Map<Account>(Account);
                     var resAccount = _context.AccountRepository.Save(b);
                     if (resAccount)
                     {

@@ -25,11 +25,11 @@ namespace Coffee_ManageMent
                     var lst = PerssonelBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
                     PerssonelBindingSource.DataSource = lst.ToList();
                 }
-                //else
-                //{
-                //    var list = PerssonelBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                //    PerssonelBindingSource.DataSource = list;
-                //}
+                else
+                {
+                    var list = PerssonelBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    PerssonelBindingSource.DataSource = list;
+                }
 
                 lblCounter.Text = PerssonelBindingSource.Count.ToString();
             }
@@ -94,6 +94,85 @@ namespace Coffee_ManageMent
             {
                 frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
                 f.ShowDialog();
+            }
+        }
+
+        private void MnuEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmPerssonelMain(_guid, true);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void MnuView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmPerssonelMain(_guid, false);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void MnuDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                var accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var Acc = PerssonelBussines.Get(accGuid);
+                string message = "آیا از حذف " + Acc.Name + " " + "اطمینان دارید؟";
+                frmMessage frm = new frmMessage(EnumMessageFlag.DeleteFlag, Color.PapayaWhip, message);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    Acc = PerssonelBussines.Change_Status(accGuid, false);
+                    if (Acc.Save())
+                    {
+                        frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                        f.ShowDialog();
+                        LoadData();
+                    }
+
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadData(txtSearch.Text);
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
             }
         }
     }

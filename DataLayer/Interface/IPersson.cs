@@ -7,6 +7,7 @@ namespace DataLayer.Interface
         Guid Guid { get; set; }
         string DateSabt { get; set; }
         string Code { get; set; }
+        string Half_Code { get; set; }
         string Name { get; set; }
         decimal Amount_AvalDore { get; set; }
         string Description { get; set; }

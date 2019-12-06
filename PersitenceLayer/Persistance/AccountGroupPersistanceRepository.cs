@@ -2,7 +2,6 @@
 using System.Linq;
 using DataLayer.Context;
 using DataLayer.Core;
-using DataLayer.Enums;
 using DataLayer.Models.Account;
 
 namespace PersitenceLayer.Persistance

@@ -11,6 +11,7 @@ namespace DataLayer.Models.Perssonel
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }
         public string Code { get; set; }
+        public string Half_Code { get; set; }
         public string Name { get; set; }
         public decimal Amount_AvalDore { get; set; }
         public Guid MoeinAvalDore { get; set; }

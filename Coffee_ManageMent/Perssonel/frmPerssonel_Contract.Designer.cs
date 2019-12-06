@@ -105,9 +105,9 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(32, 121);
+            this.label3.Location = new System.Drawing.Point(133, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(344, 20);
+            this.label3.Size = new System.Drawing.Size(243, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "تحصیلات (مدرک و رشته تحصیلی)";
             // 
@@ -145,18 +145,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAccount.CanvasColor = System.Drawing.SystemColors.Control;
+            this.grpAccount.Controls.Add(this.label3);
+            this.grpAccount.Controls.Add(this.label7);
             this.grpAccount.Controls.Add(this.rbtnMarrie);
             this.grpAccount.Controls.Add(this.rbtnSingle);
             this.grpAccount.Controls.Add(this.txtEndDate);
             this.grpAccount.Controls.Add(this.txtStartDate);
             this.grpAccount.Controls.Add(this.txtEdu);
             this.grpAccount.Controls.Add(this.label4);
-            this.grpAccount.Controls.Add(this.label10);
             this.grpAccount.Controls.Add(this.txtContractCode);
-            this.grpAccount.Controls.Add(this.label7);
-            this.grpAccount.Controls.Add(this.label5);
-            this.grpAccount.Controls.Add(this.label3);
             this.grpAccount.Controls.Add(this.txtTheTerm);
+            this.grpAccount.Controls.Add(this.label10);
+            this.grpAccount.Controls.Add(this.label5);
             this.grpAccount.Controls.Add(this.label2);
             this.grpAccount.DisabledBackColor = System.Drawing.Color.Empty;
             this.grpAccount.Location = new System.Drawing.Point(12, 9);
@@ -263,9 +263,9 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(106, 65);
+            this.label7.Location = new System.Drawing.Point(216, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(270, 20);
+            this.label7.Size = new System.Drawing.Size(160, 19);
             this.label7.TabIndex = 19;
             this.label7.Text = "تاریخ پایان قرارداد";
             // 
