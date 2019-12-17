@@ -97,7 +97,6 @@
             this.mnuCus_Club = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLottery = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -647,23 +646,12 @@
             this.mnuSMS.Text = "پنل ارسال پیامک";
             this.mnuSMS.Click += new System.EventHandler(this.mnuSMS_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(725, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(959, 670);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -755,7 +743,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuTransfer_Safe;
         private System.Windows.Forms.ToolStripMenuItem mnuHazine;
         private System.Windows.Forms.ToolStripMenuItem mnuMoein;
-        private System.Windows.Forms.Button button1;
     }
 }
 

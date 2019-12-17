@@ -103,6 +103,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CoffeeShopDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Customers\frmCus_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\frmCus_Group.designer.cs">
+      <DependentUpon>frmCus_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\frmShow_Cus_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\frmShow_Cus_Group.designer.cs">
+      <DependentUpon>frmShow_Cus_Group.cs</DependentUpon>
+    </Compile>
     <Compile Include="Depot\AnbarGroup\frmAnbarGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +249,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sellers\frmSeller_CallInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sellers\frmSeller_CallInfo.Designer.cs">
+      <DependentUpon>frmSeller_CallInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sellers\frmSeller_PublicInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sellers\frmSeller_PublicInfo.designer.cs">
+      <DependentUpon>frmSeller_PublicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sellers\frmSellerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sellers\frmSellerMain.Designer.cs">
+      <DependentUpon>frmSellerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sellers\frmShow_Seller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sellers\frmShow_Seller.designer.cs">
+      <DependentUpon>frmShow_Seller.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_Header\UC_Header.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -249,6 +285,12 @@
     <Compile Include="Utility\lblSetter.cs" />
     <Compile Include="Utility\txtSetter.cs" />
     <Compile Include="Utility\WebCam.cs" />
+    <EmbeddedResource Include="Customers\frmCus_Group.resx">
+      <DependentUpon>frmCus_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customers\frmShow_Cus_Group.resx">
+      <DependentUpon>frmShow_Cus_Group.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Depot\AnbarGroup\frmAnbarGroup.resx">
       <DependentUpon>frmAnbarGroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +367,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sellers\frmSeller_CallInfo.resx">
+      <DependentUpon>frmSeller_CallInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sellers\frmSeller_PublicInfo.resx">
+      <DependentUpon>frmSeller_PublicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sellers\frmSellerMain.resx">
+      <DependentUpon>frmSellerMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sellers\frmShow_Seller.resx">
+      <DependentUpon>frmShow_Seller.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_Header\UC_Header.resx">
       <DependentUpon>UC_Header.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +402,7 @@
     <None Include="Properties\DataSources\BussinesLayer.Anbar.AnbarGroupBussines.datasource" />
     <None Include="Properties\DataSources\BussinesLayer.Perssonel.PerssonelBussines.datasource" />
     <None Include="Properties\DataSources\BussinesLayer.Perssonel.PerssonelGroupBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.Sellers.SellerBussines.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.Account.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.HesabGroup.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.KolHesab.datasource" />

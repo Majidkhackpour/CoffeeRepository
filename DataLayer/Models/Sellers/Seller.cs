@@ -26,5 +26,6 @@ namespace DataLayer.Models.Sellers
         public string RespName { get; set; }
         public string EconomyCode { get; set; }
         public SellerType Type { get; set; }
+        public Guid MeinAvalDore { get; set; }
     }
 }

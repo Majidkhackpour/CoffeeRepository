@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using BussinesLayer.AccountBussines;
 using BussinesLayer.Anbar;
+using BussinesLayer.Customer;
 using BussinesLayer.Perssonel;
 using BussinesLayer.PhoneBook;
 using BussinesLayer.Sellers;
 using DataLayer.Models.Account;
 using DataLayer.Models.Anbar;
+using DataLayer.Models.Customer;
 using DataLayer.Models.Perssonel;
 using DataLayer.Models.Sellers;
 using DataLayer.Models.Settings;
@@ -54,6 +56,9 @@ namespace BussinesLayer
 
             CreateMap<Seller, SellerBussines>();
             CreateMap<SellerBussines, Seller>();
+
+            CreateMap<CustomerGroup, CustomerGroupBusiness>();
+            CreateMap<CustomerGroupBusiness, CustomerGroup>();
         }
     }
 }

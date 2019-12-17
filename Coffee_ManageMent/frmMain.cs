@@ -6,6 +6,7 @@ using Coffee_ManageMent.Depot.Anbars;
 using Coffee_ManageMent.Hazine;
 using Coffee_ManageMent.Hesab;
 using Coffee_ManageMent.Perssonel;
+using Coffee_ManageMent.Sellers;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
@@ -72,7 +73,16 @@ namespace Coffee_ManageMent
 
         private void mnuSeller_Click(object sender, EventArgs e)
         {
-            // new frmShow_Seller().ShowDialog();
+            try
+            {
+                var frm = new frmShow_Seller();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
         }
 
         private void mnuCustomer_Click(object sender, EventArgs e)
@@ -349,7 +359,16 @@ namespace Coffee_ManageMent
 
         private void mnuCus_Group_Click(object sender, EventArgs e)
         {
-            //  new frmShow_Cus_Group().ShowDialog();
+            try
+            {
+                var frm = new frmShow_Cus_Group();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                var frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
         }
 
         private void mnuCus_Install_Click(object sender, EventArgs e)
@@ -405,9 +424,6 @@ namespace Coffee_ManageMent
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            new frmShow_PerssonelGroup().ShowDialog();
-        }
+       
     }
 }

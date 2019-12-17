@@ -2,49 +2,32 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using BussinesLayer.AccountBussines;
 using BussinesLayer.Perssonel;
+using BussinesLayer.Sellers;
+using Coffee_ManageMent.Sellers;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
-namespace Coffee_ManageMent.Perssonel
+namespace Coffee_ManageMent.Sellers
 {
-    public partial class frmShow_PerssonelGroup : Form
+    public partial class frmShow_Seller : Form
     {
-        private bool _isSelected = false;//When is True its mean selected part is show
-        private Guid _selectedGuid = Guid.Empty;
-        public Guid SelectedGuid
-        {
-            get => _selectedGuid;
-            set => _selectedGuid = value;
-        }
-        public frmShow_PerssonelGroup()
-        {
-            InitializeComponent();
-            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
-        }
-        public frmShow_PerssonelGroup(bool sIsSelected)
-        {
-            InitializeComponent();
-            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
-            _isSelected = sIsSelected;
-        }
         public void LoadData(string search = "")
         {
             try
             {
                 if (search == "")
                 {
-                    var lst = PerssonelGroupBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                    PerssonelGroupBindingSource.DataSource = lst.ToList();
+                    var lst = SellerBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    SellerBindingSource.DataSource = lst.ToList();
                 }
                 else
                 {
-                    var list = PerssonelGroupBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                    PerssonelGroupBindingSource.DataSource = list;
+                    var list = SellerBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    SellerBindingSource.DataSource = list;
                 }
 
-                lblCounter.Text = PerssonelGroupBindingSource.Count.ToString();
+                lblCounter.Text = SellerBindingSource.Count.ToString();
             }
             catch (Exception exception)
             {
@@ -52,13 +35,18 @@ namespace Coffee_ManageMent.Perssonel
                 frm.ShowDialog();
             }
         }
+        public frmShow_Seller()
+        {
+            InitializeComponent();
+            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
+        }
 
-        private void FrmShow_PerssonelGroup_Load(object sender, EventArgs e)
+        private void frmShow_Seller_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void FrmShow_PerssonelGroup_KeyDown(object sender, KeyEventArgs e)
+        private void FrmShow_Seller_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -76,15 +64,6 @@ namespace Coffee_ManageMent.Perssonel
                     case Keys.Escape:
                         this.Close();
                         break;
-                    case Keys.Enter:
-                        if (_isSelected)
-                        {
-                            SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-
-                        break;
                 }
             }
             catch (Exception exception)
@@ -98,16 +77,17 @@ namespace Coffee_ManageMent.Perssonel
         {
             try
             {
-                var frm = new frmPerssonelGroup();
+                var frm = new frmSellerMain();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
+                    frm.Dispose();
                 }
             }
             catch (Exception ex)
             {
-                var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
-                f.ShowDialog();
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
             }
         }
 
@@ -116,8 +96,8 @@ namespace Coffee_ManageMent.Perssonel
             try
             {
                 if (DGrid.RowCount == 0) return;
-                Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                frmPerssonelGroup frm = new frmPerssonelGroup(_guid, true);
+                var guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmSellerMain(guid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -135,8 +115,8 @@ namespace Coffee_ManageMent.Perssonel
             try
             {
                 if (DGrid.RowCount == 0) return;
-                Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                frmPerssonelGroup frm = new frmPerssonelGroup(_guid, false);
+                var guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmSellerMain(guid, false);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -154,13 +134,13 @@ namespace Coffee_ManageMent.Perssonel
             try
             {
                 if (DGrid.RowCount == 0) return;
-                Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                var Acc = PerssonelGroupBussines.Get(accGuid);
-                string message = "آیا از حذف گروه پرسنل " + Acc.Name + " " + "اطمینان دارید؟";
+                var accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var Acc = SellerBussines.Get(accGuid);
+                string message = "آیا از حذف " + Acc.Name + " " + "اطمینان دارید؟";
                 frmMessage frm = new frmMessage(EnumMessageFlag.DeleteFlag, Color.PapayaWhip, message);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    Acc = PerssonelGroupBussines.Change_Status(accGuid, false);
+                    Acc = SellerBussines.Change_Status(accGuid, false);
                     if (Acc.Save())
                     {
                         frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
@@ -188,30 +168,6 @@ namespace Coffee_ManageMent.Perssonel
                 frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
-        }
-
-        private void DGrid_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_isSelected)
-                {
-                    if (DGrid.RowCount == 0) return;
-                    SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-            }
-            catch (Exception exception)
-            {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
-                frm.ShowDialog();
-            }
-        }
-
-        private void DGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            DGrid.Rows[e.RowIndex].Cells["Radif"].Value = e.RowIndex + 1;
         }
     }
 }

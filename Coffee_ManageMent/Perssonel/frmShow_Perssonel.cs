@@ -62,15 +62,6 @@ namespace Coffee_ManageMent
                     case Keys.Escape:
                         this.Close();
                         break;
-                    //case Keys.Enter:
-                    //    if (_isSelected)
-                    //    {
-                    //        SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                    //        this.DialogResult = DialogResult.OK;
-                    //        this.Close();
-                    //    }
-
-                    //    break;
                 }
             }
             catch (Exception exception)
@@ -88,6 +79,7 @@ namespace Coffee_ManageMent
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
+                    frm.Dispose();
                 }
             }
             catch (Exception ex)

@@ -2,6 +2,7 @@
 using DataLayer.Context;
 using DataLayer.Core;
 using DataLayer.Core.Anbar;
+using DataLayer.Core.Customer;
 using DataLayer.Core.Perssonel;
 using DataLayer.Core.PhoneBook;
 using DataLayer.Core.Sellers;
@@ -24,6 +25,7 @@ namespace PersitenceLayer.Persistance
         private IPerssonelRepository _perssonelRepository;
         private IPhoneBookRepository _phoneBookRepository;
         private ISellerRpository _sellerRpository;
+        private ICustomerGroupRepository _cusGroup;
 
         public void Dispose()
         {
@@ -173,5 +175,8 @@ namespace PersitenceLayer.Persistance
         }
 
         public ISellerRpository Seller => _sellerRpository ?? (_sellerRpository = new SellerPersistanceRepository(db));
+
+        public ICustomerGroupRepository CusGroup =>
+            _cusGroup ?? (_cusGroup = new CustomerGroupPersistanceRepository(db));
     }
 }

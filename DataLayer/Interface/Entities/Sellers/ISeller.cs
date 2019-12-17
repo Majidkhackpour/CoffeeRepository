@@ -1,4 +1,5 @@
-﻿using DataLayer.Enums;
+﻿using System;
+using DataLayer.Enums;
 
 namespace DataLayer.Interface.Entities.Sellers
 {
@@ -7,5 +8,6 @@ namespace DataLayer.Interface.Entities.Sellers
         string RespName { get; set; }
         string EconomyCode { get; set; }
         SellerType Type { get; set; }
+        Guid MeinAvalDore { get; set; }
     }
 }
