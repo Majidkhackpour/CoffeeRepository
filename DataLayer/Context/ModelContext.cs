@@ -36,6 +36,7 @@ namespace DataLayer.Context
             modelbuilder.Configurations.Add(new PhoneBookMapping());
             modelbuilder.Configurations.Add(new SellerMapping());
             modelbuilder.Configurations.Add(new CustomerGroupMapping());
+            modelbuilder.Configurations.Add(new CustomersMapping());
             base.OnModelCreating(modelbuilder);
         }
 
@@ -53,5 +54,6 @@ namespace DataLayer.Context
         public virtual DbSet<PhoneBook> PhoneBook { get; set; }
         public virtual DbSet<Seller> Seller { get; set; }
         public virtual DbSet<CustomerGroup> CusGroup { get; set; }
+        public virtual DbSet<Customers> Customers { get; set; }
     }
 }

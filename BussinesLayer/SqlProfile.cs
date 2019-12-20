@@ -59,6 +59,9 @@ namespace BussinesLayer
 
             CreateMap<CustomerGroup, CustomerGroupBusiness>();
             CreateMap<CustomerGroupBusiness, CustomerGroup>();
+
+            CreateMap<Customers, CustomersBussines>();
+            CreateMap<CustomersBussines, Customers>();
         }
     }
 }

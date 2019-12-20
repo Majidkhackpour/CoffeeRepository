@@ -59,6 +59,7 @@
     <Compile Include="Core\Anbar\IAnbarGroupRepository.cs" />
     <Compile Include="Core\Anbar\IAnbarRepository.cs" />
     <Compile Include="Core\Customer\ICustomerGroupRepository.cs" />
+    <Compile Include="Core\Customer\ICustomersRepository.cs" />
     <Compile Include="Core\IAccountGroupRepository.cs" />
     <Compile Include="Core\IAccountRepository.cs" />
     <Compile Include="Core\IAppSetting.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Interface\Entities\Anbar\IAnbar.cs" />
     <Compile Include="Interface\Entities\Anbar\IAnbarGroup.cs" />
     <Compile Include="Interface\Entities\Customer\ICustomerGroup.cs" />
+    <Compile Include="Interface\Entities\Customer\ICustomers.cs" />
     <Compile Include="Interface\Entities\Perssonel\IPerssonel.cs" />
     <Compile Include="Interface\Entities\Perssonel\IPerssonelGroup.cs" />
     <Compile Include="Interface\Entities\PhoneBook\IPhoneBook.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Mapping\AnbarGroupMapping.cs" />
     <Compile Include="Mapping\AnbarMapping.cs" />
     <Compile Include="Mapping\CustomerGroupMapping.cs" />
+    <Compile Include="Mapping\CustomersMapping.cs" />
     <Compile Include="Mapping\HazineMapping.cs" />
     <Compile Include="Mapping\HesabGroupMapping.cs" />
     <Compile Include="Mapping\KolHesabMapping.cs" />
@@ -205,6 +208,10 @@
     <Compile Include="Migration\Migration\201912061359529_AddSeller.designer.cs">
       <DependentUpon>201912061359529_AddSeller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration\Migration\201912201040147_AddCustomerEntity.cs" />
+    <Compile Include="Migration\Migration\201912201040147_AddCustomerEntity.designer.cs">
+      <DependentUpon>201912201040147_AddCustomerEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration\Migration\Configuration.cs" />
     <Compile Include="Models\Account\HesabGroup.cs" />
     <Compile Include="Models\Account\KolHesab.cs" />
@@ -216,6 +223,7 @@
     <Compile Include="Models\Anbar\Anbar.cs" />
     <Compile Include="Models\Anbar\AnbarGroup.cs" />
     <Compile Include="Models\Customer\CustomerGroup.cs" />
+    <Compile Include="Models\Customer\Customers.cs" />
     <Compile Include="Models\Perssonel\Perssonel.cs" />
     <Compile Include="Models\Perssonel\PerssonelGroup.cs" />
     <Compile Include="Models\PhoneBook\PhoneBook.cs" />
@@ -310,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration\Migration\201912061359529_AddSeller.resx">
       <DependentUpon>201912061359529_AddSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\Migration\201912201040147_AddCustomerEntity.resx">
+      <DependentUpon>201912201040147_AddCustomerEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

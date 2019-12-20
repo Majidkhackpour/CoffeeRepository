@@ -62,6 +62,7 @@
     <Compile Include="Persistance\AnbarPersistanceRepository.cs" />
     <Compile Include="Persistance\AppSettingPersistanceRepository.cs" />
     <Compile Include="Persistance\CustomerGroupPersistanceRepository.cs" />
+    <Compile Include="Persistance\CutomersPersistanceRepository.cs" />
     <Compile Include="Persistance\GenericRepository.cs" />
     <Compile Include="Persistance\HazinePersistanceRepository.cs" />
     <Compile Include="Persistance\HesabGroupPersistanceRepository.cs" />

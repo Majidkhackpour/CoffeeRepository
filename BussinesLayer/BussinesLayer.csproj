@@ -55,6 +55,7 @@
     <Compile Include="Anbar\AnbarGroupBussines.cs" />
     <Compile Include="AppSettingBussines.cs" />
     <Compile Include="Customer\CustomerGroupBusiness.cs" />
+    <Compile Include="Customer\CustomersBussines.cs" />
     <Compile Include="Perssonel\PerssonelBussines.cs" />
     <Compile Include="Perssonel\PerssonelGroupBussines.cs" />
     <Compile Include="PhoneBook\PhoneBookBussines.cs" />

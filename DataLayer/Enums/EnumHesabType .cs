@@ -16,4 +16,9 @@ namespace DataLayer.Enums
         [PersianNameAttribute.PersianName("اشخاص حقیقی")] A_Haqiqi = 30,
         [PersianNameAttribute.PersianName("اشخاص حقوقی")] A_Hoqouqi = 40
     }
+    public enum PayType : short
+    {
+        [PersianNameAttribute.PersianName("نقدی")] Naqdi = 0,
+        [PersianNameAttribute.PersianName("اعتباری")] Etebari = 1
+    }
 }

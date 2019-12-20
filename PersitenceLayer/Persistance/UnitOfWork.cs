@@ -11,7 +11,7 @@ namespace PersitenceLayer.Persistance
 {
     public class UnitOfWork : IDisposable
     {
-        private ModelContext db = new ModelContext();
+        private readonly ModelContext db = new ModelContext();
         private IHazineRepository _hazineRepository;
         private IKolRepository _kolRepository;
         private IHesabGroupRepository _hesabGroupRepository;
@@ -26,6 +26,7 @@ namespace PersitenceLayer.Persistance
         private IPhoneBookRepository _phoneBookRepository;
         private ISellerRpository _sellerRpository;
         private ICustomerGroupRepository _cusGroup;
+        private ICustomersRepository _customers;
 
         public void Dispose()
         {
@@ -178,5 +179,7 @@ namespace PersitenceLayer.Persistance
 
         public ICustomerGroupRepository CusGroup =>
             _cusGroup ?? (_cusGroup = new CustomerGroupPersistanceRepository(db));
+
+        public ICustomersRepository Customers => _customers ?? (_customers = new CutomersPersistanceRepository(db));
     }
 }
