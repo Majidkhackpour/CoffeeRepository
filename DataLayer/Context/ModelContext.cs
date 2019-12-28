@@ -1,6 +1,7 @@
 using DataLayer.Mapping;
 using DataLayer.Models.Account;
 using DataLayer.Models.Anbar;
+using DataLayer.Models.BankHesab;
 using DataLayer.Models.Customer;
 using DataLayer.Models.Perssonel;
 using DataLayer.Models.PhoneBook;
@@ -37,6 +38,7 @@ namespace DataLayer.Context
             modelbuilder.Configurations.Add(new SellerMapping());
             modelbuilder.Configurations.Add(new CustomerGroupMapping());
             modelbuilder.Configurations.Add(new CustomersMapping());
+            modelbuilder.Configurations.Add(new BanksMapping());
             base.OnModelCreating(modelbuilder);
         }
 
@@ -55,5 +57,6 @@ namespace DataLayer.Context
         public virtual DbSet<Seller> Seller { get; set; }
         public virtual DbSet<CustomerGroup> CusGroup { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Banks> Banks { get; set; }
     }
 }

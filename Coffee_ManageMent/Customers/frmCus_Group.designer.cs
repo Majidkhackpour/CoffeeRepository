@@ -1,4 +1,4 @@
-﻿namespace Coffee_ManageMent
+﻿namespace Coffee_ManageMent.Customers
 {
     partial class frmCus_Group
     {

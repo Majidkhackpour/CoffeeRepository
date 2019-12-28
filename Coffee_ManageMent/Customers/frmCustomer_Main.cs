@@ -2,28 +2,29 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using BussinesLayer.Customer;
 using BussinesLayer.Sellers;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
-namespace Coffee_ManageMent.Sellers
+namespace Coffee_ManageMent.Customers
 {
-    public partial class frmSellerMain : Form
+    public partial class frmCustomer : Form
     {
-        private static SellerBussines _seller;
+        private static CustomersBussines _cus;
 
         private Form[] listForms =
         {
-            frmSeller_PublicInfo.PublicInfo, frmSeller_CallInfo.CallInfo
+            frmCustomer_PublicInfo.PublicInfo, frmCustomer_CallInfo.CallInfo, frmCustomer_AouthInfo.AouthInfo
         };
 
         private int Count = 0;
         private int top = -1;
-        public frmSellerMain()
+        public frmCustomer()
         {
             InitializeComponent();
             Count = listForms.Count();
-            _seller = new SellerBussines();
+            _cus = new CustomersBussines();
         }
         private void LoadNewForm(Form frm)
         {
@@ -41,10 +42,13 @@ namespace Coffee_ManageMent.Sellers
                 switch (top)
                 {
                     case 0:
-                        frmSeller_PublicInfo.PublicInfo.FillData(_seller);
+                        frmCustomer_PublicInfo.PublicInfo.FillData(_cus);
                         break;
                     case 1:
-                        frmSeller_CallInfo.CallInfo.FillData(_seller);
+                        frmCustomer_CallInfo.CallInfo.FillData(_cus);
+                        break;
+                    case 2:
+                        frmCustomer_AouthInfo.AouthInfo.FillData(_cus);
                         break;
                 }
             }
@@ -54,11 +58,11 @@ namespace Coffee_ManageMent.Sellers
                 f.ShowDialog();
             }
         }
-        public frmSellerMain(Guid guid, bool Is_Show)
+        public frmCustomer(Guid guid, bool Is_Show)
         {
             InitializeComponent();
             Count = listForms.Count();
-            _seller = SellerBussines.Get(guid);
+            _cus = CustomersBussines.Get(guid);
             pnlContent.Enabled = Is_Show;
             btnFinish.Enabled = Is_Show;
         }
@@ -109,15 +113,16 @@ namespace Coffee_ManageMent.Sellers
             }
         }
 
-        private void FrmSellerMain_Load(object sender, EventArgs e)
+
+        private void frmCustomer_Load(object sender, EventArgs e)
         {
             Next();
             btnBack.Text = "خروج";
         }
 
-        private void BtnNext_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            _seller = GetSeller(_seller);
+            _cus = GetCustomer(_cus);
             if (btnNext.Text == "ثبت اطلاعات")
             {
                 btnFinish.PerformClick();
@@ -126,9 +131,9 @@ namespace Coffee_ManageMent.Sellers
             Next();
         }
 
-        private void BtnBack_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            _seller = GetSeller(_seller);
+            _cus = GetCustomer(_cus);
             if (btnBack.Text == "خروج")
             {
                 btnCancel.PerformClick();
@@ -136,17 +141,20 @@ namespace Coffee_ManageMent.Sellers
             }
             Back();
         }
-        private SellerBussines GetSeller(SellerBussines _p)
+        private CustomersBussines GetCustomer(CustomersBussines _p)
         {
             try
             {
                 switch (top)
                 {
                     case 0:
-                        _p = frmSeller_PublicInfo.PublicInfo.SetData(_seller);
+                        _p = frmCustomer_PublicInfo.PublicInfo.SetData(_cus);
                         break;
                     case 1:
-                        _p = frmSeller_CallInfo.CallInfo.SetData(_seller);
+                        _p = frmCustomer_CallInfo.CallInfo.SetData(_cus);
+                        break;
+                    case 2:
+                        _p = frmCustomer_AouthInfo.AouthInfo.SetData(_cus);
                         break;
                 }
 
@@ -160,67 +168,71 @@ namespace Coffee_ManageMent.Sellers
             }
         }
 
-        private void BtnFinish_Click(object sender, EventArgs e)
+        private void btnFinish_Click(object sender, EventArgs e)
         {
             try
             {
-                _seller = GetSeller(_seller);
-                _seller.Status = true;
-                if (_seller.Guid == Guid.Empty)
+                _cus = GetCustomer(_cus);
+                _cus.Status = true;
+                if (_cus.Guid == Guid.Empty)
                 {
-                    _seller.Guid = Guid.NewGuid();
-                    _seller.DateSabt = DateConvertor.M2SH(DateTime.Now);
+                    _cus.Guid = Guid.NewGuid();
+                    _cus.DateSabt = DateConvertor.M2SH(DateTime.Now);
                 }
 
-                if (string.IsNullOrEmpty(_seller.Code) || !SellerBussines.Check_Code(_seller.Code, _seller.Guid))
+                if (string.IsNullOrEmpty(_cus.Code) || !CustomersBussines.Check_Code(_cus.Code, _cus.Guid))
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
-                        "کد شناسایی فروشنده مورد نظر، معتبر نمی باشد");
+                        "کد شناسایی مشتری مورد نظر، معتبر نمی باشد");
                     f.ShowDialog();
                     return;
                 }
-                if (string.IsNullOrEmpty(_seller.Name) || !SellerBussines.Check_Name(_seller.Name, _seller.Guid))
+                if (string.IsNullOrEmpty(_cus.Name) || !CustomersBussines.Check_Name(_cus.Name, _cus.Guid))
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
-                        "نام فروشنده مورد نظر، معتبر نمی باشد");
-                    f.ShowDialog();
-                    return;
-                }
-
-
-                if (_seller.Amount_AvalDore != 0 && _seller.MoeinAmountAvalDore == Guid.Empty)
-                {
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
-                        "معین حساب مانده اول دوره فروشنده مورد نظر، معتبر نمی باشد");
-                    f.ShowDialog();
-                    return;
-                }
-                if (!CheckPerssonValidation.Check_Mobile(_seller.Mobile1) || !CheckPerssonValidation.Check_Mobile(_seller.Mobile2))
-                {
-                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
-                        "تلفن همراه فروشنده مورد نظر، معتبر نمی باشد");
+                        "نام مشتری مورد نظر، معتبر نمی باشد");
                     f.ShowDialog();
                     return;
                 }
 
-                if (!CheckPerssonValidation.Check_Email(_seller.Email))
+                if (_cus.GroupGuid == Guid.Empty)
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
-                        "پست الکترونیک فروشنده مورد نظر، معتبر نمی باشد");
+                        "گروه مشتری مورد نظر، معتبر نمی باشد");
                     f.ShowDialog();
                     return;
                 }
 
+                if (_cus.Amount_AvalDore != 0 && _cus.MoeinAmountAvalDore == Guid.Empty)
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
+                        "معین حساب مانده اول دوره مشتری مورد نظر، معتبر نمی باشد");
+                    f.ShowDialog();
+                    return;
+                }
+                if (!CheckPerssonValidation.Check_Mobile(_cus.Mobile1) || !CheckPerssonValidation.Check_Mobile(_cus.Mobile2))
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
+                        "تلفن همراه مشتری مورد نظر، معتبر نمی باشد");
+                    f.ShowDialog();
+                    return;
+                }
 
+                if (!CheckPerssonValidation.Check_Email(_cus.Email))
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
+                        "پست الکترونیک مشتری مورد نظر، معتبر نمی باشد");
+                    f.ShowDialog();
+                    return;
+                }
 
-                if (_seller.Save())
+                if (_cus.Save())
                 {
                     var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-
             }
             catch (Exception ex)
             {

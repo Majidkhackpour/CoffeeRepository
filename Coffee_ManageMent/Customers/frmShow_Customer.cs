@@ -2,49 +2,49 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using BussinesLayer.Perssonel;
-using Coffee_ManageMent.Perssonel;
+using BussinesLayer.Customer;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
-namespace Coffee_ManageMent
+namespace Coffee_ManageMent.Customers
 {
-    public partial class frmShow_Perssonel : Form
+    public partial class frmShow_Customer : Form
     {
-        public frmShow_Perssonel()
-        {
-            InitializeComponent();
-            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
-        }
         public void LoadData(string search = "")
         {
             try
             {
                 if (search == "")
                 {
-                    var lst = PerssonelBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                    PerssonelBindingSource.DataSource = lst.ToList();
+                    var lst = CustomersBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    CustomerBindingSource.DataSource = lst.ToList();
                 }
                 else
                 {
-                    var list = PerssonelBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                    PerssonelBindingSource.DataSource = list;
+                    var list = CustomersBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    CustomerBindingSource.DataSource = list;
                 }
 
-                lblCounter.Text = PerssonelBindingSource.Count.ToString();
+                lblCounter.Text = CustomerBindingSource.Count.ToString();
             }
             catch (Exception exception)
             {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                var frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
         }
-        private void frmShow_Perssonel_Load(object sender, EventArgs e)
+        public frmShow_Customer()
+        {
+            InitializeComponent();
+            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
+        }
+
+        private void frmShow_Customer_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void FrmShow_Perssonel_KeyDown(object sender, KeyEventArgs e)
+        private void frmShow_Customer_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -66,35 +66,33 @@ namespace Coffee_ManageMent
             }
             catch (Exception exception)
             {
-                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                var frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
         }
 
-        private void MnuInsert_Click(object sender, EventArgs e)
+        private void mnuInsert_Click(object sender, EventArgs e)
         {
             try
             {
-                frmPerssonelMain frm = new frmPerssonelMain();
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
+                var frm = new frmCustomer();
+                if (frm.ShowDialog() != DialogResult.OK) return;
+                LoadData();
             }
             catch (Exception ex)
             {
-                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
                 f.ShowDialog();
             }
         }
 
-        private void MnuEdit_Click(object sender, EventArgs e)
+        private void mnuEdit_Click(object sender, EventArgs e)
         {
             try
             {
                 if (DGrid.RowCount == 0) return;
-                Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                var frm = new frmPerssonelMain(_guid, true);
+                var guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmCustomer(guid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -107,13 +105,13 @@ namespace Coffee_ManageMent
             }
         }
 
-        private void MnuView_Click(object sender, EventArgs e)
+        private void mnuView_Click(object sender, EventArgs e)
         {
             try
             {
                 if (DGrid.RowCount == 0) return;
-                Guid _guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                var frm = new frmPerssonelMain(_guid, false);
+                var guid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmCustomer(guid, false);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -126,18 +124,18 @@ namespace Coffee_ManageMent
             }
         }
 
-        private void MnuDelete_Click(object sender, EventArgs e)
+        private void mnuDelete_Click(object sender, EventArgs e)
         {
             try
             {
                 if (DGrid.RowCount == 0) return;
                 var accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                var Acc = PerssonelBussines.Get(accGuid);
+                var Acc = CustomersBussines.Get(accGuid);
                 string message = "آیا از حذف " + Acc.Name + " " + "اطمینان دارید؟";
                 frmMessage frm = new frmMessage(EnumMessageFlag.DeleteFlag, Color.PapayaWhip, message);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    Acc = PerssonelBussines.Change_Status(accGuid, false);
+                    Acc = CustomersBussines.Change_Status(accGuid, false);
                     if (Acc.Save())
                     {
                         frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
@@ -154,7 +152,7 @@ namespace Coffee_ManageMent
             }
         }
 
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             try
             {

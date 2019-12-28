@@ -10,7 +10,6 @@ namespace DataLayer.Interface.Entities.Perssonel
         string Code { get; set; }
         string Name { get; set; }
         decimal Amount_AvalDore { get; set; }
-        Guid MoeinAvalDore { get; set; }
         string Description { get; set; }
         string Pic { get; set; }
         string Phone1 { get; set; }

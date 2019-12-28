@@ -6,7 +6,7 @@ using BussinesLayer.Customer;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
-namespace Coffee_ManageMent
+namespace Coffee_ManageMent.Customers
 {
     public partial class frmCus_Group : Form
     {

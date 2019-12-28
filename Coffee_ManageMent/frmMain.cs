@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Coffee_ManageMent.Customers;
 using Coffee_ManageMent.Depot.AnbarGroup;
 using Coffee_ManageMent.Depot.Anbars;
 using Coffee_ManageMent.Hazine;
@@ -87,7 +88,16 @@ namespace Coffee_ManageMent
 
         private void mnuCustomer_Click(object sender, EventArgs e)
         {
-            //  new frmShow_Customer().ShowDialog();
+            try
+            {
+                var frm = new frmShow_Customer();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
         }
 
         private void mnuSafe_Click(object sender, EventArgs e)

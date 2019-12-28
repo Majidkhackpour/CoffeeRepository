@@ -10,6 +10,7 @@ namespace DataLayer.Interface
         string Half_Code { get; set; }
         string Name { get; set; }
         decimal Amount_AvalDore { get; set; }
+        Guid MoeinAmountAvalDore { get; set; }
         string Description { get; set; }
         string Pic { get; set; }
         string Phone1 { get; set; }

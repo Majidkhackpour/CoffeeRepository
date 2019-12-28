@@ -1,21 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesLayer.Customer;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 
-namespace Coffee_ManageMent
+namespace Coffee_ManageMent.Customers
 {
     public partial class frmShow_Cus_Group : Form
     {
+        private bool _isSelected = false;//When is True its mean selected part is show
+        private Guid _selectedGuid = Guid.Empty;
+        public Guid SelectedGuid
+        {
+            get => _selectedGuid;
+            set => _selectedGuid = value;
+        }
         public void LoadData(string search = "")
         {
             try
@@ -25,11 +26,11 @@ namespace Coffee_ManageMent
                     var lst = CustomerGroupBusiness.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
                     CustomerGroupBindingSource.DataSource = lst.ToList();
                 }
-                //else
-                //{
-                //    var list = PerssonelGroupBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                //    PerssonelGroupBindingSource.DataSource = list;
-                //}
+                else
+                {
+                    var list = CustomerGroupBusiness.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    CustomerGroupBindingSource.DataSource = list;
+                }
 
                 lblCounter.Text = CustomerGroupBindingSource.Count.ToString();
             }
@@ -44,7 +45,12 @@ namespace Coffee_ManageMent
             InitializeComponent();
             contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
         }
-
+        public frmShow_Cus_Group(bool sIsSelected)
+        {
+            InitializeComponent();
+            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
+            _isSelected = sIsSelected;
+        }
         private void frmShow_Cus_Group_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -67,6 +73,15 @@ namespace Coffee_ManageMent
                         break;
                     case Keys.Escape:
                         this.Close();
+                        break;
+                    case Keys.Enter:
+                        if (_isSelected)
+                        {
+                            SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+
                         break;
                 }
             }
@@ -168,6 +183,23 @@ namespace Coffee_ManageMent
         private void DGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             DGrid.Rows[e.RowIndex].Cells["Radif"].Value = e.RowIndex + 1;
+        }
+
+        private void DGrid_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_isSelected) return;
+                if (DGrid.RowCount == 0) return;
+                SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
         }
     }
 }

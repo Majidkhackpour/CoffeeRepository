@@ -81,7 +81,6 @@ namespace Coffee_ManageMent.Sellers
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
-                    frm.Dispose();
                 }
             }
             catch (Exception ex)

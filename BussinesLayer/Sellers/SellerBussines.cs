@@ -21,6 +21,7 @@ namespace BussinesLayer.Sellers
         public string Half_Code { get; set; }
         public string Name { get; set; }
         public decimal Amount_AvalDore { get; set; }
+        public Guid MoeinAmountAvalDore { get; set; }
         public string Description { get; set; }
         public string Pic { get; set; }
         public string Phone1 { get; set; }
@@ -35,7 +36,6 @@ namespace BussinesLayer.Sellers
         public string RespName { get; set; }
         public string EconomyCode { get; set; }
         public SellerType Type { get; set; }
-        public Guid MeinAvalDore { get; set; }
 
 
         public AccountBussines.AccountBussines Account
@@ -43,7 +43,7 @@ namespace BussinesLayer.Sellers
             get
             {
                 var account = AccountBussines.AccountBussines.Get(Guid) ?? new AccountBussines.AccountBussines();
-                account.Guid = Guid;
+                account.Guid =Guid;
                 account.HesabType = HesabType.A_Haqiqi;
                 account.Code = Code;
                 account.DateSabt = DateSabt;
@@ -54,6 +54,7 @@ namespace BussinesLayer.Sellers
                 account.Half_Code = Half_Code;
                 account.Name = Name;
                 account.State = Status;
+                account.Amounth = Amount_AvalDore;
                 return account;
             }
         }

@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using BussinesLayer.AccountBussines;
 using BussinesLayer.Anbar;
+using BussinesLayer.Banks;
 using BussinesLayer.Customer;
 using BussinesLayer.Perssonel;
 using BussinesLayer.PhoneBook;
 using BussinesLayer.Sellers;
 using DataLayer.Models.Account;
 using DataLayer.Models.Anbar;
+using DataLayer.Models.BankHesab;
 using DataLayer.Models.Customer;
 using DataLayer.Models.Perssonel;
 using DataLayer.Models.Sellers;
@@ -62,6 +64,9 @@ namespace BussinesLayer
 
             CreateMap<Customers, CustomersBussines>();
             CreateMap<CustomersBussines, Customers>();
+
+            CreateMap<DataLayer.Models.BankHesab.Banks, BanksBussines>();
+            CreateMap<BanksBussines, DataLayer.Models.BankHesab.Banks>();
         }
     }
 }

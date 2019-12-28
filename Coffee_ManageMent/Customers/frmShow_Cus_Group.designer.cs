@@ -1,4 +1,4 @@
-﻿namespace Coffee_ManageMent
+﻿namespace Coffee_ManageMent.Customers
 {
     partial class frmShow_Cus_Group
     {
@@ -242,6 +242,7 @@
             this.DGrid.Size = new System.Drawing.Size(571, 418);
             this.DGrid.TabIndex = 55669;
             this.DGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGrid_CellFormatting);
+            this.DGrid.DoubleClick += new System.EventHandler(this.DGrid_DoubleClick);
             // 
             // Radif
             // 

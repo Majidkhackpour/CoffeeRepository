@@ -194,13 +194,11 @@ namespace Coffee_ManageMent.Perssonel
         {
             try
             {
-                if (_isSelected)
-                {
-                    if (DGrid.RowCount == 0) return;
-                    SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
+                if (!_isSelected) return;
+                if (DGrid.RowCount == 0) return;
+                SelectedGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception exception)
             {

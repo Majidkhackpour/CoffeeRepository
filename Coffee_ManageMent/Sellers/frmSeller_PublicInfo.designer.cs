@@ -167,11 +167,11 @@
             this.txtMoeinName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMoeinName.Enabled = false;
             this.txtMoeinName.ForeColor = System.Drawing.Color.Silver;
-            this.txtMoeinName.Location = new System.Drawing.Point(481, 194);
+            this.txtMoeinName.Location = new System.Drawing.Point(18, 194);
             this.txtMoeinName.MaxLength = 2;
             this.txtMoeinName.Name = "txtMoeinName";
             this.txtMoeinName.ReadOnly = true;
-            this.txtMoeinName.Size = new System.Drawing.Size(228, 27);
+            this.txtMoeinName.Size = new System.Drawing.Size(691, 27);
             this.txtMoeinName.TabIndex = 27;
             this.txtMoeinName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMoeinName.Enter += new System.EventHandler(this.TxtMoeinName_Enter);

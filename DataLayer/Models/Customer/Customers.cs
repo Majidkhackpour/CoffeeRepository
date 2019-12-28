@@ -12,6 +12,7 @@ namespace DataLayer.Models.Customer
         public string Half_Code { get; set; }
         public string Name { get; set; }
         public decimal Amount_AvalDore { get; set; }
+        public Guid MoeinAmountAvalDore { get; set; }
         public string Description { get; set; }
         public string Pic { get; set; }
         public string Phone1 { get; set; }

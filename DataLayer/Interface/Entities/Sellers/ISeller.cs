@@ -8,6 +8,5 @@ namespace DataLayer.Interface.Entities.Sellers
         string RespName { get; set; }
         string EconomyCode { get; set; }
         SellerType Type { get; set; }
-        Guid MeinAvalDore { get; set; }
     }
 }

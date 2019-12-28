@@ -43,7 +43,7 @@ namespace Coffee_ManageMent.Sellers
                 _seller.Description = txtDescription.Text;
                 _seller.RespName = txtResName.Text;
                 _seller.EconomyCode = txtEcoCode.Text;
-                _seller.MeinAvalDore = moein?.Guid ?? Guid.Empty;
+                _seller.MoeinAmountAvalDore = moein?.Guid ?? Guid.Empty;
                 var amount = txtAmount.Text.Replace(",", "").ParseToDecimal();
                 switch (cmbAmountMahiat.SelectedIndex)
                 {
@@ -58,10 +58,7 @@ namespace Coffee_ManageMent.Sellers
                         break;
                 }
 
-                if (cmbType.SelectedIndex == 0)
-                    _seller.Type = SellerType.A_Haqiqi;
-                else
-                    _seller.Type = SellerType.A_Hoqouqi;
+                _seller.Type = cmbType.SelectedIndex == 0 ? SellerType.A_Haqiqi : SellerType.A_Hoqouqi;
                 return _seller;
             }
             catch (Exception ex)
@@ -85,10 +82,8 @@ namespace Coffee_ManageMent.Sellers
                 txtDescription.Text = _seller.Description;
                 txtResName.Text = _seller.RespName;
                 txtEcoCode.Text = _seller.EconomyCode;
-                
-
                 txtAmount.Text = (Math.Abs(_seller.Amount_AvalDore)).ToString();
-                moein = MoeinBussines.Get(_seller.MeinAvalDore);
+                moein = MoeinBussines.Get(_seller.MoeinAmountAvalDore);
                 txtMoeinName.Text = moein?.Name ?? "";
                 txtMoeinCode.Text = moein?.Code ?? "";
                 if (_seller.Guid == Guid.Empty)

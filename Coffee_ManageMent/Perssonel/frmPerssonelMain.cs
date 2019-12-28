@@ -77,7 +77,7 @@ namespace Coffee_ManageMent.Perssonel
                 return;
             }
 
-            if (_perssonel.Amount_AvalDore != 0 && _perssonel.MoeinAvalDore == Guid.Empty)
+            if (_perssonel.Amount_AvalDore != 0 && _perssonel.MoeinAmountAvalDore == Guid.Empty)
             {
                 frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
                     "معین حساب مانده اول دوره پرسنل مورد نظر، معتبر نمی باشد");
