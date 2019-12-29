@@ -73,6 +73,7 @@
     <Compile Include="Core\PhoneBook\IPhoneBookRepository.cs" />
     <Compile Include="Core\Sellers\ISellerRpository.cs" />
     <Compile Include="Enums\EnumAmount_Mahiat.cs" />
+    <Compile Include="Enums\EnumBankHesabType.cs" />
     <Compile Include="Enums\EnumPhoneBookType.cs" />
     <Compile Include="Enums\EnumMaritalStatuse.cs" />
     <Compile Include="Enums\EnumHesabType .cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BussinesLayer.Anbar;
+using DataLayer.Enums;
 using DataLayer.Interface.Entities.BankHesab;
 using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
@@ -14,6 +15,7 @@ namespace BussinesLayer.Banks
         public string Code { get; set; }
         public string HalfCode { get; set; }
         public string Name { get; set; }
+        public EnumBankHesabType Type { get; set; }
         public string ShobeName { get; set; }
         public string ShobeCode { get; set; }
         public string HesabNumber { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using DataLayer.Enums;
 using DataLayer.Interface.Entities.BankHesab;
 
 namespace DataLayer.Models.BankHesab
@@ -10,6 +11,7 @@ namespace DataLayer.Models.BankHesab
         public string Code { get; set; }
         public string HalfCode { get; set; }
         public string Name { get; set; }
+        public EnumBankHesabType Type { get; set; }
         public string ShobeName { get; set; }
         public string ShobeCode { get; set; }
         public string HesabNumber { get; set; }
