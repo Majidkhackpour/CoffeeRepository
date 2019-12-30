@@ -24,6 +24,8 @@ namespace BussinesLayer.Banks
         public string DateEftetah { get; set; }
         public decimal AmountAvalDore { get; set; }
         public Guid MoeinAmountAvalDore { get; set; }
+        public bool Status { get; set; }
+        public string Description { get; set; }
 
         public static List<BanksBussines> GetAll()
         {

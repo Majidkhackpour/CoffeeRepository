@@ -2,9 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using BussinesLayer.Perssonel;
 using BussinesLayer.Sellers;
-using Coffee_ManageMent.Sellers;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 

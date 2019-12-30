@@ -58,10 +58,6 @@
             this.grpAccount.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cusGroupBindingSource
-            // 
-            this.cusGroupBindingSource.DataSource = typeof(DataLayer.Models.Perssonel.PerssonelGroup);
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;

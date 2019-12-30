@@ -17,5 +17,7 @@ namespace DataLayer.Interface.Entities.BankHesab
         string DateEftetah { get; set; }
         decimal AmountAvalDore { get; set; }
         Guid MoeinAmountAvalDore { get; set; }
+        bool Status { get; set; }
+        string Description { get; set; }
     }
 }

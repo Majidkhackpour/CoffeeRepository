@@ -20,5 +20,7 @@ namespace DataLayer.Models.BankHesab
         public string DateEftetah { get; set; }
         public decimal AmountAvalDore { get; set; }
         public Guid MoeinAmountAvalDore { get; set; }
+        public bool Status { get; set; }
+        public string Description { get; set; }
     }
 }

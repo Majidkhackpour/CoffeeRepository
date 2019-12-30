@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Coffee_ManageMent.BankHesab;
 using Coffee_ManageMent.Customers;
 using Coffee_ManageMent.Depot.AnbarGroup;
 using Coffee_ManageMent.Depot.Anbars;
@@ -112,7 +113,16 @@ namespace Coffee_ManageMent
 
         private void mnuBank_Click(object sender, EventArgs e)
         {
-            // new frmShow_Bank().ShowDialog();
+            try
+            {
+                var frm = new frmShow_Bank();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                var frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
         }
 
         private void mnuCurrent_Bank_Click(object sender, EventArgs e)
