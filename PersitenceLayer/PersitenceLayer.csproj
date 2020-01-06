@@ -72,6 +72,7 @@
     <Compile Include="Persistance\PerssonelGroupPersistanceRepository.cs" />
     <Compile Include="Persistance\PerssonelPersistanceRepository.cs" />
     <Compile Include="Persistance\PhoneBookPersistanceRepository.cs" />
+    <Compile Include="Persistance\SafePersistanceRepository.cs" />
     <Compile Include="Persistance\SellerPersistanceRepository.cs" />
     <Compile Include="Persistance\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

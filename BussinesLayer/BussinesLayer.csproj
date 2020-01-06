@@ -61,6 +61,7 @@
     <Compile Include="Perssonel\PerssonelGroupBussines.cs" />
     <Compile Include="PhoneBook\PhoneBookBussines.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sandooq\SafeBussines.cs" />
     <Compile Include="Sellers\SellerBussines.cs" />
     <Compile Include="SqlProfile.cs" />
   </ItemGroup>

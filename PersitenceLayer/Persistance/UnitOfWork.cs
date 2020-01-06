@@ -6,6 +6,7 @@ using DataLayer.Core.Bank;
 using DataLayer.Core.Customer;
 using DataLayer.Core.Perssonel;
 using DataLayer.Core.PhoneBook;
+using DataLayer.Core.Sandooq;
 using DataLayer.Core.Sellers;
 
 namespace PersitenceLayer.Persistance
@@ -29,6 +30,7 @@ namespace PersitenceLayer.Persistance
         private ICustomerGroupRepository _cusGroup;
         private ICustomersRepository _customers;
         private IBanksRepository _banks;
+        private ISafeRepository _safe;
 
         public void Dispose()
         {
@@ -184,5 +186,6 @@ namespace PersitenceLayer.Persistance
 
         public ICustomersRepository Customers => _customers ?? (_customers = new CutomersPersistanceRepository(db));
         public IBanksRepository Banks => _banks ?? (_banks = new BankPersistanceRepository(db));
+        public ISafeRepository Safe => _safe ?? (_safe = new SafePersistanceRepository(db));
     }
 }

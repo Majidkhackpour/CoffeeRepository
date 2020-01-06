@@ -66,7 +66,7 @@ namespace Coffee_ManageMent.BankHesab
             txtDescription.Text = bank.Description;
             txtName.Text = bank.Name;
             chbPoss.Checked = bank.Poss;
-            txtCode.Text = bank.Code;
+            txtCode.Text = bank.HalfCode;
             txtDateEftetah.Value.FarsiSelectedDate = bank.DateEftetah;
             cmbType.SelectedIndex = (int) bank.Type;
             txtCodeShobe.Text = bank.ShobeCode;
@@ -84,7 +84,7 @@ namespace Coffee_ManageMent.BankHesab
                 cmbAmountMahiat.SelectedIndex = 2;
             if (bank.Guid == Guid.Empty)
             {
-                //NewCode();
+                NewCode();
             }
         }
         private void frmBank_Load(object sender, EventArgs e)
@@ -92,6 +92,18 @@ namespace Coffee_ManageMent.BankHesab
             Set_Data();
         }
 
+        private void NewCode()
+        {
+            try
+            {
+                var groupGuid = AccountGroupBussines.Get((int)HesabType.Bank).Guid;
+                txtCode.Text = AccountBussines.NewCode(groupGuid);
+            }
+            catch (Exception exception)
+            {
+                txtCode.Text = "0001";
+            }
+        }
         private void txtCode_Enter(object sender, EventArgs e)
         {
             txtSetter.Focus(txt2: txtCode);
@@ -217,6 +229,117 @@ namespace Coffee_ManageMent.BankHesab
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             txtSetter.Three_Ziro(txtAmount);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Dispose();
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnFinish.Enabled = false;
+                if (bank.Guid == Guid.Empty)
+                {
+                    bank.DateSabt = DateConvertor.M2SH(DateTime.Now);
+                    bank.Guid = Guid.NewGuid();
+                }
+
+                if (string.IsNullOrWhiteSpace(txtCode.Text))
+                {
+                    var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, "کد حساب را وارد نمایید");
+                    f.ShowDialog();
+                    txtCode.Focus();
+                    return;
+                }
+
+                if (txtCode.Text.Length > 4 || txtCode.Text.Length < 4)
+                {
+                    var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
+                        "حتما باید چهار کاراکتر به عنوان کد حساب کل وارد نمایید");
+                    f.ShowDialog();
+                    txtCode.Focus();
+                    return;
+                }
+
+                if (!AccountBussines.Check_Code(lblCode.Text + txtCode.Text.Trim(), bank.Guid))
+                {
+                    var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, "کد حساب وارد شده تکراری است");
+                    f.ShowDialog();
+                    txtCode.Focus();
+                    return;
+                }
+
+
+                if (string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, "عنوان حساب را وارد نمایید");
+                    f.ShowDialog();
+                    txtName.Focus();
+                    return;
+                }
+
+                if (!AccountBussines.Check_Name(txtName.Text.Trim(), bank.Guid))
+                {
+                    var f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
+                        "عنوان حساب وارد شده تکراری است");
+                    f.ShowDialog();
+                    txtName.Focus();
+                    return;
+                }
+
+                if (txtAmount.Text.ParseToInt() != 0 && bank.MoeinAmountAvalDore == Guid.Empty)
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red,
+                        "معین حساب مانده اول دوره بانک مورد نظر، معتبر نمی باشد");
+                    f.ShowDialog();
+                    return;
+                }
+                bank.Code = lblCode.Text + txtCode.Text;
+                bank.HalfCode = txtCode.Text;
+                bank.Description = txtDescription.Text;
+                bank.Name = txtName.Text;
+                bank.Status = true;
+                bank.MoeinAmountAvalDore = _moein?.Guid??Guid.Empty;
+                bank.DarandeName = txtSahebHesab.Text;
+                bank.DateEftetah = txtDateEftetah.Value.FarsiSelectedDate;
+                bank.HesabNumber = txtHesabNumber.Text;
+                bank.Poss = chbPoss.Checked;
+                bank.ShobeCode = txtCodeShobe.Text;
+                bank.ShobeName = txtNameShobe.Text;
+                bank.Type = (EnumBankHesabType) cmbType.SelectedIndex;
+                bank.AmountAvalDore= txtAmount.Text.Replace(",", "").ParseToDecimal();
+
+                if (bank.Save())
+                {
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                    f.ShowDialog();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception exception)
+            {
+                var frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+            finally
+            {
+                btnFinish.Enabled = true;
+            }
+        }
+
+        private void txtHesabNumber_Enter(object sender, EventArgs e)
+        {
+            txtSetter.Focus(txt2: txtHesabNumber);
+        }
+
+        private void txtHesabNumber_Leave(object sender, EventArgs e)
+        {
+            txtSetter.Follow(txt2: txtHesabNumber);
         }
     }
 }

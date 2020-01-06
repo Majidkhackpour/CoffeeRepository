@@ -71,6 +71,7 @@
     <Compile Include="Core\Perssonel\IPerssonelRepository.cs" />
     <Compile Include="Core\Perssonel\IPerssonelGroupRepository.cs" />
     <Compile Include="Core\PhoneBook\IPhoneBookRepository.cs" />
+    <Compile Include="Core\Sandooq\ISafeRepository.cs" />
     <Compile Include="Core\Sellers\ISellerRpository.cs" />
     <Compile Include="Enums\EnumAmount_Mahiat.cs" />
     <Compile Include="Enums\EnumBankHesabType.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Interface\Entities\Perssonel\IPerssonel.cs" />
     <Compile Include="Interface\Entities\Perssonel\IPerssonelGroup.cs" />
     <Compile Include="Interface\Entities\PhoneBook\IPhoneBook.cs" />
+    <Compile Include="Interface\Entities\Sandooq\ISafe.cs" />
     <Compile Include="Interface\Entities\Sellers\ISeller.cs" />
     <Compile Include="Interface\Entities\Setting\ISetting.cs" />
     <Compile Include="Interface\IHasGuid.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Mapping\PerssonelGroupMapping.cs" />
     <Compile Include="Mapping\PerssonelMapping.cs" />
     <Compile Include="Mapping\PhoneBookMapping.cs" />
+    <Compile Include="Mapping\SafeMapping.cs" />
     <Compile Include="Mapping\SellerMapping.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.cs" />
     <Compile Include="Migration\Migration\201910041356419_update1.designer.cs">
@@ -232,6 +235,7 @@
     <Compile Include="Models\Perssonel\Perssonel.cs" />
     <Compile Include="Models\Perssonel\PerssonelGroup.cs" />
     <Compile Include="Models\PhoneBook\PhoneBook.cs" />
+    <Compile Include="Models\Sandooq\Safe.cs" />
     <Compile Include="Models\Sellers\Seller.cs" />
     <Compile Include="Models\Settings\AppSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

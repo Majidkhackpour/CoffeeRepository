@@ -1,30 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using BussinesLayer.AccountBussines;
-using BussinesLayer.Anbar;
+using BussinesLayer.Banks;
 using DataLayer.BussinesLayer;
 using DataLayer.Enums;
-using DataLayer.Interface.Entities.BankHesab;
+using DataLayer.Interface.Entities.Sandooq;
 using DataLayer.Models.Account;
+using DataLayer.Models.Sandooq;
 using PersitenceLayer.Mapper;
 using PersitenceLayer.Persistance;
 
-namespace BussinesLayer.Banks
+namespace BussinesLayer.Sandooq
 {
-    public class BanksBussines : IBanks
+   public class SafeBussines:ISafe
     {
         public Guid Guid { get; set; }
         public string DateSabt { get; set; }
         public string Code { get; set; }
         public string HalfCode { get; set; }
         public string Name { get; set; }
-        public EnumBankHesabType Type { get; set; }
-        public string ShobeName { get; set; }
-        public string ShobeCode { get; set; }
-        public string HesabNumber { get; set; }
-        public string DarandeName { get; set; }
-        public bool Poss { get; set; }
-        public string DateEftetah { get; set; }
         public decimal AmountAvalDore { get; set; }
         public Guid MoeinAmountAvalDore { get; set; }
         public bool Status { get; set; }
@@ -37,11 +31,11 @@ namespace BussinesLayer.Banks
             {
                 var account = AccountBussines.AccountBussines.Get(Guid) ?? new AccountBussines.AccountBussines();
                 account.Guid = Guid;
-                account.HesabType = HesabType.Bank;
+                account.HesabType = HesabType.Sandouq;
                 account.Code = Code;
                 account.DateSabt = DateSabt;
                 account.Description = Description;
-                account.GroupGuid = AccountGroupBussines.Get((int)HesabType.Bank).Guid;
+                account.GroupGuid = AccountGroupBussines.Get((int)HesabType.Sandouq).Guid;
                 account.Half_Code = HalfCode;
                 account.Name = Name;
                 account.State = Status;
@@ -50,20 +44,20 @@ namespace BussinesLayer.Banks
         }
 
 
-        public static List<BanksBussines> GetAll()
+        public static List<SafeBussines> GetAll()
         {
             using (var _context = new UnitOfWork())
             {
-                var a = _context.Banks.GetAll();
-                return Mappings.Default.Map<List<BanksBussines>>(a);
+                var a = _context.Safe.GetAll();
+                return Mappings.Default.Map<List<SafeBussines>>(a);
             }
         }
-        public static BanksBussines Get(Guid guid)
+        public static SafeBussines Get(Guid guid)
         {
             using (var _context = new UnitOfWork())
             {
-                var a = _context.Banks.Get(guid);
-                return Mappings.Default.Map<BanksBussines>(a);
+                var a = _context.Safe.Get(guid);
+                return Mappings.Default.Map<SafeBussines>(a);
             }
         }
         public bool Save()
@@ -80,8 +74,8 @@ namespace BussinesLayer.Banks
                     var resAccount = _context.AccountRepository.Save(b);
                     if (resAccount)
                     {
-                        var a = Mappings.Default.Map<DataLayer.Models.BankHesab.Banks>(this);
-                        var res = _context.Banks.Save(a);
+                        var a = Mappings.Default.Map<Safe>(this);
+                        var res = _context.Safe.Save(a);
                         _context.Set_Save();
                         _context.Dispose();
                     }
@@ -93,22 +87,6 @@ namespace BussinesLayer.Banks
             {
                 tran.RollBackTransaction(TranName);
                 return false;
-            }
-        }
-        public static BanksBussines Change_Status(Guid accGuid, bool status)
-        {
-            using (var _context = new UnitOfWork())
-            {
-                var a = _context.Banks.Change_Status(accGuid, status);
-                return Mappings.Default.Map<BanksBussines>(a);
-            }
-        }
-        public static List<BanksBussines> Search(string search)
-        {
-            using (var _context = new UnitOfWork())
-            {
-                var a = _context.Banks.Search(search);
-                return Mappings.Default.Map<List<BanksBussines>>(a);
             }
         }
     }

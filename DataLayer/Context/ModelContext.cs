@@ -5,6 +5,7 @@ using DataLayer.Models.BankHesab;
 using DataLayer.Models.Customer;
 using DataLayer.Models.Perssonel;
 using DataLayer.Models.PhoneBook;
+using DataLayer.Models.Sandooq;
 using DataLayer.Models.Sellers;
 using DataLayer.Models.Settings;
 
@@ -39,6 +40,7 @@ namespace DataLayer.Context
             modelbuilder.Configurations.Add(new CustomerGroupMapping());
             modelbuilder.Configurations.Add(new CustomersMapping());
             modelbuilder.Configurations.Add(new BanksMapping());
+            modelbuilder.Configurations.Add(new SafeMapping());
             base.OnModelCreating(modelbuilder);
         }
 
@@ -58,5 +60,6 @@ namespace DataLayer.Context
         public virtual DbSet<CustomerGroup> CusGroup { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Banks> Banks { get; set; }
+        public virtual DbSet<Safe> Safe { get; set; }
     }
 }

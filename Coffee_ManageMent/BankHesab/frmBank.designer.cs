@@ -39,11 +39,14 @@
             this.txtMoeinName = new System.Windows.Forms.TextBox();
             this.cmbAmountMahiat = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtAmount = new System.Windows.Forms.TextBox();
+            this.chbPoss = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDateEftetah = new AmirCalendar.FarsiCalendar();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodeShobe = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtHesabNumber = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtSahebHesab = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNameShobe = new System.Windows.Forms.TextBox();
@@ -51,7 +54,6 @@
             this.lblCode = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.chbPoss = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.cmbType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -80,11 +82,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(605, 6);
+            this.label1.Location = new System.Drawing.Point(548, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 24);
+            this.label1.Size = new System.Drawing.Size(160, 24);
             this.label1.TabIndex = 55672;
-            this.label1.Text = "مدیریت انبارها";
+            this.label1.Text = "مدیریت حساب های بانکی";
             // 
             // grpAccount
             // 
@@ -95,11 +97,14 @@
             this.grpAccount.Controls.Add(this.txtMoeinName);
             this.grpAccount.Controls.Add(this.cmbAmountMahiat);
             this.grpAccount.Controls.Add(this.txtAmount);
+            this.grpAccount.Controls.Add(this.chbPoss);
             this.grpAccount.Controls.Add(this.label10);
             this.grpAccount.Controls.Add(this.txtDateEftetah);
             this.grpAccount.Controls.Add(this.label9);
             this.grpAccount.Controls.Add(this.txtCodeShobe);
             this.grpAccount.Controls.Add(this.label6);
+            this.grpAccount.Controls.Add(this.txtHesabNumber);
+            this.grpAccount.Controls.Add(this.label12);
             this.grpAccount.Controls.Add(this.txtSahebHesab);
             this.grpAccount.Controls.Add(this.label8);
             this.grpAccount.Controls.Add(this.txtNameShobe);
@@ -107,7 +112,6 @@
             this.grpAccount.Controls.Add(this.lblCode);
             this.grpAccount.Controls.Add(this.txtCode);
             this.grpAccount.Controls.Add(this.label3);
-            this.grpAccount.Controls.Add(this.chbPoss);
             this.grpAccount.Controls.Add(this.cmbType);
             this.grpAccount.Controls.Add(this.label5);
             this.grpAccount.Controls.Add(this.txtDescription);
@@ -245,6 +249,22 @@
             this.txtAmount.Enter += new System.EventHandler(this.txtAmount_Enter);
             this.txtAmount.Leave += new System.EventHandler(this.txtAmount_Leave);
             // 
+            // chbPoss
+            // 
+            this.chbPoss.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.chbPoss.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chbPoss.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chbPoss.Location = new System.Drawing.Point(444, 270);
+            this.chbPoss.Name = "chbPoss";
+            this.chbPoss.Size = new System.Drawing.Size(247, 23);
+            this.chbPoss.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chbPoss.TabIndex = 12;
+            this.chbPoss.Text = "کارتخوان دارد";
+            this.chbPoss.TextColor = System.Drawing.Color.Silver;
+            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -306,6 +326,33 @@
             this.label6.Size = new System.Drawing.Size(258, 20);
             this.label6.TabIndex = 31;
             this.label6.Text = "کد شعبه";
+            // 
+            // txtHesabNumber
+            // 
+            this.txtHesabNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.txtHesabNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHesabNumber.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txtHesabNumber.ForeColor = System.Drawing.Color.Silver;
+            this.txtHesabNumber.HideSelection = false;
+            this.txtHesabNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtHesabNumber.Location = new System.Drawing.Point(32, 181);
+            this.txtHesabNumber.Name = "txtHesabNumber";
+            this.txtHesabNumber.Size = new System.Drawing.Size(313, 27);
+            this.txtHesabNumber.TabIndex = 7;
+            this.txtHesabNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtHesabNumber.Enter += new System.EventHandler(this.txtHesabNumber_Enter);
+            this.txtHesabNumber.Leave += new System.EventHandler(this.txtHesabNumber_Leave);
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label12.ForeColor = System.Drawing.Color.Silver;
+            this.label12.Location = new System.Drawing.Point(84, 158);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(253, 20);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "شماره حساب";
             // 
             // txtSahebHesab
             // 
@@ -399,22 +446,6 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "کد شناسایی";
             // 
-            // chbPoss
-            // 
-            this.chbPoss.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.chbPoss.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chbPoss.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chbPoss.Location = new System.Drawing.Point(98, 185);
-            this.chbPoss.Name = "chbPoss";
-            this.chbPoss.Size = new System.Drawing.Size(247, 23);
-            this.chbPoss.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chbPoss.TabIndex = 7;
-            this.chbPoss.Text = "کارتخوان دارد";
-            this.chbPoss.TextColor = System.Drawing.Color.Silver;
-            // 
             // cmbType
             // 
             this.cmbType.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -448,12 +479,12 @@
             this.txtDescription.ForeColor = System.Drawing.Color.Silver;
             this.txtDescription.HideSelection = false;
             this.txtDescription.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtDescription.Location = new System.Drawing.Point(32, 290);
+            this.txtDescription.Location = new System.Drawing.Point(32, 327);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(653, 193);
-            this.txtDescription.TabIndex = 12;
+            this.txtDescription.Size = new System.Drawing.Size(653, 156);
+            this.txtDescription.TabIndex = 13;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescription.Enter += new System.EventHandler(this.txtDescription_Enter);
             this.txtDescription.Leave += new System.EventHandler(this.txtDescription_Leave);
@@ -479,7 +510,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(415, 267);
+            this.label4.Location = new System.Drawing.Point(415, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(270, 20);
             this.label4.TabIndex = 14;
@@ -513,6 +544,7 @@
             this.btnCancel.Text = "انصراف (ESC)";
             this.btnCancel.TextColor = System.Drawing.Color.Silver;
             this.btnCancel.ThemeAware = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnFinish
             // 
@@ -530,6 +562,7 @@
             this.btnFinish.Text = "تایید (F5)";
             this.btnFinish.TextColor = System.Drawing.Color.Silver;
             this.btnFinish.ThemeAware = true;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
             // line1
             // 
@@ -604,5 +637,7 @@
         public DevComponents.DotNetBar.ButtonX btnCancel;
         public DevComponents.DotNetBar.ButtonX btnFinish;
         private DevComponents.DotNetBar.Controls.Line line1;
+        public System.Windows.Forms.TextBox txtHesabNumber;
+        public System.Windows.Forms.Label label12;
     }
 }

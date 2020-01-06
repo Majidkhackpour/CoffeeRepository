@@ -291,6 +291,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sandooq\frmShow_Safe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sandooq\frmShow_Safe.designer.cs">
+      <DependentUpon>frmShow_Safe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sellers\frmSeller_CallInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -430,6 +436,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sandooq\frmShow_Safe.resx">
+      <DependentUpon>frmShow_Safe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sellers\frmSeller_CallInfo.resx">
       <DependentUpon>frmSeller_CallInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +476,7 @@
     <None Include="Properties\DataSources\BussinesLayer.Customer.CustomersBussines.datasource" />
     <None Include="Properties\DataSources\BussinesLayer.Perssonel.PerssonelBussines.datasource" />
     <None Include="Properties\DataSources\BussinesLayer.Perssonel.PerssonelGroupBussines.datasource" />
+    <None Include="Properties\DataSources\BussinesLayer.Sandooq.SafeBussines.datasource" />
     <None Include="Properties\DataSources\BussinesLayer.Sellers.SellerBussines.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.Account.datasource" />
     <None Include="Properties\DataSources\DataLayer.Models.Account.HesabGroup.datasource" />

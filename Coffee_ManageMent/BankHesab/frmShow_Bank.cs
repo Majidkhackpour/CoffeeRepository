@@ -20,11 +20,11 @@ namespace Coffee_ManageMent.BankHesab
                     var lst = BanksBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
                     BankBindingSource.DataSource = lst.ToList();
                 }
-                //else
-                //{
-                //    var list = SellerBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                //    SellerBindingSource.DataSource = list;
-                //}
+                else
+                {
+                    var list = BanksBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                    BankBindingSource.DataSource = list;
+                }
 
                 lblCounter.Text = BankBindingSource.Count.ToString();
             }
@@ -85,6 +85,82 @@ namespace Coffee_ManageMent.BankHesab
             catch (Exception ex)
             {
                 frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void mnuEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                Guid _bankGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmBank(_bankGuid, true);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                f.ShowDialog();
+            }
+        }
+
+        private void mnuDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                Guid accGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var Acc = BanksBussines.Get(accGuid);
+                string message = "آیا از حذف حساب " + Acc.Name + " " + "اطمینان دارید؟";
+                frmMessage frm = new frmMessage(EnumMessageFlag.DeleteFlag, Color.PapayaWhip, message);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    Acc = BanksBussines.Change_Status(accGuid, false);
+                    var a = Acc.Save();
+                    frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
+                    f.ShowDialog();
+                    LoadData();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void mnuView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DGrid.RowCount == 0) return;
+                Guid _bankGuid = (Guid)DGrid[dgGuid.Index, DGrid.CurrentRow.Index].Value;
+                var frm = new frmBank(_bankGuid, false);
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                f.ShowDialog();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadData(txtSearch.Text);
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
                 frm.ShowDialog();
             }
         }
