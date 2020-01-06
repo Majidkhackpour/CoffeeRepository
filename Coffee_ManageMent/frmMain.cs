@@ -8,6 +8,7 @@ using Coffee_ManageMent.Depot.Anbars;
 using Coffee_ManageMent.Hazine;
 using Coffee_ManageMent.Hesab;
 using Coffee_ManageMent.Perssonel;
+using Coffee_ManageMent.Sandooq;
 using Coffee_ManageMent.Sellers;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
@@ -103,7 +104,16 @@ namespace Coffee_ManageMent
 
         private void mnuSafe_Click(object sender, EventArgs e)
         {
-            // new frmShow_Safe().ShowDialog();
+            try
+            {
+                var frm = new frmShow_Safe();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                var frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                frm.ShowDialog();
+            }
         }
 
         private void mnuCurrent_Safe_Click(object sender, EventArgs e)

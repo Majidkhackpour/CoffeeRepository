@@ -42,14 +42,12 @@
             this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuInsert = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmAnbar = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuSet_Default = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.line1 = new DevComponents.DotNetBar.Controls.Line();
             this.lblCounter = new System.Windows.Forms.Label();
             this.DGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.AnbarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Radif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateSabtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,9 +56,19 @@
             this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.anbarGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manfiDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.contextMenuStrip1.SuspendLayout();
+            this.AnbarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.trvGroup = new System.Windows.Forms.TreeView();
+            this.cmAnbarGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuInsGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuUpGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuViewGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmAnbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnbarBindingSource)).BeginInit();
+            this.cmAnbarGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +76,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("B Yekan", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(468, 7);
+            this.label1.Location = new System.Drawing.Point(674, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 24);
@@ -83,7 +91,7 @@
             this.uC_Date1.Location = new System.Drawing.Point(0, 0);
             this.uC_Date1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.uC_Date1.Name = "uC_Date1";
-            this.uC_Date1.Size = new System.Drawing.Size(592, 49);
+            this.uC_Date1.Size = new System.Drawing.Size(786, 49);
             this.uC_Date1.TabIndex = 55666;
             // 
             // mnuView
@@ -125,20 +133,20 @@
             this.mnuInsert.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.mnuInsert.Click += new System.EventHandler(this.MnuInsert_Click);
             // 
-            // contextMenuStrip1
+            // cmAnbar
             // 
-            this.contextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.contextMenuStrip1.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmAnbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.cmAnbar.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.cmAnbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuInsert,
             this.mnuEdit,
             this.mnuDelete,
             this.toolStripMenuItem2,
             this.mnuView,
             this.mnuSet_Default});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(237, 130);
+            this.cmAnbar.Name = "contextMenuStrip1";
+            this.cmAnbar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cmAnbar.Size = new System.Drawing.Size(237, 130);
             // 
             // mnuSet_Default
             // 
@@ -152,7 +160,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("B Yekan", 12F);
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(245, 560);
+            this.label2.Location = new System.Drawing.Point(356, 551);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(255, 24);
@@ -166,7 +174,7 @@
             this.line1.Location = new System.Drawing.Point(0, 532);
             this.line1.Margin = new System.Windows.Forms.Padding(4);
             this.line1.Name = "line1";
-            this.line1.Size = new System.Drawing.Size(592, 33);
+            this.line1.Size = new System.Drawing.Size(786, 14);
             this.line1.TabIndex = 55670;
             this.line1.Text = "line1";
             this.line1.Thickness = 2;
@@ -175,7 +183,7 @@
             // 
             this.lblCounter.Font = new System.Drawing.Font("B Yekan", 12F);
             this.lblCounter.ForeColor = System.Drawing.Color.Silver;
-            this.lblCounter.Location = new System.Drawing.Point(114, 560);
+            this.lblCounter.Location = new System.Drawing.Point(225, 551);
             this.lblCounter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCounter.Name = "lblCounter";
             this.lblCounter.Size = new System.Drawing.Size(85, 24);
@@ -215,7 +223,7 @@
             this.statusDataGridViewCheckBoxColumn,
             this.anbarGroupDataGridViewTextBoxColumn,
             this.manfiDataGridViewCheckBoxColumn});
-            this.DGrid.ContextMenuStrip = this.contextMenuStrip1;
+            this.DGrid.ContextMenuStrip = this.cmAnbar;
             this.DGrid.DataSource = this.AnbarBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
@@ -253,27 +261,6 @@
             this.DGrid.TabIndex = 55669;
             this.DGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGrid_CellFormatting);
             this.DGrid.DoubleClick += new System.EventHandler(this.DGrid_DoubleClick);
-            // 
-            // txtSearch
-            // 
-            // 
-            // 
-            // 
-            this.txtSearch.Border.Class = "TextBoxBorder";
-            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSearch.Location = new System.Drawing.Point(88, 65);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PreventEnterBeep = true;
-            this.txtSearch.Size = new System.Drawing.Size(408, 27);
-            this.txtSearch.TabIndex = 55668;
-            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
-            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
-            // 
-            // AnbarBindingSource
-            // 
-            this.AnbarBindingSource.DataSource = typeof(BussinesLayer.Anbar.AnbarBussines);
             // 
             // Radif
             // 
@@ -338,12 +325,99 @@
             this.manfiDataGridViewCheckBoxColumn.ReadOnly = true;
             this.manfiDataGridViewCheckBoxColumn.Visible = false;
             // 
+            // AnbarBindingSource
+            // 
+            this.AnbarBindingSource.DataSource = typeof(BussinesLayer.Anbar.AnbarBussines);
+            // 
+            // txtSearch
+            // 
+            // 
+            // 
+            // 
+            this.txtSearch.Border.Class = "TextBoxBorder";
+            this.txtSearch.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSearch.Location = new System.Drawing.Point(88, 65);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PreventEnterBeep = true;
+            this.txtSearch.Size = new System.Drawing.Size(617, 27);
+            this.txtSearch.TabIndex = 55668;
+            this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSearch.WatermarkText = "مورد جستجو را وارد نمایید ...";
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // trvGroup
+            // 
+            this.trvGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(33)))), ((int)(((byte)(43)))));
+            this.trvGroup.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.trvGroup.ContextMenuStrip = this.cmAnbarGroup;
+            this.trvGroup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trvGroup.ForeColor = System.Drawing.Color.Silver;
+            this.trvGroup.LineColor = System.Drawing.Color.Silver;
+            this.trvGroup.Location = new System.Drawing.Point(589, 106);
+            this.trvGroup.Name = "trvGroup";
+            this.trvGroup.RightToLeftLayout = true;
+            this.trvGroup.Size = new System.Drawing.Size(188, 418);
+            this.trvGroup.TabIndex = 55673;
+            this.trvGroup.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.trvGroup_NodeMouseClick);
+            // 
+            // cmAnbarGroup
+            // 
+            this.cmAnbarGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.cmAnbarGroup.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.cmAnbarGroup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuInsGroup,
+            this.mnuUpGroup,
+            this.mnuDelGroup,
+            this.toolStripSeparator1,
+            this.mnuViewGroup});
+            this.cmAnbarGroup.Name = "contextMenuStrip1";
+            this.cmAnbarGroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cmAnbarGroup.Size = new System.Drawing.Size(233, 106);
+            // 
+            // mnuInsGroup
+            // 
+            this.mnuInsGroup.ForeColor = System.Drawing.Color.Silver;
+            this.mnuInsGroup.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.mnuInsGroup.Name = "mnuInsGroup";
+            this.mnuInsGroup.Size = new System.Drawing.Size(232, 24);
+            this.mnuInsGroup.Text = "درج گروه انبار جدید";
+            this.mnuInsGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.mnuInsGroup.Click += new System.EventHandler(this.mnuInsGroup_Click);
+            // 
+            // mnuUpGroup
+            // 
+            this.mnuUpGroup.ForeColor = System.Drawing.Color.Silver;
+            this.mnuUpGroup.Name = "mnuUpGroup";
+            this.mnuUpGroup.Size = new System.Drawing.Size(232, 24);
+            this.mnuUpGroup.Text = "ویرایش اطلاعات گروه انبار جاری";
+            // 
+            // mnuDelGroup
+            // 
+            this.mnuDelGroup.ForeColor = System.Drawing.Color.Silver;
+            this.mnuDelGroup.Name = "mnuDelGroup";
+            this.mnuDelGroup.Size = new System.Drawing.Size(232, 24);
+            this.mnuDelGroup.Text = "حذف گروه انبار جاری";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(229, 6);
+            // 
+            // mnuViewGroup
+            // 
+            this.mnuViewGroup.ForeColor = System.Drawing.Color.Silver;
+            this.mnuViewGroup.Name = "mnuViewGroup";
+            this.mnuViewGroup.Size = new System.Drawing.Size(232, 24);
+            this.mnuViewGroup.Text = "مشاهده";
+            // 
             // frmShow_Stores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(592, 587);
+            this.ClientSize = new System.Drawing.Size(786, 587);
+            this.Controls.Add(this.trvGroup);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.uC_Date1);
             this.Controls.Add(this.label2);
@@ -364,9 +438,10 @@
             this.Text = "frmShow_Stores";
             this.Load += new System.EventHandler(this.FrmShow_Stores_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmShow_Stores_KeyDown);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.cmAnbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnbarBindingSource)).EndInit();
+            this.cmAnbarGroup.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,7 +457,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuDelete;
         private System.Windows.Forms.ToolStripMenuItem mnuEdit;
         private System.Windows.Forms.ToolStripMenuItem mnuInsert;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip cmAnbar;
         private System.Windows.Forms.Label label2;
         private DevComponents.DotNetBar.Controls.Line line1;
         private System.Windows.Forms.Label lblCounter;
@@ -397,5 +472,12 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn statusDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn anbarGroupDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn manfiDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.TreeView trvGroup;
+        private System.Windows.Forms.ContextMenuStrip cmAnbarGroup;
+        private System.Windows.Forms.ToolStripMenuItem mnuInsGroup;
+        private System.Windows.Forms.ToolStripMenuItem mnuUpGroup;
+        private System.Windows.Forms.ToolStripMenuItem mnuDelGroup;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem mnuViewGroup;
     }
 }

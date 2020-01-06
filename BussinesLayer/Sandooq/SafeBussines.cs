@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using BussinesLayer.AccountBussines;
-using BussinesLayer.Banks;
 using DataLayer.BussinesLayer;
 using DataLayer.Enums;
 using DataLayer.Interface.Entities.Sandooq;
@@ -87,6 +86,22 @@ namespace BussinesLayer.Sandooq
             {
                 tran.RollBackTransaction(TranName);
                 return false;
+            }
+        }
+        public static SafeBussines Change_Status(Guid accGuid, bool status)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.Safe.Change_Status(accGuid, status);
+                return Mappings.Default.Map<SafeBussines>(a);
+            }
+        }
+        public static List<SafeBussines> Search(string search)
+        {
+            using (var _context = new UnitOfWork())
+            {
+                var a = _context.Safe.Search(search);
+                return Mappings.Default.Map<List<SafeBussines>>(a);
             }
         }
     }

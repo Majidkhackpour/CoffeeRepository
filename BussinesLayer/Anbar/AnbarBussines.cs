@@ -57,11 +57,11 @@ namespace BussinesLayer.Anbar
                 return Mappings.Default.Map<AnbarBussines>(a);
             }
         }
-        public static List<AnbarBussines> Search(string search)
+        public static List<AnbarBussines> Search(string search, Guid groupGuid)
         {
             using (var _context = new UnitOfWork())
             {
-                var a = _context.AnbarRepository.Search(search);
+                var a = _context.AnbarRepository.Search(search, groupGuid);
                 return Mappings.Default.Map<List<AnbarBussines>>(a);
             }
         }

@@ -5,12 +5,14 @@ using BussinesLayer.Banks;
 using BussinesLayer.Customer;
 using BussinesLayer.Perssonel;
 using BussinesLayer.PhoneBook;
+using BussinesLayer.Sandooq;
 using BussinesLayer.Sellers;
 using DataLayer.Models.Account;
 using DataLayer.Models.Anbar;
 using DataLayer.Models.BankHesab;
 using DataLayer.Models.Customer;
 using DataLayer.Models.Perssonel;
+using DataLayer.Models.Sandooq;
 using DataLayer.Models.Sellers;
 using DataLayer.Models.Settings;
 
@@ -67,6 +69,9 @@ namespace BussinesLayer
 
             CreateMap<DataLayer.Models.BankHesab.Banks, BanksBussines>();
             CreateMap<BanksBussines, DataLayer.Models.BankHesab.Banks>();
+
+            CreateMap<Safe, SafeBussines>();
+            CreateMap<SafeBussines, Safe>();
         }
     }
 }

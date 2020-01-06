@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using BussinesLayer;
 using BussinesLayer.Anbar;
+using Coffee_ManageMent.Depot.AnbarGroup;
 using Coffee_ManageMent.Utility;
 using DataLayer.Enums;
 using DataLayer.Models.Settings;
@@ -23,22 +25,27 @@ namespace Coffee_ManageMent.Depot.Anbars
         public frmShow_Stores()
         {
             InitializeComponent();
-            contextMenuStrip1.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
+            cmAnbar.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
+            cmAnbarGroup.Renderer = new ToolStripProfessionalRenderer(new ContextMenuSetter());
         }
-        public void LoadData(string search = "")
+
+        private Guid _groupGuid;
+        public Guid GroupGuid
+        {
+            get => _groupGuid;
+            set => _groupGuid = value;
+        }
+
+        public void LoadData(string search = "", Guid groupGuid = default)
         {
             try
             {
-                if (search == "")
-                {
-                    var lst = AnbarBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                    AnbarBindingSource.DataSource = lst.ToList();
-                }
+                List<AnbarBussines> list;
+                if (groupGuid == Guid.Empty)
+                    list = AnbarBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
                 else
-                {
-                    var list = AnbarBussines.Search(search).Where(q => q.Status).OrderBy(q => q.Name).ToList();
-                    AnbarBindingSource.DataSource = list;
-                }
+                    list = AnbarBussines.Search(search, groupGuid).Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                AnbarBindingSource.DataSource = list;
 
                 lblCounter.Text = AnbarBindingSource.Count.ToString();
             }
@@ -52,6 +59,7 @@ namespace Coffee_ManageMent.Depot.Anbars
         private void FrmShow_Stores_Load(object sender, EventArgs e)
         {
             LoadData();
+            FillTreeView();
         }
 
         private void MnuDelete_Click(object sender, EventArgs e)
@@ -71,7 +79,7 @@ namespace Coffee_ManageMent.Depot.Anbars
                         frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green,
                             "عملیات با موفقیت انجام شد");
                         f.ShowDialog();
-                        LoadData();
+                        LoadData(txtSearch.Text);
                     }
                 }
             }
@@ -126,7 +134,7 @@ namespace Coffee_ManageMent.Depot.Anbars
                 frmStores frm = new frmStores();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    LoadData();
+                    LoadData(txtSearch.Text);
                 }
             }
             catch (Exception exception)
@@ -145,7 +153,7 @@ namespace Coffee_ManageMent.Depot.Anbars
                 frmStores frm = new frmStores(accGuid, true);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    LoadData();
+                    LoadData(txtSearch.Text);
                 }
             }
             catch (Exception exception)
@@ -164,7 +172,7 @@ namespace Coffee_ManageMent.Depot.Anbars
                 frmStores frm = new frmStores(accGuid, false);
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    LoadData();
+                    LoadData(txtSearch.Text);
                 }
             }
             catch (Exception exception)
@@ -234,6 +242,60 @@ namespace Coffee_ManageMent.Depot.Anbars
                 {
                     frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Green, "عملیات با موفقیت انجام شد");
                     f.ShowDialog();
+                }
+            }
+            catch (Exception exception)
+            {
+                frmMessage frm = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, exception.Message);
+                frm.ShowDialog();
+            }
+        }
+
+        private void FillTreeView()
+        {
+            try
+            {
+                trvGroup.Nodes.Clear();
+                var lst = AnbarGroupBussines.GetAll().Where(q => q.Status).OrderBy(q => q.Name).ToList();
+                var node = new TreeNode { Text = "همه گروه ها", Name = Guid.Empty.ToString() };
+                trvGroup.Nodes.Add(node);
+                foreach (var item in lst)
+                {
+                    node = new TreeNode { Text = item.Name, Name = item.Guid.ToString() };
+                    trvGroup.Nodes.Add(node);
+                }
+            }
+            catch (Exception ex)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                f.ShowDialog();
+            }
+        }
+
+        private void trvGroup_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            try
+            {
+                var node = trvGroup.SelectedNode;
+                var group = AnbarGroupBussines.Get(Guid.Parse(node.Name));
+                GroupGuid = group?.Guid ?? Guid.Empty;
+                LoadData(txtSearch.Text, GroupGuid);
+            }
+            catch (Exception ex)
+            {
+                frmMessage f = new frmMessage(EnumMessageFlag.ShowFlag, Color.Red, ex.Message);
+                f.ShowDialog();
+            }
+        }
+
+        private void mnuInsGroup_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var frm = new frmAnbarGroup();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    FillTreeView();
                 }
             }
             catch (Exception exception)

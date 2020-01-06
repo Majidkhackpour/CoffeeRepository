@@ -56,14 +56,14 @@ namespace PersitenceLayer.Persistance
             }
         }
 
-        public List<Anbar> Search(string search)
+        public List<Anbar> Search(string search, Guid groupGuid)
         {
             try
             {
                 using (var context = new ModelContext())
                 {
                     var list = context.Anbars.AsNoTracking()
-                        .Where(q => q.Name.Contains(search))?
+                        .Where(q => q.Name.Contains(search) && q.AnbarGroup == groupGuid)?
                         .ToList();
                     return list;
                 }
